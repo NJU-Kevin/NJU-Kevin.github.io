@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Fourier分析漫谈 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="本来是前几天想谈一谈这个话题的，但是由于之前时间有些紧张，从而一直没能实现。今天正好一整天没课，于是对我目前为止对于基础Fourier分析的理解以及学习内容进行一个概述。 Fourier分析是一门博大精深的学科，其源头还是来源于物理问题，即人们所熟知的热方程，Dirichlet问题，波函数。从这一点上来说，Fourier分析和常微分方程（ODE）有类似之处，二者都不是纯数学，都有物理问题中的应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fourier分析漫谈">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/02/15/life-6/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="本来是前几天想谈一谈这个话题的，但是由于之前时间有些紧张，从而一直没能实现。今天正好一整天没课，于是对我目前为止对于基础Fourier分析的理解以及学习内容进行一个概述。 Fourier分析是一门博大精深的学科，其源头还是来源于物理问题，即人们所熟知的热方程，Dirichlet问题，波函数。从这一点上来说，Fourier分析和常微分方程（ODE）有类似之处，二者都不是纯数学，都有物理问题中的应用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.hdwallpapers.net/previews/dreamy-waterfall-865.jpg">
+<meta property="article:published_time" content="2023-02-15T00:19:28.000Z">
+<meta property="article:modified_time" content="2023-02-15T01:19:32.525Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/dreamy-waterfall-865.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-6" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Fourier分析漫谈
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/02/15/life-6/" class="article-date">
+       <time datetime="2023-02-15T00:19:28.000Z" itemprop="datePublished">2023-02-15</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/02/15/life-6/" class="article-date">
+     <time datetime="2023-02-15T01:19:32.525Z" itemprop="dateModified">2023-02-15</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://www.hdwallpapers.net/previews/dreamy-waterfall-865.jpg" alt=""></p>
+<p>本来是前几天想谈一谈这个话题的，但是由于之前时间有些紧张，从而一直没能实现。今天正好一整天没课，于是对我目前为止对于基础Fourier分析的理解以及学习内容进行一个概述。</p>
+<p>Fourier分析是一门博大精深的学科，其源头还是来源于物理问题，即人们所熟知的热方程，Dirichlet问题，波函数。从这一点上来说，Fourier分析和常微分方程（ODE）有类似之处，二者都不是纯数学，都有物理问题中的应用，也都是运用数学的工具和手段解决问题。当然，作为一门学科，其本质的理论一定也是必要的，因此这两门学科的理论部分仍是分析学的。</p>
+<p>首先谈一谈Fourier分析。Stein的Fourier分析从热方程波函数入手，介绍了Fourier分析的来源。初读这本书的时候我并没有很在意这些问题，直接跳过读第二章的理论部分，第二次读这本书的时候（也就是2023年春节）我才意识到事实上Fourier的应用也同样重要。</p>
+<p>Fourier的理论分析部分，Fourier分析研究的是单位圆周上的函数，也就是周期为$2\pi$的函数，从Fourier系数的定义</p>
+<script type="math/tex; mode=display">\hat{f}(n)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx</script><p>以及相应的Fourier级数</p>
+<script type="math/tex; mode=display">f(x) \sim \sum_{n \in \mathbb{Z}}\hat{f}(n)e^{inx}</script><p>有这个级数从而就需要研究其敛散性。这里就是分析学的内容了，由于是无穷级数，所以就有两种收敛方式：点态收敛（Pointwise Convergence）和一致收敛（Uniform Convergence）。数学分析里我们知道，一个级数点态收敛，收敛到的函数不一定连续，只有一致收敛才能保证连续性。因此又有一个问题，那就是$f$需要满足什么样的条件，Fourier级数点态收敛/一致收敛？这里对于点态收敛，苗栋讲的很清楚，三个条件，任何一条都能推出点态收敛：PDF（Piecewise Differentiable Function分段可微，或者更强的分段光滑），Lipschitz，monotone（单调）；而一致收敛需要的条件更强，不仅$f$有要求，还对$f’$有要求。</p>
+<p>这个时候，注意到一个函数的Fourier级数的和函数不一定就等于原来的函数，因此又出现了一个问题，那就是一个函数的Fourier级数什么时候收敛到自身？当$f$的条件并不是很强的时候，级数是$Cesaro$可求和到自身，这里便体现出$Abel$求和与$Cesaro$求和的作用来。同样的，级数里的研究一样，Fourier级数什么时候可以逐项求导，逐项积分（即求导与积分能否与求和换序的问题）也与级数里的研究方法类似。</p>
+<p>另外，注意到一个函数的Fourier级数是一个三角级数，那么反过来，是不是所有三角级数都是某个函数的Fourier级数呢？答案很显然是negative的，这时需要三角级数$sinnx$前面的系数是$o\left(\frac{1}{n}\right)$。</p>
+<p>Fourier分析中的另一个常用的工具就是卷积（Convolution）。注意到Fourier级数的部分和</p>
+<script type="math/tex; mode=display">S_N=f\ast D_N</script><p>其中$D_N$为DIrichlet kernel。卷积实际上是一种平均，将两者的性质进行一个“平均”。核理论在Fourier分析中也十分重要，比较重要的kernel有Dirichlet kernel，Fejer kernel，Poisson kernel，Heat kernel。Poisson kernel是解决Dirichlet问题时用到的kernel，Heat kernel是解决热方程问题时的kernel。Stein介绍了good kernel的概念，就是因为good kernel具有良好的性质，与good kernel做convolution的函数最终都会收敛到其本身。同时，以热方程为例，实直线上的热方程与单位圆周上的热方程的热核有区别，但二者又是通过Poisson Summation Formula联系起来的。</p>
+<p>另一个Fourier分析中的重要内容是Fourier变换，且Fourier变换和卷积之间有着很好的桥梁进行联系，同时，Fourier变换还能解决某些偏微分方程，由于其运算的独特的性质。</p>
+<p>Fourier分析还有着很多应用，热方程、Dirichlet问题，等分布（Equidistribution）等等。同时还可以考虑有限Abel群上的Fourier分析，即有限Fourier分析等。</p>
+<p>在学习红皮书（Papa Rudin）的时候，我发现Fourier系数的符号定义$\hat{f}(n)$实际上是Hilbert空间里</p>
+<script type="math/tex; mode=display">\hat{x}(\alpha)=(x,u_{\alpha})</script><p>的特例。这是由于单位圆周上的连续函数空间是Hilbert空间，从而也是Banach空间，这使得对于更一般的空间上的研究的结论可以应用到Fourier分析中。由Hilbert空间中的结论我们可以得到Riesz-Fischer定理：如果数列的绝对值的平方所构成的无穷级数求和有界，那么它才能是一个函数的Fourier系数。再例如，Banach空间中研究Fourier级数的点态收敛，根据Banach-Steinhaus定理，不仅可以得到如果只有连续这个条件，其Fourier级数不一定点态收敛，还能得出，如果在某点不收敛，那么一定有一个紧的$G_{\sigma}$使得在其中都不点态收敛。</p>
+<p>这其实就告诉我们学习一门学科的时候不能仅仅看这一门，而应该多学科相互照应，融会贯通。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/02/15/life-6/" data-id="clef8h22u000d8wvd6i5j2e9m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "Fourier分析漫谈",
+        "image": "https://nju-kevin.github.iohttps://www.hdwallpapers.net/previews/dreamy-waterfall-865.jpg",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2023-02-15",
+        "dateCreated": "2023-02-15",
+        "dateModified": "2023-02-15",
+        "url": "https://nju-kevin.github.io/2023/02/15/life-6/",
+        "description": "
+本来是前几天想谈一谈这个话题的，但是由于之前时间有些紧张，从而一直没能实现。今天正好一整天没课，于是对我目前为止对于基础Fourier分析的理解以及学习内容进行一个概述。
+Fourier分析是一门博大精深的学科，其源头还是来源于物理问题，即人们所熟知的热方程，Dirichlet问题，波函数。从这一点上来说，Fourier分析和常微分方程（ODE）有类似之处，二者都不是纯数学，都有物理问题中的应用",
+        "wordCount": 33
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/02/16/life-7/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            ODE的那些事
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/02/14/life-5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">对于学习方法的一些思考</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/22/math-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg)" alt="Study of Papa Rudin I" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Math/">Math</a></p>
+                            <p class="item-title"><a href="/2023/02/22/math-7/" class="title">Study of Papa Rudin I</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/21/life-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/3d-blue-dunes-951.jpg)" alt="数学分析学习体验与心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/21/life-12/" class="title">数学分析学习体验与心得</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T05:40:09.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/20/life-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg)" alt="温故而知新" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/20/life-11/" class="title">温故而知新</a></p>
+                            <p class="item-date"><time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/19/life-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/stormtrooper-splatter-957.jpg)" alt="数据库概论漫谈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/19/life-10/" class="title">数据库概论漫谈</a></p>
+                            <p class="item-date"><time datetime="2023-02-19T08:24:54.000Z" itemprop="datePublished">2023-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/18/life-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/the-river-736.jpg)" alt="买书与读书的纠缠" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/18/life-9/" class="title">买书与读书的纠缠</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T10:37:59.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/02/15/life-6/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

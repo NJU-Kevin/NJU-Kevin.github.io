@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Comments About Problems in Papa Rudin | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="概要这篇文章将对《Real and Complex Analysis》（亦即所谓的“Papa Rudin”）的课后习题进行思路的阐述，并重点讨论每道题所需用到的知识点以及定理，而不会详细地写出每道题的严格数学证明（这件事早在2019年就有教授做过了，而且证明写得十分详细）。每道题我都将讲述我个人的解题思路以及想到的相关知识，梳理的同时并对这本名著的基本内容进行概述。  Chapter 1 Abs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Comments About Problems in Papa Rudin">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/02/01/math-5/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="概要这篇文章将对《Real and Complex Analysis》（亦即所谓的“Papa Rudin”）的课后习题进行思路的阐述，并重点讨论每道题所需用到的知识点以及定理，而不会详细地写出每道题的严格数学证明（这件事早在2019年就有教授做过了，而且证明写得十分详细）。每道题我都将讲述我个人的解题思路以及想到的相关知识，梳理的同时并对这本名著的基本内容进行概述。  Chapter 1 Abs">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://math.wisc.edu/wp-content/uploads/sites/842/2021/04/1991-MEWalterRudiin-900x600.jpg">
+<meta property="article:published_time" content="2023-02-01T10:18:38.000Z">
+<meta property="article:modified_time" content="2023-02-08T06:02:13.089Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://math.wisc.edu/wp-content/uploads/sites/842/2021/04/1991-MEWalterRudiin-900x600.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Math/">Math</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-math-5" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Comments About Problems in Papa Rudin
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/02/01/math-5/" class="article-date">
+       <time datetime="2023-02-01T10:18:38.000Z" itemprop="datePublished">2023-02-01</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/02/01/math-5/" class="article-date">
+     <time datetime="2023-02-08T06:02:13.089Z" itemprop="dateModified">2023-02-08</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://math.wisc.edu/wp-content/uploads/sites/842/2021/04/1991-MEWalterRudiin-900x600.jpg" alt=""></p>
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>这篇文章将对《Real and Complex Analysis》（亦即所谓的“Papa Rudin”）的课后习题进行思路的阐述，并重点讨论每道题所需用到的知识点以及定理，而不会详细地写出每道题的严格数学证明（这件事早在2019年就有教授做过了，而且证明写得十分详细）。每道题我都将讲述我个人的解题思路以及想到的相关知识，梳理的同时并对这本名著的基本内容进行概述。</p>
+<hr>
+<h1 id="Chapter-1-Abstract-Integration"><a href="#Chapter-1-Abstract-Integration" class="headerlink" title="Chapter 1 Abstract Integration"></a>Chapter 1 Abstract Integration</h1><p>Exercises 1</p>
+<blockquote>
+<p>Does there exist an infinite a-algebra which has only countably many members ?</p>
+</blockquote>
+<p>这道题问是否存在拥有可数个元素的无穷$\sigma$代数，看上去很宽泛，貌似很难具体入手。事实上，$\sigma$代数是一个很大的集族，它的性质也很好，包含了空集和全集，同时只要一个集合在里面，那么其补集也在；还对可数并封闭。需要注意的是，在书中关于$\sigma$代数定义的Comments部分，揭示了其关于可数交也封闭，且任何两元素的差集也在$\sigma$代数中的性质，这往往是容易忽视的一点，但的确很好用。</p>
+<p>因此既然这个$\sigma$代数没有确切的模样，不如从其中一个元素入手。可以找一个非空的属于该$\sigma$代数的集合$E$，那么$E$和$E^c$中一定有一个是无限集，不妨为$E$，$E$本身也形成了一个子可测空间（只需要让$E$中的$\sigma$代数是原来的$\sigma$代数中的集合与$E$的交集即可），然后$E$中又可以取真子集，这样递归地下去，得到一个无穷递降子集列，每个集合都是无限集，且都在$\sigma$代数中，由于$\sigma$代数对差集也封闭，这个链集中的相邻集合的差集也在$\sigma$代数中，这些差集与自然数构成了一一对应，$\sigma$代数还需对这些差集的任意并封闭，这就与自然数的子集构成了一一对应，而自然数的子集个数是不可数的，从而$\sigma$代数也不可数。</p>
+<p>与自然数建立双射的过程并不困难，加上$\sigma$代数需要满足的可数并性质便可以让其中元素不可数，因此这道题告诉我们无穷$\sigma$代数是很“大”的.</p>
+<hr>
+<p>Exercise 2  </p>
+<blockquote>
+<p>Prove an analogue of Theorem 1 .8 for n functions.</p>
+</blockquote>
+<p>这道题对书上的Theorem 1.8进行了简单的推广，但证明方法没有任何区别.</p>
+<hr>
+<p>Exercise 3</p>
+<blockquote>
+<p>Prove that if f is a real function on a measurable space X such that { x : f(x) &gt; r} is measurable for<br>every rational r, then f is measurable.</p>
+</blockquote>
+<p>看上去是很常规的概念题，使用集合论应该就可以解决。做的时候发现的确是这样，利用定义，证明$\mathbb{R}$中开集的原像可测，由题意可以知道左闭右开区间的原像可测，而开区间可以用左开右闭区间进行可数逼近，于是$f$可测.</p>
+<hr>
+<p>Exercise 4</p>
+<p>这是常规的数学分析题，利用上确界下确界的性质即可，但注意区别的是这里最好使用书上给出的结论（Theorem 1.14）而不是数学分析里的，因为或许某些数学分析书里的定义不具有普适性。核心使用的结论是<script type="math/tex">\lim_{n \to \infty}\sup f_n=\inf_{k \geq 1}\{\sup_{i \geq k} f_i\}</script></p>
+<hr>
+<p>Exercise 5</p>
+<blockquote>
+<p>(a) Suppose f: X→ [- oo, oo] and g: X→ [- oo, oo] are measurable. Prove that the sets<br>{x : f(x) &lt; g(x) }, {x : f(x) = g(x)}<br>are measurable.<br>(b) Prove that the set of points at which a sequence of measurable real-valued fu nctions converges<br>(to a finite limit) is measurable.</p>
+</blockquote>
+<p>第一反应就是作差，得到的新函数根据定义显然是可测的。第二问当该实值可测函数列收敛时，可以取极限上确界得到极限函数，如果要证明使得函数列收敛的$x$值构成的集合（记为$E$）可测，此时应该想到的是可以利用函数列可测（由Theorem 1.14极限函数也可测）的性质将$E$表示为一些可测集的并或者交即可。根据极限的定义，对$n$取并再对$\epsilon$取交得到的集合即为$E$，从而$E$可测.</p>
+<hr>
+<p>Exercise 6</p>
+<blockquote>
+<p>Let X be an uncountable set, let 9Jl be the collection of all sets E c: X such that either E or Ec is at<br>most countable, and define mu(E) = 0 in the first case, mu(E) = 1 in the second. Prove that mu is a<br>sigma-algebra in X and that Jl is a measure on mu. Describe the corresponding measurable functions and<br>their integrals.</p>
+</blockquote>
+<p>这道题也是定义题，但做的过程中会发现测度的可加性貌似并不满足，从而引向最多可数集的个数最多只能有一个，否则会导出矛盾。其他地方按照定义一一验证即可.</p>
+<hr>
+<p>Exercise 7</p>
+<p>这是对DCT的直接应用.</p>
+<hr>
+<p>Exercise 8</p>
+<p>题中给出的函数$f$即是Fatou‘s Lemma不等号严格成立的一个例子，Fatou’s Lemma值得着重关注，在不少定理的证明中都有出现.</p>
+<blockquote>
+<p>Fatou’s Lemma<br>If $f_n:X \to [0, \infty]$ is measurable, then <script type="math/tex">\int_{X}{\left(\lim_{n \to \infty}{\inf{f_n}}\right)d\mu} \leq \lim_{n \to \infty}{\inf{\int_{X}{f_nd\mu}}}</script></p>
+</blockquote>
+<hr>
+<p>Exercise 9</p>
+<p>这道题可以运用数学分析里的近似方法，并结合DCT和Fatou’s Lemma（$\alpha&lt;1$）即可，比较常规.</p>
+<hr>
+<p>Exercise 10</p>
+<p>由$f_n$均有界以及一致收敛的性质可以得到极限函数也有界，从而直接运用DCT即可.（可取$g(x)=M$）</p>
+<hr>
+<p>Exercise 11</p>
+<p>证明两集合相等，即是证明相互包含，于是原定理需要证明$\mu(A)=0$则转化为了证明<script type="math/tex">\mu\left(\bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}E_k\right)=0</script></p>
+<p>这里需要运用测度的性质，对于无穷递降集合列，每个集合的测度将趋于该集合列可数交的测度，即书上的Theorem 1.19.</p>
+<hr>
+<p>Exercise 12</p>
+<p>这道题在数学分析中也有对应，是数学分析中积分的推广，利用测度积分的定义以及上确界下确界的性质即可。到这里我们也可以看出数学分析对于实分析复分析的作用，上确界下确界在抽象积分中发挥着巨大的作用.</p>
+<hr>
+<p>Exercise 13</p>
+<blockquote>
+<p>Show that proposition 1.24(c) is also true when c = oo.</p>
+</blockquote>
+<p>无穷的情况可以用有穷逼近，对于极限为$\infty f$，可以用$f_n=nf$取极限得到，$f_n$容易知道也是可测的，而且这是一个递增的非负函数列，运用本章中另一个重要定理MCT即可.</p>
+<p><img src="https://www.hdwallpapers.net/previews/macos-sierra-1021.jpg" alt=""></p>
+<h1 id="Chapter-2-Positive-Borel-Measure"><a href="#Chapter-2-Positive-Borel-Measure" class="headerlink" title="Chapter 2 Positive Borel Measure"></a>Chapter 2 Positive Borel Measure</h1><p>Exercise 1</p>
+<blockquote>
+<p>Let {fn} be a sequence of real nonnegative functions on R 1 , and consider the following four statements<br>(a) If/1 and /2 are upper semicontinuous, then /1 + /2 is upper semicontinuous.</p>
+<p>(b) lf/1 and /2 are lower semicontinuous, then f1 + /2 is lower semicontinuous.</p>
+<p>(c) If each fn is upper semicontinuous, then Lf fn is upper semicontinuous.</p>
+<p>(d) If each /,. is lower semicontinuous, then Lf f.. is lower semicontinuous.</p>
+<p>Show that three of these are true and that one is false. What happens if the word “ nonnegative “<br>is omitted ? Js the truth of the statements affected if R 1 is replaced by a general topological space?</p>
+</blockquote>
+<p>此题主要考察的上半连续和下半连续的定义，前两问将和函数上半连续或者下半连续的满足条件的$x$构成的集合表示成一些开集的并和交即可证明，即</p>
+<script type="math/tex; mode=display">I_{\alpha}=\bigcup_{0<\beta \leq \alpha}{ \{x:f_2(x)<\beta \}\cap \{x:f_1(x)<\alpha-\beta \} }</script><p>以及</p>
+<script type="math/tex; mode=display">I_{\alpha}=\bigcup_{0<\beta \leq \alpha}{ \{x:f_2(x)>\beta \}\cap \{x:f_1(x)>\alpha-\beta \} }</script><p>三四问有一个结论不成立的条件是因为$f$是非负的，从而$f$应是下半连续，非上半连续。第四问的思路与前两问类似，由于极限函数可以用部分和函数逼近，从而原像可以用取可数并得到，证明是容易的，只需要证明互相包含即可，过程中需要用到非负的条件，这也是第三问不成立的原因.</p>
+<script type="math/tex; mode=display">E(\alpha)=\bigcup_{N=1}^{\infty}{ \{x \in \mathbb{R}:\sum_{n=1}^{N}{f(x)}>\alpha\} }</script><p>第三问可以构造函数<script type="math/tex">f_1(x)=1(x \in [1, +\infty]\cup [-\infty,1]);0， otherwise</script></p>
+<script type="math/tex; mode=display">f_n(x)=1(x \in \left[\frac{1}{n},\frac{1}{n-1}\right]\cup \left[-\frac{1}{n-1},-\frac{1}{n}\right]);0， otherwise</script><p>从而和函数在$x=0$处取$0$，其余取$1$，这显然不上半连续.</p>
+<hr>
+<p>Exercise 2</p>
+<blockquote>
+<p>Let f be an arbitrary complex function on R 1 , and define</p>
+<p>q&gt;(x, b) = sup { I f(s) - f(t) I : s, t e (x - b, x + b)},</p>
+<p>q&gt;(x) = inf { q&gt;(x, b) : b &gt; 0}.</p>
+<p>Prove that q&gt; is upper semicontinuous, that f is continuous at a point x if and only if q&gt;(x) = 0, and<br>hence that the set of points of continuity of an arbitrary complex function is a G6<br>Formulate and prove an analogous statement for general topological spaces in place of R 1 </p>
+</blockquote>
+<p>可以直接对更一般的拓扑空间进行证明，函数条件将$s,t$的定义域改为$B_{\delta}(x)$（也可以是任意的开集$U$）即可。上半连续仍是用定义证明，结合上确界和下确界的定义，叙述虽有些麻烦但思路很清晰。连续性也是利用一般的拓扑空间上的连续函数的定义，我一开始用的是度量，后来发现还是局限了，因为并不是所有拓扑空间都可度量，虽然度量空间都可以诱导拓扑，但拓扑空间不一定可度量，于是如果用度量空间的连续性定义则过于局限，这是需要注意的地方.</p>
+<hr>
+<p>Exercise 3</p>
+<blockquote>
+<p>Let X be a metric space, with metric p. For any nonempty E c X, define</p>
+<p>pJ.x) = inf {p(x, y) : y e E}.</p>
+<p>Show that PE is a uniformly continuous function on X.</p>
+</blockquote>
+<p>这道题相对来说比较基础，但我一开始用的是四边形的方法，然后导致一直导不通。事实上，运用三角形，然后对变量取下确界即可。对于$x, y \in X$以及$a \in E$，</p>
+<script type="math/tex; mode=display">\rho_{E}(x) \leq \rho(x,y)+\rho(y,a)</script><p>对$a$取下确界即有</p>
+<script type="math/tex; mode=display">|\rho_{E}(x)-\rho_{E}(y)| \leq \rho(x,y)</script><hr>
+<p>Exercise 4</p>
+<blockquote>
+<p>Examine the proof of the Riesz theorem and prove the following two statements :</p>
+<p>(a) If E 1 c V1 and E2 c V2, where V1 and V2 are disjoint open sets, then JJ.(E 1 u E2) =<br>f.l(E d + J.t(E2), even if E 1 and E2 are not in IDl</p>
+<p>(b) If E e IDlF , then E = N u K1 u K2 u · · · , where {K;} is a disjoint countable collection of<br>compact sets and J.J.(N) = 0.</p>
+</blockquote>
+<p>这道题需要对Riesz表示定理的证明过程很熟悉，这个定理十分重要，虽然证明很长，但其中对于Borel测度理论的运用对于学习大有裨益，通过对证明的掌握，也能加深对该部分理论的理解。第一问在证明的$Step 1$中已经证得</p>
+<script type="math/tex; mode=display">\mu(E_1+E_2) \leq \mu(E_1)+\mu(E_2)</script><p>从而只需要证明另一个方向即可。由于$E$比较一般，而且其测度是由包含$E$的开集的测度取下确界得到，不妨先考虑开集的情况。对于不交的开集，并集的测度就等于测度的和，证明也只需要证明另一方向。可以仿照Urysohn引理的证明，构造支集在两个开集上的函数$h_1 \prec V_1$，$h_2 \prec V_2$，利用开集不交，从而得到很关键的一点$h_1+h_2 \prec V_1 \cup V_2$.于是</p>
+<script type="math/tex; mode=display">\Lambda h_1+\Lambda h_2 \leq \mu(V_1 \cup V_2)</script><p>再分别对$\Lambda h_1,\Lambda h_2$取上确界（注意由于两函数的支集不交，两函数实际上是独立的，因此可以分别取上确界）</p>
+<p>在证明了开集的情况之后，用开集去逼近$E_1 \cup E_2$，再结合下确界的定义即可证明一般的$E$的情形。</p>
+<p>第二问，利用定理证明中的$Step 5$，对于$E$可以用包含$E$的开集$V$以及内部的紧集$K$进行逼近，不断挖去内部的紧集便可得到一个紧集的可数并，剩下的集合为零测集。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/02/01/math-5/" data-id="clef8h238000x8wvdbclycrx6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "Comments About Problems in Papa Rudin",
+        "image": "https://nju-kevin.github.iohttps://math.wisc.edu/wp-content/uploads/sites/842/2021/04/1991-MEWalterRudiin-900x600.jpg",
+        "keywords": "",
+        "genre": "Math",
+        "datePublished": "2023-02-01",
+        "dateCreated": "2023-02-01",
+        "dateModified": "2023-02-08",
+        "url": "https://nju-kevin.github.io/2023/02/01/math-5/",
+        "description": "
+概要这篇文章将对《Real and Complex Analysis》（亦即所谓的“Papa Rudin”）的课后习题进行思路的阐述，并重点讨论每道题所需用到的知识点以及定理，而不会详细地写出每道题的严格数学证明（这件事早在2019年就有教授做过了，而且证明写得十分详细）。每道题我都将讲述我个人的解题思路以及想到的相关知识，梳理的同时并对这本名著的基本内容进行概述。
+
+Chapter 1 Abs",
+        "wordCount": 644
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/02/04/life-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            2023大二下学期计划
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/01/25/math-4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">A Normal Integral</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/22/math-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg)" alt="Study of Papa Rudin I" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Math/">Math</a></p>
+                            <p class="item-title"><a href="/2023/02/22/math-7/" class="title">Study of Papa Rudin I</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/21/life-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/3d-blue-dunes-951.jpg)" alt="数学分析学习体验与心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/21/life-12/" class="title">数学分析学习体验与心得</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T05:40:09.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/20/life-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg)" alt="温故而知新" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/20/life-11/" class="title">温故而知新</a></p>
+                            <p class="item-date"><time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/19/life-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/stormtrooper-splatter-957.jpg)" alt="数据库概论漫谈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/19/life-10/" class="title">数据库概论漫谈</a></p>
+                            <p class="item-date"><time datetime="2023-02-19T08:24:54.000Z" itemprop="datePublished">2023-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/18/life-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/the-river-736.jpg)" alt="买书与读书的纠缠" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/18/life-9/" class="title">买书与读书的纠缠</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T10:37:59.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/02/01/math-5/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

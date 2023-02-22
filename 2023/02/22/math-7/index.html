@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Study of Papa Rudin I | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="第一遍看$Papa \space Rudin$的时候，急于求成，只看概念和定理不看定理的证明，当然也有当时对于数学的理解不够深入，基础不够牢固的缘故。因此，第一遍学习并没有起到多大的效果，甚至学到测度的微分的时候连$Lebesgue$测度还不熟悉，还不清楚是什么，现在想起来真是可笑至极！ 过了一年后再看，明显感觉理解力不一样了，这一遍我对于定理的理解，证明极为重视，同时也做每章后的练习题加以巩固">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study of Papa Rudin I">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/02/22/math-7/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="第一遍看$Papa \space Rudin$的时候，急于求成，只看概念和定理不看定理的证明，当然也有当时对于数学的理解不够深入，基础不够牢固的缘故。因此，第一遍学习并没有起到多大的效果，甚至学到测度的微分的时候连$Lebesgue$测度还不熟悉，还不清楚是什么，现在想起来真是可笑至极！ 过了一年后再看，明显感觉理解力不一样了，这一遍我对于定理的理解，证明极为重视，同时也做每章后的练习题加以巩固">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg">
+<meta property="article:published_time" content="2023-02-22T00:12:00.000Z">
+<meta property="article:modified_time" content="2023-02-22T05:26:29.850Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Math/">Math</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-math-7" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Study of Papa Rudin I
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/02/22/math-7/" class="article-date">
+       <time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/02/22/math-7/" class="article-date">
+     <time datetime="2023-02-22T05:26:29.850Z" itemprop="dateModified">2023-02-22</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg" alt=""></p>
+<p>第一遍看$Papa \space Rudin$的时候，急于求成，只看概念和定理不看定理的证明，当然也有当时对于数学的理解不够深入，基础不够牢固的缘故。因此，第一遍学习并没有起到多大的效果，甚至学到测度的微分的时候连$Lebesgue$测度还不熟悉，还不清楚是什么，现在想起来真是可笑至极！</p>
+<p>过了一年后再看，明显感觉理解力不一样了，这一遍我对于定理的理解，证明极为重视，同时也做每章后的练习题加以巩固，不再盲目追求速度，而是多加思考不同的概念，不同的定理之间的联系与区别，发现这个过程中能够加深不少理解。</p>
+<p>今天浅谈一下我对于最近学的几个定理的证明的理解。</p>
+<h2 id="Theorem-6-16"><a href="#Theorem-6-16" class="headerlink" title="Theorem 6.16"></a>Theorem 6.16</h2><p>这个定理讲述的是$L^p(\mu)$与$dual(L^q(\mu))$之间存在一个一一映射($\frac{1}{p}+\frac{1}{q}=1$)，即</p>
+<script type="math/tex; mode=display">\Phi(f)=\int_{X}fgd\mu</script><p>且</p>
+<script type="math/tex; mode=display">||\Phi||=||g||_q</script><p>其中$\mu$为$\sigma-finite$的<b>正测度</b>，$\Phi$为$L^p(\mu)$上的有界线性泛函</p>
+<hr>
+<p>这里只说一下我认为比较重要的主干部分。证明的核心是利用$Lebesgue-Radon-Nikodym$定理（LRN），而LRN结论的适用范围也很重要，LRN是说，对于$\sigma-finite$的<b>正测度</b>，如果有一个复测度$\lambda$与$\mu$是绝对连续的，则可以找到一个$L^1(\mu)$上的函数使得</p>
+<script type="math/tex; mode=display">\lambda(E)=\int_{E}hd\mu</script><p>因此首先需要找到一个测度使得与$\mu$绝对连续，然后运用LRN可以得到一个$L^1(\mu)$上的函数将该测度联系起来。令</p>
+<script type="math/tex; mode=display">\lambda(E)=\Phi(\chi_E)</script><p>这个测度满足LRN的条件，同时还将测度与要证的泛函联系起来了，这是一个很值得学习的技巧。</p>
+<p>得到这个表示以后，我们便有</p>
+<script type="math/tex; mode=display">\Phi(f)=\int_{X}fgd\mu</script><p>首先是对$f$为特征函数成立，接着便是对简单可测函数成立，从而对$f \in L^{\infty}(\mu)$成立。这个时候$f \in L^{\infty}(\mu)$，$g \in L^1(\mu)$</p>
+<p>我们最终要得到$f \in L^{p}(\mu)$，$g \in L^q(\mu)$.</p>
+<p>$p=1$的情况比较好做，$1&lt;p&lt;\infty$时使用的一个小结论便是</p>
+<blockquote>
+<p>对于任何可测函数$f$都存在一个可测函数$\alpha$使得$|\alpha|=1$以及$\alpha f=|f|$</p>
+</blockquote>
+<p>然后在证明了</p>
+<script type="math/tex; mode=display">||g||_q \leq ||\Phi||</script><p>后就可以得到$g \in L^q(\mu)$.接下来是另一个很重要的证明技巧，之前得到的等式只是对$f \in L^{\infty}(\mu)$成立，如何进一步到对$f \in L^{p}(\mu)$成立是很关键的一步。这里使用的方法是，等式两边分别都是$L^{p}(\mu)$的连续函数，而两边在$L^{\infty}(\mu)$中是相等的，又由于$L^{\infty}(\mu)$是$L^{p}(\mu)$的<b>紧子集</b>，因此由这一点便可以得到两边在$L^{p}(\mu)$上也相等。</p>
+<p>另外证明中还使用了一个如何由一个$\sigma-finite$的但$\mu(X)=\infty$的正测度出发构造一个$\sigma-finite$的且$\tilde{\mu}(X)&lt;\infty$的正测度：</p>
+<script type="math/tex; mode=display">d\tilde{\mu}=wd\mu</script><p>$w$为Lemma 6.9中的函数.</p>
+<h2 id="Theorem-6-19"><a href="#Theorem-6-19" class="headerlink" title="Theorem 6.19"></a>Theorem 6.19</h2><p>这是复测度的$Riesz$表示定理，需要注意的是，$\Phi$为$C_0(X)$上的有界线性泛函，$\mu$为regular的<b>复Borel测度</b>，有</p>
+<script type="math/tex; mode=display">\Phi(f)=\int_{X}fd\mu</script><p>且</p>
+<script type="math/tex; mode=display">||\Phi||=|\mu|(X)</script><hr>
+<p>同样的，这里只讲述我认为重要的部分。其实大致思路就是和正测度的$Riesz$表示定理做联系。需要注意的是原本的$Riesz$表示定理的条件是对于<b>正测度</b>$\mu$以及$C_c(X)$上的<b>正线性泛函</b>.可以看到这三个定理的条件都不一样，Theorem 6.16将正线性泛函推广为有界线性泛函，并且将泛函的作用域由$C_c(X)$推广到了$L^p(\mu)$上。而复测度的表示定理将作用域由$C_c(X)$推广到了$C_0(X)$上，这一点就启示我们，在证明复表示定理的时候可以利用Theorem 6.16.</p>
+<p>首先将$\Phi$用一个正线性泛函限制，对于这个正线性泛函就有一个正测度$\lambda$与之对应，并且同时我们还可以发现这样以后$\Phi$的作用域可以由$C_c(X)$推广到$L^1(\lambda)$上，于是这时运用Theorem 6.16 的结论，有</p>
+<script type="math/tex; mode=display">\Phi(f)=\int_{X}fgd\lambda</script><p>但需要注意的是，这里的$f \in C_c(X)$，因为刚才我们只是把$\Phi$延拓到$L^1(\lambda)$上，但$f$并没有延拓。这个时候考虑到$C_c(X)$是$C_0(X)$的<b>紧子集</b>，运用之前那个证明方法便可以让$f \in C_0(X)$.</p>
+<p>需要注意一下，在找限制$\Phi$的正线性泛函的时候，需要验证几个基本条件，在证明</p>
+<script type="math/tex; mode=display">\Lambda(f+g)=\Lambda f+\Lambda g</script><p>的时候运用的方法与正线性泛函的$Riesz$表示定理是类似的，可见重要定理的证明方法的重要性。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/02/22/math-7/" data-id="clef8h23a00128wvd36jj3htg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "Study of Papa Rudin I",
+        "image": "https://nju-kevin.github.iohttps://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg",
+        "keywords": "",
+        "genre": "Math",
+        "datePublished": "2023-02-22",
+        "dateCreated": "2023-02-22",
+        "dateModified": "2023-02-22",
+        "url": "https://nju-kevin.github.io/2023/02/22/math-7/",
+        "description": "
+第一遍看$Papa \space Rudin$的时候，急于求成，只看概念和定理不看定理的证明，当然也有当时对于数学的理解不够深入，基础不够牢固的缘故。因此，第一遍学习并没有起到多大的效果，甚至学到测度的微分的时候连$Lebesgue$测度还不熟悉，还不清楚是什么，现在想起来真是可笑至极！
+过了一年后再看，明显感觉理解力不一样了，这一遍我对于定理的理解，证明极为重视，同时也做每章后的练习题加以巩固",
+        "wordCount": 69
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/02/21/life-12/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">数学分析学习体验与心得</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/22/math-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg)" alt="Study of Papa Rudin I" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Math/">Math</a></p>
+                            <p class="item-title"><a href="/2023/02/22/math-7/" class="title">Study of Papa Rudin I</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/21/life-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/3d-blue-dunes-951.jpg)" alt="数学分析学习体验与心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/21/life-12/" class="title">数学分析学习体验与心得</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T05:40:09.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/20/life-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg)" alt="温故而知新" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/20/life-11/" class="title">温故而知新</a></p>
+                            <p class="item-date"><time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/19/life-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/stormtrooper-splatter-957.jpg)" alt="数据库概论漫谈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/19/life-10/" class="title">数据库概论漫谈</a></p>
+                            <p class="item-date"><time datetime="2023-02-19T08:24:54.000Z" itemprop="datePublished">2023-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/18/life-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/the-river-736.jpg)" alt="买书与读书的纠缠" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/18/life-9/" class="title">买书与读书的纠缠</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T10:37:59.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/02/22/math-7/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

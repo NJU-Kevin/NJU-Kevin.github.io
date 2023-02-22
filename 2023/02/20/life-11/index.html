@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>温故而知新 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="今天复习了一天数学分析，上学期由于笔记记得很认真，因此复习的时候发现内容还是很多的，即使苗栋已经通知有三部分（变量代换公式的证明，Fourier变换和特殊函数）不考，然而除开这三部分的内容也非常丰富。在看笔记的时候，偶然发现很多之前所未能完全理解的东西，或者是已经理解了的东西，在这一次看又有新的收获，这同时也体现了苗栋的数分课有着足够的深度和广度，值得反复参考。 在Fourier级数一块，不仅有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="温故而知新">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/02/20/life-11/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="今天复习了一天数学分析，上学期由于笔记记得很认真，因此复习的时候发现内容还是很多的，即使苗栋已经通知有三部分（变量代换公式的证明，Fourier变换和特殊函数）不考，然而除开这三部分的内容也非常丰富。在看笔记的时候，偶然发现很多之前所未能完全理解的东西，或者是已经理解了的东西，在这一次看又有新的收获，这同时也体现了苗栋的数分课有着足够的深度和广度，值得反复参考。 在Fourier级数一块，不仅有">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg">
+<meta property="article:published_time" content="2023-02-20T11:26:27.000Z">
+<meta property="article:modified_time" content="2023-02-20T12:46:48.129Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-11" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        温故而知新
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/02/20/life-11/" class="article-date">
+       <time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/02/20/life-11/" class="article-date">
+     <time datetime="2023-02-20T12:46:48.129Z" itemprop="dateModified">2023-02-20</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg" alt=""></p>
+<p>今天复习了一天数学分析，上学期由于笔记记得很认真，因此复习的时候发现内容还是很多的，即使苗栋已经通知有三部分（变量代换公式的证明，Fourier变换和特殊函数）不考，然而除开这三部分的内容也非常丰富。在看笔记的时候，偶然发现很多之前所未能完全理解的东西，或者是已经理解了的东西，在这一次看又有新的收获，这同时也体现了苗栋的数分课有着足够的深度和广度，值得反复参考。</p>
+<p>在Fourier级数一块，不仅有最原始的定义，点态收敛和一致收敛的条件，苗栋还介绍了一般的$Parseval$恒等式以及其应用，可以说，正是介绍了该等式的应用，才让我意识到许多问题都可以换一个角度，从Fourier级数的角度进行思考。此外，从函数的Fourier系数与其导数的Fourier系数的关系出发，对于Fourier系数的估计能与原函数的可微性建立联系，进而得到一个连续函数实解析的充要条件。在Fourier级数的应用方面，介绍了等分布，以及等分布的等价条件，以及无理数的倍数的小数部分在$(0,1)$上是等分布的重要结论。</p>
+<p>含参变量积分部分，苗栋首先系统地介绍了不同条件下，一致收敛，求导可换序，可逐项积分等的条件（由$Dini$定理和一致收敛保持连续性的定理也可以看出一致收敛是比连续性更强的条件）；另外也提及了比较重要的几个积分：$Laplacian$积分，$Fresnel$积分等。</p>
+<p>广义重积分部分，从容许集（$rectifiable$）到集合的穷竭（以及欧式空间的开集都有穷竭这个重要结论），还介绍了$\mathbb{R}^n$上的$Laplacian$算子的球坐标与直角坐标的转化公式（听课的时候认为很震撼！）.这部分主要就在于坐标变换公式，也需要结合高等代数的知识（例如正定对称矩阵可正交对角化），变量替换公式是核心。</p>
+<p>这次复习除了加深巩固了基础知识，我还注意到苗栋课上讲过的一个定理：</p>
+<blockquote>
+<p><script type="math/tex">\exists f \in C_{2\pi}</script>，其Fourier级数在某处发散</p>
+</blockquote>
+<p>想起来$Papa Rudin$的第五章$Banach$空间中就讲过类似的问题，而其证明需要用到泛函分析四大定理之一：$Banach-Steinhaus$定理（也称“共鸣定理”，语出秦理真）.苗栋在课上证明的是存在一个函数，在$x$处的部分和发散，巧妙地利用了周期函数空间这个$Hilbert$空间上的范数进行了证明，其过程除了因为数学分析的限制不能应用共鸣定理以外都是相同的，甚至苗栋的证明过程对$Papa Rudin$上还算有所补充，那就是如何对$\text{sgn}\{D_N\}$用连续函数逼近，$Papa Rudin$上没有说明直接跳过，而苗栋使用的方法也很经典，巧妙地运用了数学分析书本上的一处知识，那就是一个连续函数和一个鼓包函数（$bump function$）进行卷积（$convolution$）可以得到该函数的光滑逼近！从而，利用共鸣定理，可以将苗栋所讲的定理进行推广，实质上是，给定任意的$x_i$，都可以找到连续周期函数空间$C(\mathbb{T})$中的一个稠密的$G_{\sigma}$集，使得在这个$G_{\sigma}$中的函数在给定的$\{x_i\}$处都发散！</p>
+<p>随着学习的深入，对于过往的知识的理解也会加深，这其实也是我决定利用这学期的一些时间打好数分高代解几等课程基础的原因，也只有多思考，才能发现数学中的许许多多的乐趣。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/02/20/life-11/" data-id="clef8h22j00038wvd7fg3cimp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "温故而知新",
+        "image": "https://nju-kevin.github.iohttps://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2023-02-20",
+        "dateCreated": "2023-02-20",
+        "dateModified": "2023-02-20",
+        "url": "https://nju-kevin.github.io/2023/02/20/life-11/",
+        "description": "
+今天复习了一天数学分析，上学期由于笔记记得很认真，因此复习的时候发现内容还是很多的，即使苗栋已经通知有三部分（变量代换公式的证明，Fourier变换和特殊函数）不考，然而除开这三部分的内容也非常丰富。在看笔记的时候，偶然发现很多之前所未能完全理解的东西，或者是已经理解了的东西，在这一次看又有新的收获，这同时也体现了苗栋的数分课有着足够的深度和广度，值得反复参考。
+在Fourier级数一块，不仅有",
+        "wordCount": 11
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/02/21/life-12/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            数学分析学习体验与心得
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/02/19/life-10/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">数据库概论漫谈</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/22/math-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lovely-green-hills-806.jpg)" alt="Study of Papa Rudin I" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Math/">Math</a></p>
+                            <p class="item-title"><a href="/2023/02/22/math-7/" class="title">Study of Papa Rudin I</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/21/life-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/3d-blue-dunes-951.jpg)" alt="数学分析学习体验与心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/21/life-12/" class="title">数学分析学习体验与心得</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T05:40:09.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/20/life-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg)" alt="温故而知新" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/20/life-11/" class="title">温故而知新</a></p>
+                            <p class="item-date"><time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/19/life-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/stormtrooper-splatter-957.jpg)" alt="数据库概论漫谈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/19/life-10/" class="title">数据库概论漫谈</a></p>
+                            <p class="item-date"><time datetime="2023-02-19T08:24:54.000Z" itemprop="datePublished">2023-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/18/life-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/the-river-736.jpg)" alt="买书与读书的纠缠" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/02/18/life-9/" class="title">买书与读书的纠缠</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T10:37:59.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/02/20/life-11/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
