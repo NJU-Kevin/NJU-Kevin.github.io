@@ -6,25 +6,25 @@
     
 
     
-    <title>买书与读书的纠缠 | Kevin&#39;s World</title>
+    <title>Study of Complex Analysis | Kevin&#39;s World</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="考试周正式开始。关于白天考的两门学科，我认为，ODE的出卷是比较正常的，也考察的尽可能全面了（虽然并没有涉及适定性以及流的相关内容），计算题思考量不算大，但计算量还是很充分的（但是最后一道计算题对三阶矩阵求逆显然是没有时间算的类型）。证明题第一道类比Wronski行列式的公式 W(x)&#x3D;W(x_0)e^{\int_{x_0}^{x}tr(A)ds}第二题考察$Green$函数以及利用压缩映像原理">
+    <meta name="description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="买书与读书的纠缠">
-<meta property="og:url" content="https://nju-kevin.github.io/2023/02/18/life-9/index.html">
+<meta property="og:title" content="Study of Complex Analysis">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/02/24/math-9/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="考试周正式开始。关于白天考的两门学科，我认为，ODE的出卷是比较正常的，也考察的尽可能全面了（虽然并没有涉及适定性以及流的相关内容），计算题思考量不算大，但计算量还是很充分的（但是最后一道计算题对三阶矩阵求逆显然是没有时间算的类型）。证明题第一道类比Wronski行列式的公式 W(x)&#x3D;W(x_0)e^{\int_{x_0}^{x}tr(A)ds}第二题考察$Green$函数以及利用压缩映像原理">
+<meta property="og:description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.hdwallpapers.net/previews/the-river-736.jpg">
-<meta property="article:published_time" content="2023-02-18T10:37:59.000Z">
-<meta property="article:modified_time" content="2023-02-18T11:09:51.295Z">
+<meta property="og:image" content="https://images6.alphacoders.com/476/476288.jpg">
+<meta property="article:published_time" content="2023-02-24T01:02:45.000Z">
+<meta property="article:modified_time" content="2023-02-24T01:07:07.657Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/the-river-736.jpg">
+<meta name="twitter:image" content="https://images6.alphacoders.com/476/476288.jpg">
     
 
     
@@ -169,19 +169,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Life/">Life</a>
+    <a class="page-title-link" href="/categories/Lesson/">Lesson</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-life-9" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-math-9" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        买书与读书的纠缠
+        Study of Complex Analysis
         </h1>
     
 
@@ -192,16 +192,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2023/02/18/life-9/" class="article-date">
-       <time datetime="2023-02-18T10:37:59.000Z" itemprop="datePublished">2023-02-18</time>
+    <a href="/2023/02/24/math-9/" class="article-date">
+       <time datetime="2023-02-24T01:02:45.000Z" itemprop="datePublished">2023-02-24</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2023/02/18/life-9/" class="article-date">
-     <time datetime="2023-02-18T11:09:51.295Z" itemprop="dateModified">2023-02-18</time>
+  <a href="/2023/02/24/math-9/" class="article-date">
+     <time datetime="2023-02-24T01:07:07.657Z" itemprop="dateModified">2023-02-24</time>
   </a>
 </div>
 
@@ -223,14 +223,8 @@
 
             
 
-            <p><img src="https://www.hdwallpapers.net/previews/the-river-736.jpg" alt=""></p>
-<p>考试周正式开始。关于白天考的两门学科，我认为，ODE的出卷是比较正常的，也考察的尽可能全面了（虽然并没有涉及适定性以及流的相关内容），计算题思考量不算大，但计算量还是很充分的（但是最后一道计算题对三阶矩阵求逆显然是没有时间算的类型）。证明题第一道类比Wronski行列式的公式</p>
-<script type="math/tex; mode=display">W(x)=W(x_0)e^{\int_{x_0}^{x}tr(A)ds}</script><p>第二题考察$Green$函数以及利用压缩映像原理证明不动点，难度不算大。以往考完试以后我便会在很长一段时间内，再也不看这门学科，甚至彻底扔掉。但这次我不打算这么做。在考试周结束以后，我打算对ODE的学习进行深入和强化。ODE是分析学中很重要的一个方向，涵盖的内容不仅仅是解方程，更有关于方程背后更一般的理论的探索。经过上个学期的ODE的学习，我现在对于一般的常见方程的求解方法以及关于适定性，边值问题的部分有了了解，进一步，我将对更一般的方程的解法，复微分方程系统，以及包括$Sturm-Liouville$特征值问题在内的丰富内容进行更完整的学习。</p>
-<p>大学物理的卷子，可以看出肖明文老师为了避免同学们只做样卷的现象做出了一些努力，即思路仍按照样卷，但是细节部分做出了改动，比如粒子没有给夸克的组成，单位换算的一些常识没有给出等等。在考场上，因为这些改动，我也颇费了一些功夫，最后得出了一个我自认为正确的结果。随着数学学习的深入，我已经能够很明显地感受到数学和物理之间风格的不同了，并且潜移默化中更能接受数学的那一套理论，不过我认为这只是由于对于物理我并没有花太多的时间，导致看到所谓的$Schrodinger$方程等等觉得不够美观。物理的理论框架最终还是需要数学来进行搭建。</p>
-<p>说了这么多，其实都是为了引出今天想讨论的一件事情，那就是买书和看书 的纠缠。为什么说是纠缠，因为这或许是很多人在学生时代所会经历过的一种幻觉，那就是由“我买了很多书”自然而然得出“我会看很多书”。考完试看到舍友买了Stein的分析四部曲（分析学经典名著，即Fourier分析，复分析，实分析，泛函分析），且不论这四本书总价高达二百五十元，光是把这四本书啃下来，就足够花时间的了，更不要说能够掌握其中的精髓。当时我对他肃然起敬。等他走后，我无意中看到了他的书架，上面的书大多是崭新的，除了刚买的Stein四部曲以外，还有两本中文的《实变函数与泛函分析》，以及一些其他的参考书。</p>
-<p>再说一个例子，我的一个数学系同学，这学期光是报名选修课就报了五门，其中三门还在鼓楼，每周三每周五都要从仙林做地铁去鼓楼上课。如果我只是说到这，你可能会很佩服他的毅力。然而，事实却是，课内的考试来不及复习，一些参考书都只是看了前几章，学的东西是很多，很杂，但基础还没打好，便迫不及待在摇摇晃晃的地基上建立高楼大厦。</p>
-<p>我说这两个例子的目的并不是为了批判什么，而是这两个例子让我思考，现在的学生都有一个通病，就是急功近利，好高骛远，耐心不够。为什么这么说，实不相瞒，我之前也有段时间是这样的，基础还没有打好，便急于去学习那些看起来高大上的知识，这给自己，给别人都造成了一种假象，然而最终结果是，地基不稳，高楼大厦都得推倒重来。买书是为了什么，为了更好地看书。现在的时代和以前不一样，以前大多数书本都没有电子版，想要看书只能去买纸质书，而现在不一样，几乎所有的书在网上都能找到电子版，买书的目的不应该是为了充实书架，而是对自己的学习进行一个辅佐和帮助的作用，关键还是在于读书，而不是买书。买了书，不一定能学到书中的精髓，不买书，也未必只能浮于表面。最重要的一点还是，要通过读书，研究书（也就是所谓的做题目），领略到每本书中理论的关键所在，并最终形成自己的理论体系。</p>
-<p>共勉。</p>
+            <p><img src="https://images6.alphacoders.com/476/476288.jpg" alt=""></p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。</p>
 
         </div>
         <footer class="article-footer">
@@ -238,7 +232,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/02/18/life-9/" data-id="clei40h8k000lx4vd46ev2naf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/02/24/math-9/" data-id="clei40h8t0013x4vd54ib07lg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,18 +302,18 @@
             "@type": "Person",
             "name": "NJU-Kevin"
         },
-        "headline": "买书与读书的纠缠",
-        "image": "https://nju-kevin.github.iohttps://www.hdwallpapers.net/previews/the-river-736.jpg",
+        "headline": "Study of Complex Analysis",
+        "image": "https://nju-kevin.github.iohttps://images6.alphacoders.com/476/476288.jpg",
         "keywords": "",
-        "genre": "Life",
-        "datePublished": "2023-02-18",
-        "dateCreated": "2023-02-18",
-        "dateModified": "2023-02-18",
-        "url": "https://nju-kevin.github.io/2023/02/18/life-9/",
+        "genre": "Lesson",
+        "datePublished": "2023-02-24",
+        "dateCreated": "2023-02-24",
+        "dateModified": "2023-02-24",
+        "url": "https://nju-kevin.github.io/2023/02/24/math-9/",
         "description": "
-考试周正式开始。关于白天考的两门学科，我认为，ODE的出卷是比较正常的，也考察的尽可能全面了（虽然并没有涉及适定性以及流的相关内容），计算题思考量不算大，但计算量还是很充分的（但是最后一道计算题对三阶矩阵求逆显然是没有时间算的类型）。证明题第一道类比Wronski行列式的公式
-W(x)=W(x_0)e^{\int_{x_0}^{x}tr(A)ds}第二题考察$Green$函数以及利用压缩映像原理",
-        "wordCount": 6
+概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。
+",
+        "wordCount": 7
     }
 </script>
 
@@ -400,20 +394,10 @@ W(x)=W(x_0)e^{\int_{x_0}^{x}tr(A)ds}第二题考察$Green$函数以及利用压�
         
 <nav id="article-nav">
     
-        <a href="/2023/02/19/life-10/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            数据库概论漫谈
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2023/02/17/life-8/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2023/02/24/math-8/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">网</p>
+        <p class="article-nav-title">Study of Probability</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -616,7 +600,7 @@ W(x)=W(x_0)e^{\int_{x_0}^{x}tr(A)ds}第二题考察$Green$函数以及利用压�
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://nju-kevin.github.io/2023/02/18/life-9/';
+    var disqus_url = 'https://nju-kevin.github.io/2023/02/24/math-9/';
     
     (function() {
     var dsq = document.createElement('script');

@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="This conlusion is input initially at 2022.04.04. Problem:  $f \in L^1(R^k)$, then almost every $x \in R^k$ is a Lebesgue point of $f$.  Notes:  $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1">
+    <meta name="description" content="This conlusion is input initially at 2022.04.04. Problem:  $f \in L^1(R^k)$, then almost every $x \in R^k$ is a Lebesgue point of $f$.  Notes:  $x$ is a Lebesgue point of $f$ if  \lim_{r \to 0}{\frac{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lebesgue Point">
 <meta property="og:url" content="https://nju-kevin.github.io/2023/01/24/math-1/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="This conlusion is input initially at 2022.04.04. Problem:  $f \in L^1(R^k)$, then almost every $x \in R^k$ is a Lebesgue point of $f$.  Notes:  $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1">
+<meta property="og:description" content="This conlusion is input initially at 2022.04.04. Problem:  $f \in L^1(R^k)$, then almost every $x \in R^k$ is a Lebesgue point of $f$.  Notes:  $x$ is a Lebesgue point of $f$ if  \lim_{r \to 0}{\frac{">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.hdwallpapers.net/previews/lake-prags-italy-1053.jpg">
 <meta property="article:published_time" content="2023-01-24T02:35:51.000Z">
-<meta property="article:modified_time" content="2023-02-04T05:41:13.024Z">
+<meta property="article:modified_time" content="2023-02-24T00:14:55.265Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.hdwallpapers.net/previews/lake-prags-italy-1053.jpg">
@@ -91,7 +91,7 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
                                 
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -103,6 +103,14 @@
                             
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/rudin">index.rudin</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/lesson">index.lesson</a>
                                 </li>
                             
                         </ul>
@@ -193,7 +201,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2023/01/24/math-1/" class="article-date">
-     <time datetime="2023-02-04T05:41:13.024Z" itemprop="dateModified">2023-02-04</time>
+     <time datetime="2023-02-24T00:14:55.265Z" itemprop="dateModified">2023-02-24</time>
   </a>
 </div>
 
@@ -222,21 +230,24 @@
 </blockquote>
 <p>Notes:</p>
 <blockquote>
-<p>$x$ is a Lebesgue point of $f$ if <script type="math/tex">\lim_{r \to 0}{\frac{1}{m(B_r)}\int_{B(x,r)}{|f(y)-f(x)|dm(y)}}=0</script></p>
-</blockquote>
+<p>$x$ is a Lebesgue point of $f$ if </p>
+<script type="math/tex; mode=display">\lim_{r \to 0}{\frac{1}{m(B_r)}\int_{B(x,r)}{|f(y)-f(x)|dm(y)}}=0</script></blockquote>
 <p>Solution:</p>
-<p>Define <script type="math/tex">(T_rf)(x)=\frac{1}{m(B_r)}\int_{B(x,r)}{|f-f(x)|dm}</script></p>
-<p>Put <script type="math/tex">(Tf)(x)=\lim_{r\to 0}\text{sup}{T_rf}</script></p>
-<p>We have to prove that $Tf=0$ a.e.[m].</p>
+<p>Define </p>
+<script type="math/tex; mode=display">(T_rf)(x)=\frac{1}{m(B_r)}\int_{B(x,r)}{|f-f(x)|dm}</script><p>Put </p>
+<script type="math/tex; mode=display">(Tf)(x)=\lim_{r\to 0}\text{sup}{T_rf}</script><p>We have to prove that $Tf=0$ a.e.[m].</p>
 <p>For any $n \in \mathbb{N}_+$,there exists $g \in L^1(R^k)$ s.t. $||f-g||_1 &lt; \frac{1}{n}$.</p>
 <p>Since $g$ is continuous, $Tg=0$.</p>
 <p>Denote $h=f-g$.</p>
-<p>Hence <script type="math/tex">Th \leq Mh+|h|</script></p>
-<p>Since <script type="math/tex">T_rf \leq T_rg+T_rh</script></p>
-<p>Hence <script type="math/tex">Tf \leq Mh+|h|</script>.</p>
-<p>Then <script type="math/tex">\{Tf>2y\} \subset \{Mh>y\} \cup \{|h|>y\}</script></p>
-<p>and <script type="math/tex">m(\{Tf>2y\}) \leq \frac{3^k+1}{yn}</script></p>
-<p>Denote the union on the right side $E(y,n)$.</p>
+<p>Hence </p>
+<script type="math/tex; mode=display">Th \leq Mh+|h|</script><p>Since </p>
+<script type="math/tex; mode=display">T_rf \leq T_rg+T_rh</script><p>Hence </p>
+<script type="math/tex; mode=display">Tf \leq Mh+|h|$$.
+
+Then 
+
+$$\{Tf>2y\} \subset \{Mh>y\} \cup \{|h|>y\}</script><p>and </p>
+<script type="math/tex; mode=display">m(\{Tf>2y\}) \leq \frac{3^k+1}{yn}</script><p>Denote the union on the right side $E(y,n)$.</p>
 <p>Since $E(y,n)$ is independent of $n$,</p>
 <script type="math/tex; mode=display">\{Tf>2y\} \subset \bigcap_{n=1}^{\infty}{E(y,n)}</script><p>Therefore $\{Tf&gt;2y\}$ is a subset of measure 0. </p>
 <p>Due to the completeness of the Lebesgue measure, we know $\{Tf&gt;2y\}$ is also of measure 0.</p>
@@ -248,7 +259,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/01/24/math-1/" data-id="cleh647ld000nzkvd0a66bcyp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/01/24/math-1/" data-id="clei40h8m000px4vd6tz9ftv6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -324,7 +335,7 @@
         "genre": "Math",
         "datePublished": "2023-01-24",
         "dateCreated": "2023-01-24",
-        "dateModified": "2023-02-04",
+        "dateModified": "2023-02-24",
         "url": "https://nju-kevin.github.io/2023/01/24/math-1/",
         "description": "This conlusion is input initially at 2022.04.04.
 Problem:
@@ -333,8 +344,9 @@ $f \in L^1(R^k)$, then almost every $x \in R^k$ is a Lebesgue point of $f$.
 
 Notes:
 
-$x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
-        "wordCount": 140
+$x$ is a Lebesgue point of $f$ if 
+\lim_{r \to 0}{\frac{",
+        "wordCount": 146
     }
 </script>
 
@@ -450,6 +462,46 @@ $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2023/02/24/math-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images6.alphacoders.com/476/476288.jpg)" alt="Study of Complex Analysis" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Lesson/">Lesson</a></p>
+                            <p class="item-title"><a href="/2023/02/24/math-9/" class="title">Study of Complex Analysis</a></p>
+                            <p class="item-date"><time datetime="2023-02-24T01:02:45.000Z" itemprop="datePublished">2023-02-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/24/math-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images2.alphacoders.com/521/521718.jpg)" alt="Study of Probability" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Lesson/">Lesson</a></p>
+                            <p class="item-title"><a href="/2023/02/24/math-8/" class="title">Study of Probability</a></p>
+                            <p class="item-date"><time datetime="2023-02-24T00:09:22.000Z" itemprop="datePublished">2023-02-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2023/02/23/life-13/" class="thumbnail">
     
     
@@ -481,7 +533,7 @@ $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Math/">Math</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Rudin/">Rudin</a></p>
                             <p class="item-title"><a href="/2023/02/22/math-7/" class="title">Study of Papa Rudin I</a></p>
                             <p class="item-date"><time datetime="2023-02-22T00:12:00.000Z" itemprop="datePublished">2023-02-22</time></p>
                         </div>
@@ -507,46 +559,6 @@ $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/02/20/life-11/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://www.hdwallpapers.net/previews/lofoten-islands-norway-832.jpg)" alt="温故而知新" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2023/02/20/life-11/" class="title">温故而知新</a></p>
-                            <p class="item-date"><time datetime="2023-02-20T11:26:27.000Z" itemprop="datePublished">2023-02-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/02/19/life-10/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://www.hdwallpapers.net/previews/stormtrooper-splatter-957.jpg)" alt="数据库概论漫谈" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2023/02/19/life-10/" class="title">数据库概论漫谈</a></p>
-                            <p class="item-date"><time datetime="2023-02-19T08:24:54.000Z" itemprop="datePublished">2023-02-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -556,7 +568,7 @@ $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">7</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -566,7 +578,7 @@ $x$ is a Lebesgue point of $f$ if \lim_{r \to 0}{\frac{1",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
         </div>
     </div>
 
