@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="概要这篇文章将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章，那么学起来便丝">
+    <meta name="description" content="概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Study of Probability">
 <meta property="og:url" content="https://nju-kevin.github.io/2023/02/24/math-8/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="概要这篇文章将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章，那么学起来便丝">
+<meta property="og:description" content="概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images2.alphacoders.com/521/521718.jpg">
 <meta property="article:published_time" content="2023-02-24T00:09:22.000Z">
-<meta property="article:modified_time" content="2023-02-24T01:06:26.957Z">
+<meta property="article:modified_time" content="2023-03-02T05:30:08.718Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://images2.alphacoders.com/521/521718.jpg">
@@ -199,7 +199,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2023/02/24/math-8/" class="article-date">
-     <time datetime="2023-02-24T01:06:26.957Z" itemprop="dateModified">2023-02-24</time>
+     <time datetime="2023-03-02T05:30:08.718Z" itemprop="dateModified">2023-03-02</time>
   </a>
 </div>
 
@@ -213,7 +213,7 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">270</span>
+      <span class="post-count">272</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
       <span class="post-count">1 mins. </span>
@@ -231,7 +231,7 @@
             
 
             <p><img src="https://images2.alphacoders.com/521/521718.jpg" alt=""></p>
-<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>这篇文章将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。</p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。</p>
 <h2 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h2><p>第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章，那么学起来便丝毫不费力。需要注意区别的是概率测度和一般的正测度不一样，因为全空间的概率测度必为1.</p>
 <p>第一周的作业并不算难，课本第8题简单利用二项式展开的性质即可证明；第33题最好的方法是利用求和式证明，而不是省略号，这样显得不严谨，以下写一下33题的证明过程。</p>
 <blockquote>
@@ -254,6 +254,14 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
 =&\sum_{i=1}^{n}P(A_i)+\sum_{l=1}^{n-1}(-1)^{l}\sum_{1\leq i_1<\cdots <i_{l+1} \leq n}P\left(\prod_{j=1}^{l+1}A_{i_j}\right) \\
 =&\sum_{k=1}^{n}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_k \leq n}P\left(\prod_{j=1}^kA_{i_j}\right) \\
 \end{aligned}</script><p>有归纳法知原命题成立.</p>
+<hr>
+<h2 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h2><p>（2023.03.02）本周的课程内容深度不算深，主要介绍了一些基本概率模型（古典概型，几何概型），利用模型解决实际问题（如摸球问题），以及独立事件的定义、两个重要公式（全概率公式，$Bayes$公式）</p>
+<script type="math/tex; mode=display">P(A)=\sum_{i}{P(B_i)P(A|B_i)}</script><script type="math/tex; mode=display">P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum_{i}{P(B_i)P(A|B_i)}}</script><p>这两个公式体现了两种概率，即先验概率和后验概率。先验概率即是说，在某个条件下发生某事件的概率，这是由原因推结果；而后验概率是说，在某件事发生以后，推测是由什么原因导致的，即执果索因。这在医学里也有应用。为什么检测一种疾病，需要进行多项检查，就是因为，如果只进行一种检查，先验概率较低，用$Bayes$公式算出来的后验概率也会很低，这样无法判断是患的哪一种病。</p>
+<p>这里通过一个例子说明。例如，在国内新冠全面放开的时候，居民可以通过抗原检测试纸对于自己是否新冠阳性进行判断。检测试剂对于“真阳性”的检出概率为0.8，即有百分之八十的真阳性能够通过试纸检测出来，而阴性被检出的概率为0.设人群中真阳性的概率为$p$.我们可以计算，如果某人试纸检测为阴性，真阳性的概率有多大（也就是试纸检不出，“假阴性”的概率）.</p>
+<p>令某人为真阳性为事件$B$，试纸检测为阴性为事件$A$，那么我们要计算$P(B|A)$.（在$A$发生的条件下$B$发生的概率）利用$Bayes$公式，</p>
+<p>$P(B|A)=\frac{P(A|B)P(B)}{P(A|B)P(B)+P(\bar{B})P(A|\bar{B})}=\frac{0.2p}{0.2p+(1-p)}=\frac{0.2p}{1-0.8p}$</p>
+<p>当疫情放开初期，感染的人普遍不多，$p$很小的时候，可以看出，试纸检测不出来的概率也会比较小；而到疫情后期，例如，95%的人都感染过，那么“假阴性”的概率就为$\frac{0.19}{0.24}=0.79$.可见，如果我们用贝叶斯公式对于试纸“假阴性”概率进行计算， 越到后面，试纸越不可信。</p>
+<p>上述例子只是我个人对于上课所学所进行的一个简单应用，但即使是从这个小小的应用，我们也能够看出，概率论在生活中的用途。其实这个公式如果要用于模拟疾病等模型，其精确度还远远不够，但通过后续的学习，应该能够越来越精确，越来越贴近实际，这也是概率这个数学工具所正在发挥的作用。</p>
 
         </div>
         <footer class="article-footer">
@@ -261,7 +269,7 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/02/24/math-8/" data-id="clepo4qo6001lugvd802v71w9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/02/24/math-8/" data-id="cleqo4x3c001mbkvdhyyvbj3y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -337,12 +345,12 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
         "genre": "Lesson",
         "datePublished": "2023-02-24",
         "dateCreated": "2023-02-24",
-        "dateModified": "2023-02-24",
+        "dateModified": "2023-03-02",
         "url": "https://nju-kevin.github.io/2023/02/24/math-8/",
         "description": "
-概要这篇文章将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。
-第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章，那么学起来便丝",
-        "wordCount": 91
+概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。
+第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章",
+        "wordCount": 100
     }
 </script>
 
