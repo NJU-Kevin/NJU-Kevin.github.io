@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。">
+    <meta name="description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。  第四周（2023.03.06更新）上周在做$Stein$复分析作业的时候，对于$\frac{1}{z-a}$沿圆周积分的问题有些模糊，不清楚奇点在圆周包含的区域内与外时积分得到的结果有什么区别，$S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Study of Complex Analysis">
 <meta property="og:url" content="https://nju-kevin.github.io/2023/02/24/lesson-2/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。">
+<meta property="og:description" content="概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。  第四周（2023.03.06更新）上周在做$Stein$复分析作业的时候，对于$\frac{1}{z-a}$沿圆周积分的问题有些模糊，不清楚奇点在圆周包含的区域内与外时积分得到的结果有什么区别，$S">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images6.alphacoders.com/476/476288.jpg">
 <meta property="article:published_time" content="2023-02-24T01:02:45.000Z">
-<meta property="article:modified_time" content="2023-03-02T11:52:56.494Z">
+<meta property="article:modified_time" content="2023-03-06T06:31:58.087Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://images6.alphacoders.com/476/476288.jpg">
@@ -199,7 +199,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2023/02/24/lesson-2/" class="article-date">
-     <time datetime="2023-03-02T11:52:56.494Z" itemprop="dateModified">2023-03-02</time>
+     <time datetime="2023-03-06T06:31:58.087Z" itemprop="dateModified">2023-03-06</time>
   </a>
 </div>
 
@@ -213,10 +213,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">93</span>
+      <span class="post-count">1.6k</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
-      <span class="post-count">1 mins. </span>
+      <span class="post-count">6 mins. </span>
    </div>
 
 
@@ -232,6 +232,35 @@
 
             <p><img src="https://images6.alphacoders.com/476/476288.jpg" alt=""></p>
 <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。</p>
+<hr>
+<h2 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h2><p>（2023.03.06更新）上周在做$Stein$复分析作业的时候，对于$\frac{1}{z-a}$沿圆周积分的问题有些模糊，不清楚奇点在圆周包含的区域内与外时积分得到的结果有什么区别，$Stein$上第一章也没有介绍。因此我认为$Stein$的复分析在这方面做的欠妥，当然也有可能是想要放到第二章$Cauchy$定理那里一起讲的缘故，但由于第一章的习题出现了相关的问题，这容易导致学生做题时一头雾水。</p>
+<p>上午在看$Papa \space Rudin$的时候发现复分析部分讲的内容以及顺序的安排更为合理。在介绍完解析函数以及沿曲线的积分之后，直接引入了指标的概念：</p>
+<script type="math/tex; mode=display">\text{Ind}_{\gamma}(z)=\frac{1}{2 \pi i}\int_{\gamma}{\frac{d\zeta}{\zeta-z}}</script><p>可以证明，$\text{Ind}_{\gamma}(z)$在$\Omega=(\gamma^*)^c$的有界连通分支上是正整数函数，在无界连通分支上为0。有了这个结论，那么</p>
+<script type="math/tex; mode=display">\int_{\gamma}{\frac{1}{z-a}dz}=2\pi i \text{Ind}_{\gamma}(a)</script><p>因此只要圆周包含$a$，对于圆周内的区域，$\text{Ind}_{\gamma}(a)=\text{Ind}_{\gamma}(z)$，$\forall z \in \Omega_1$.从而我们可以计算该圆周的圆心关于圆周的指标，这显然是$1$，从而原积分值为$2\pi i$.如果圆周不包含$a$，即$a \in \Omega_2$，那么由于$\Omega_2$为$\Omega$的一个无界连通分支，从而指标为零，原来积分也为零。</p>
+<p>学到这里，其实我们就会发现，$\frac{1}{z-a}$这个复变函数沿曲线的积分有着其特殊性。$Cauchy$定理与这个问题有着紧密的联系。这里我们列举一下几个结论：</p>
+<blockquote>
+<p>Theorem 10.12 </p>
+<p>$F \in H(\Omega)$ with $F’$ continuous, then for every closed path in $\Omega$ we have</p>
+<script type="math/tex; mode=display">\int_{\gamma}{F'(z)dz}=0</script><p>Theorem 10.13(Cauchy for a Triangle)</p>
+<p>$\bigtriangleup$ closed in open set $\Omega$, $p \in \Omega$, $f$ continuous in $\Omega$, $f \in H(\Omega-\{p\})$, then</p>
+<script type="math/tex; mode=display">\int_{\partial{\bigtriangleup}}{f(z)dz}=0</script><p>Theorem 10.14(Cauchy in a Convex Set)</p>
+<p>$\Omega$ convex open set, $p \in \Omega$, $f$ continuous, $f \in H(\Omega-\{p\})$, then for every closed path $\gamma$ in $\Omega$</p>
+<script type="math/tex; mode=display">\int_{\gamma}{f(z)dz}=0</script></blockquote>
+<p>以下对这三个定理（以下简称定理1，定理2，定理3）讲的事情进行翻译：</p>
+<ol>
+<li><p>对于一个连续函数$f$，如果能够找到它的原函数$F$，即$F’=f$（特别地$F$全纯）那么该函数在任意闭曲线上的积分为零。</p>
+</li>
+<li><p>对于开集中的三角形闭曲线，$f$连续且在$\Omega$中除了一点$p$以外全纯，那么$f$在三角形上的积分为零。</p>
+</li>
+<li><p>对于凸开集上的连续函数$f$且在$\Omega$中除了一点$p$以外全纯，那么$f$存在原函数，从而由1知沿任何闭曲线积分都为零。</p>
+</li>
+</ol>
+<p>定理1成立是显然的，有一个很重要的推论：</p>
+<script type="math/tex; mode=display">\int_{\gamma}{z^n}dz=0, \space (n \neq 0)</script><p>从而对于闭曲线，$z^n$的积分为零。</p>
+<p>对于定理2，可以先考虑$p$不在三角形边上的情况，对于三角形进行中点分割，应用闭区间套定理以及定理1的推论；对于$p$为顶点的情况可以对三角形进行划分，应用第一种情形以及$f$在三角形上有界；$p$在边上时，划分为两个三角形利用前两种情况即可。</p>
+<p>定理3则是直接构造原函数，很朴素的想法就是$f$的变上限积分，因为集合是凸集，任何两点的连线都完全属于$\Omega$（<b>这让我想起了《从微积分到上同调》这门课上证明星形区域的一阶上同调为0时所采用的方法是一致的</b>），证明需要用到沿三角形曲线积分为零的性质。定理3可以直接推出凸集上的$Cauchy$积分公式：</p>
+<script type="math/tex; mode=display">f(z)\text{Ind}_{\gamma}(z)=\frac{1}{2\pi i}\int_{\gamma}{\frac{f(\zeta)}{\zeta-z}}</script><p>$Cauchy$定理的逆定理（$Morera’s \space Theorem$）也是上述定理的直接推论。它论述的是如果开集中的连续函数沿开集中的任意三角形曲线积分为零，那么该函数在开集中全纯。证明也是容易的，可以同样利用变上限积分构造原函数，方法与定理3没有任何区别。定理3由于是凸开集，从而开集中的连续全纯函数沿三角形积分为零，这里可以考虑凸开子集，三角形积分为零为条件（此时不能利用定理2的结论因为$f$ 不一定全纯），从而可以找到原函数$F$，$F$全纯。全纯函数的导函数仍然全纯（因为全纯函数与解析函数没有任何区别，解析函数可逐项求导且得到的导函数仍解析，从而全纯），于是$f$在任意凸开集中全纯，从而在$\Omega$中全纯。</p>
+<p>接下来对于以上所述进行总结。问题的引入是一道$\frac{1}{z-a}$的作业题，这个积分有可能不为零的原因是，复分析中$\frac{1}{z}$没有原函数！这与实值函数不一样。<b>连续函数一旦有了原函数，沿闭曲线的积分便为零</b>。我想正是由于这种特殊性，才会引入所谓的指标的概念，进而研究指标的计算和性质。有了指标的概念与性质，让$\frac{1}{z}$沿闭曲线的积分的可算度大大提高，很多时候也能够简化计算。<b>对于开集上的连续全纯函数（允许在某一点不全纯），沿三角形的积分为零</b>；反之，对于开集上的连续函数，若沿任意三角形积分都为零，那么该函数全纯。<b>对于凸开集上的连续全纯函数（允许在某一点不全纯），存在原函数，从而沿任意闭曲线的积分为零</b>。</p>
 
         </div>
         <footer class="article-footer">
@@ -239,7 +268,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/02/24/lesson-2/" data-id="clev342v70003rsvd3yeselfh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/02/24/lesson-2/" data-id="clewgdit90003m8vd0j74423b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -315,12 +344,13 @@
         "genre": "Lesson",
         "datePublished": "2023-02-24",
         "dateCreated": "2023-02-24",
-        "dateModified": "2023-03-02",
+        "dateModified": "2023-03-06",
         "url": "https://nju-kevin.github.io/2023/02/24/lesson-2/",
         "description": "
 概要这篇文章是对于复分析的学习笔记，不会记录很完整的知识点以及知识结构，但会记录我对于复分析这门课程的各种问题的思考以及一些经典习题的思路与解答。和之前的课程系列的文章一样，这篇文章将会每周更新。
-",
-        "wordCount": 7
+
+第四周（2023.03.06更新）上周在做$Stein$复分析作业的时候，对于$\frac{1}{z-a}$沿圆周积分的问题有些模糊，不清楚奇点在圆周包含的区域内与外时积分得到的结果有什么区别，$S",
+        "wordCount": 105
     }
 </script>
 
