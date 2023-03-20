@@ -6,25 +6,25 @@
     
 
     
-    <title>Study of Probability | Kevin&#39;s World</title>
+    <title>浅谈$Riesz$表示定理 | Kevin&#39;s World</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章">
+    <meta name="description" content="今天花了一个上午的时间把$C_c(X)$上的正线性泛函的$Riesz$表示定理从头到尾梳理并且证明了一遍，可谓是见证了一个理论从一开始只有定义，到一步步建立结论，一点一点接近想要证明的事情，最后到完全证出的一整个过程，吃午饭的时候，还有一处证明细节不太明白，走回来的路上突然发现就是利用的之前已经证出来的一个结论以及一个定义，至此，整个定理十二步的证明过程浮现在脑海里，我不禁发现，该定理的证明所体">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Study of Probability">
-<meta property="og:url" content="https://nju-kevin.github.io/2023/02/24/lesson-1/index.html">
+<meta property="og:title" content="浅谈$Riesz$表示定理">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/03/20/life-33/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。 第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章">
+<meta property="og:description" content="今天花了一个上午的时间把$C_c(X)$上的正线性泛函的$Riesz$表示定理从头到尾梳理并且证明了一遍，可谓是见证了一个理论从一开始只有定义，到一步步建立结论，一点一点接近想要证明的事情，最后到完全证出的一整个过程，吃午饭的时候，还有一处证明细节不太明白，走回来的路上突然发现就是利用的之前已经证出来的一个结论以及一个定义，至此，整个定理十二步的证明过程浮现在脑海里，我不禁发现，该定理的证明所体">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images2.alphacoders.com/521/521718.jpg">
-<meta property="article:published_time" content="2023-02-24T00:09:22.000Z">
-<meta property="article:modified_time" content="2023-03-02T12:38:30.706Z">
+<meta property="og:image" content="https://images7.alphacoders.com/346/346871.jpg">
+<meta property="article:published_time" content="2023-03-20T08:17:55.000Z">
+<meta property="article:modified_time" content="2023-03-20T08:48:51.766Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2.alphacoders.com/521/521718.jpg">
+<meta name="twitter:image" content="https://images7.alphacoders.com/346/346871.jpg">
     
 
     
@@ -167,19 +167,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Lesson/">Lesson</a>
+    uncategorized
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-lesson-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-life-33" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Study of Probability
+        浅谈$Riesz$表示定理
         </h1>
     
 
@@ -190,16 +190,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2023/02/24/lesson-1/" class="article-date">
-       <time datetime="2023-02-24T00:09:22.000Z" itemprop="datePublished">2023-02-24</time>
+    <a href="/2023/03/20/life-33/" class="article-date">
+       <time datetime="2023-03-20T08:17:55.000Z" itemprop="datePublished">2023-03-20</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2023/02/24/lesson-1/" class="article-date">
-     <time datetime="2023-03-02T12:38:30.706Z" itemprop="dateModified">2023-03-02</time>
+  <a href="/2023/03/20/life-33/" class="article-date">
+     <time datetime="2023-03-20T08:48:51.766Z" itemprop="dateModified">2023-03-20</time>
   </a>
 </div>
 
@@ -213,10 +213,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">272</span>
+      <span class="post-count">892</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
-      <span class="post-count">1 mins. </span>
+      <span class="post-count">3 mins. </span>
    </div>
 
 
@@ -230,37 +230,10 @@
 
             
 
-            <p><img src="https://images2.alphacoders.com/521/521718.jpg" alt=""></p>
-<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。</p>
-<h2 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h2><p>第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章，那么学起来便丝毫不费力。需要注意区别的是概率测度和一般的正测度不一样，因为全空间的概率测度必为1.</p>
-<p>第一周的作业并不算难，课本第8题简单利用二项式展开的性质即可证明；第33题最好的方法是利用求和式证明，而不是省略号，这样显得不严谨，以下写一下33题的证明过程。</p>
-<blockquote>
-<p>Prove that </p>
-<script type="math/tex; mode=display">\begin{aligned}P(A_1 \cup \cdots \cup A_n)=&\sum_{i=1}^{n}P(A_i)-\sum_{1 \leq i<j \leq n}P(A_iA_j) \\
-&+\sum_{1 \leq i<j<k \leq n}P(A_iA_jA_k)- \cdots +(-1)^{n-1}P(A_1 \cdots A_n)\end{aligned}</script></blockquote>
-<p><b>Proof</b>.  使用数学归纳法证明。</p>
-<p>易知</p>
-<script type="math/tex; mode=display">P\left(\bigcup_{i=1}^{n}A_i\right)=\sum_{k=1}^{n}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_k \leq n}P\left(\prod_{j=1}^kA_{i_j}\right)</script><p>对$n=1$显然成立.现假设对于$1,2,\cdots,n-1$都成立.则</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\cup A_n\right) \\
-=&P\left(\bigcup_{i=1}^{n-1}A_i\right)+P(A_n)-P\left(\bigcup_{i=1}^{n-1}A_iA_n\right) \\
-=&\sum_{k=1}^{n-1}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_k \leq n-1}P\left(\prod_{j=1}^kA_{i_j}\right)+P(A_n) \\
-&-\sum_{k=1}^{n-1}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_k \leq n-1}P\left(A_n \prod_{j=1}^kA_{i_j}\right) \\
-=&\sum_{i=1}^{n}P(A_i)+\sum_{l=1}^{n-2}(-1)^{l}\sum_{1\leq i_1<\cdots <i_{l+1} \leq n-1}P\left(\prod_{j=1}^{l+1}A_{i_j}\right) \\
-&-\sum_{l=1}^{n-1}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_l <i_{l+1}=n}P\left(\prod_{j=1}^{l+1}A_{i_j}\right)  \\
-=&\sum_{i=1}^{n}P(A_i)+\sum_{l=1}^{n-2}(-1)^{l}\sum_{1\leq i_1<\cdots <i_{l+1} \leq n}P\left(\prod_{j=1}^{l+1}A_{i_j}\right) \\
-&+(-1)^{n-1}\sum_{1 \leq i_1 < \cdots <i_n=n}P\left(\prod_{j=1}^{n}A_{i_j}\right) \\
-=&\sum_{i=1}^{n}P(A_i)+\sum_{l=1}^{n-1}(-1)^{l}\sum_{1\leq i_1<\cdots <i_{l+1} \leq n}P\left(\prod_{j=1}^{l+1}A_{i_j}\right) \\
-=&\sum_{k=1}^{n}(-1)^{k-1}\sum_{1\leq i_1<\cdots <i_k \leq n}P\left(\prod_{j=1}^kA_{i_j}\right) \\
-\end{aligned}</script><p>有归纳法知原命题成立.</p>
-<hr>
-<h2 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h2><p>（2023.03.02）本周的课程内容深度不算深，主要介绍了一些基本概率模型（古典概型，几何概型），利用模型解决实际问题（如摸球问题），以及独立事件的定义、两个重要公式（全概率公式，$Bayes$公式）</p>
-<script type="math/tex; mode=display">P(A)=\sum_{i}{P(B_i)P(A|B_i)}</script><script type="math/tex; mode=display">P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum_{i}{P(B_i)P(A|B_i)}}</script><p>这两个公式体现了两种概率，即先验概率和后验概率。先验概率即是说，在某个条件下发生某事件的概率，这是由原因推结果；而后验概率是说，在某件事发生以后，推测是由什么原因导致的，即执果索因。这在医学里也有应用。为什么检测一种疾病，需要进行多项检查，就是因为，如果只进行一种检查，先验概率较低，用$Bayes$公式算出来的后验概率也会很低，这样无法判断是患的哪一种病。</p>
-<p>这里通过一个例子说明。例如，在国内新冠全面放开的时候，居民可以通过抗原检测试纸对于自己是否新冠阳性进行判断。检测试剂对于“真阳性”的检出概率为0.8，即有百分之八十的真阳性能够通过试纸检测出来，而阴性被检出的概率为0.设人群中真阳性的概率为$p$.我们可以计算，如果某人试纸检测为阴性，真阳性的概率有多大（也就是试纸检不出，“假阴性”的概率）.</p>
-<p>令某人为真阳性为事件$B$，试纸检测为阴性为事件$A$，那么我们要计算$P(B|A)$.（在$A$发生的条件下$B$发生的概率）利用$Bayes$公式，</p>
-<script type="math/tex; mode=display">P(B|A)=\frac{P(A|B)P(B)}{P(A|B)P(B)+P(\bar{B})P(A|\bar{B})}=\frac{0.2p}{0.2p+(1-p)}=\frac{0.2p}{1-0.8p}</script><p>当疫情放开初期，感染的人普遍不多，$p$很小的时候，可以看出，试纸检测不出来的概率也会比较小；而到疫情后期，例如，95%的人都感染过，那么“假阴性”的概率就为$\frac{0.19}{0.24}=0.79$.可见，如果我们用贝叶斯公式对于试纸“假阴性”概率进行计算， 越到后面，试纸越不可信。</p>
-<p>上述例子只是我个人对于上课所学所进行的一个简单应用，但即使是从这个小小的应用，我们也能够看出，概率论在生活中的用途。其实这个公式如果要用于模拟疾病等模型，其精确度还远远不够，但通过后续的学习，应该能够越来越精确，越来越贴近实际，这也是概率这个数学工具所正在发挥的作用。</p>
+            <p><img src="https://images7.alphacoders.com/346/346871.jpg" alt=""></p>
+<p>今天花了一个上午的时间把$C_c(X)$上的正线性泛函的$Riesz$表示定理从头到尾梳理并且证明了一遍，可谓是见证了一个理论从一开始只有定义，到一步步建立结论，一点一点接近想要证明的事情，最后到完全证出的一整个过程，吃午饭的时候，还有一处证明细节不太明白，走回来的路上突然发现就是利用的之前已经证出来的一个结论以及一个定义，至此，整个定理十二步的证明过程浮现在脑海里，我不禁发现，该定理的证明所体现的就是扎实的“硬分析”，集合论测度论的基本运算，上确界下确界的定义，用开集和紧集去“卡”一个集合，$Urysohn$引理和紧集的单位分解定理的反复运用…定理的证明过程看上去繁复琐碎，实际上包罗万象。事实上，这个定理在后面还有其他的形式，我打算复习到后面的时候结合对照着进行参看。定理的证明较为冗长，但实际上$Rudin$已经帮助读者分好了步骤，一共十二步，第一步是证明唯一性，第二步是对于测度和$\sigma$代数进行定义，第三步到第十二步就是一步步靠近我们想要证明的事情，核心思想还是由外测度进行逼近，最终得到内测度逼近，从而得到一个$regular$的测度。为了加强记忆，晚上到教室的时候打算再自己证明一遍，闲来无事也可以对于该定理进行琢磨，不失为一种打发时间的好方式。</p>
+<p>巧合的是，下午学习实变函数的时候，学习到了$Lebesgue$测度，其定义与$Rudin$的定义有着差别，很明显，实变函数所定义的测度更容易令人接受，或许也有两本书的介绍思路不同的原因，实变函数测度论部分显得更一般，从环上的测度开始介绍，思路也很清晰，环上的测度对于集合的可数并有着限制，而为了摆脱这种限制，可以在一个更大的集类上定义一个测度的延拓，但延拓之后不一定是测度，从而为了保持测度的性质，这个更大的集类上再挑出一些集合构成一个$\sigma$环，这个环上测度的延拓仍为测度。按照这个思路，$Lebesgue$测度实际上就是，由左开右闭集合的可数并构成的环上定义的测度（为区间长度之和）按照上述过程进行延拓成为的外测度。</p>
+<p>在学习实变函数的过程中，我一再地体会到，实变函数作为实分析的例子的优点。倘若只学$Rudin$的抽象框架，那么学完一遍脑中没有实际的结构，仿如空中楼阁，不能落地，印象也不能够深刻。很多时候，我们可能都觉得，一般的事情更好，因为它能够涵盖所有特殊的情况；但这件事也不绝对。很多时候正是从特殊的情况着手研究一般，用特殊情形的研究方法，尝试类比，往往一般的问题也能够解决。分析学的理论的确博大精深啊！</p>
 
         </div>
         <footer class="article-footer">
@@ -268,7 +241,7 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/02/24/lesson-1/" data-id="clfgl53270002kkvd73xyd2lh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/03/20/life-33/" data-id="clfgl5336001hkkvdfb5ffk6k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -338,18 +311,17 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
             "@type": "Person",
             "name": "NJU-Kevin"
         },
-        "headline": "Study of Probability",
-        "image": "https://nju-kevin.github.iohttps://images2.alphacoders.com/521/521718.jpg",
+        "headline": "浅谈$Riesz$表示定理",
+        "image": "https://nju-kevin.github.iohttps://images7.alphacoders.com/346/346871.jpg",
         "keywords": "",
-        "genre": "Lesson",
-        "datePublished": "2023-02-24",
-        "dateCreated": "2023-02-24",
-        "dateModified": "2023-03-02",
-        "url": "https://nju-kevin.github.io/2023/02/24/lesson-1/",
+        "genre": "",
+        "datePublished": "2023-03-20",
+        "dateCreated": "2023-03-20",
+        "dateModified": "2023-03-20",
+        "url": "https://nju-kevin.github.io/2023/03/20/life-33/",
         "description": "
-概要这篇文章（math-8）将记录在《概率论基础》这门课程中我对于一些问题的看法以及对于习题的解题思路，与之前一篇关于$Papa \space Rudin$的类似，并将每周更新。
-第一周第一周课程的内容并不算多，介绍了概率空间的最基本的三个量：样本空间$\Omega$，概率的定义域$\sigma-$代数，以及概率测度。同时简单介绍了测度的性质，只要学过$Papa \space Rudin$第一章",
-        "wordCount": 102
+今天花了一个上午的时间把$C_c(X)$上的正线性泛函的$Riesz$表示定理从头到尾梳理并且证明了一遍，可谓是见证了一个理论从一开始只有定义，到一步步建立结论，一点一点接近想要证明的事情，最后到完全证出的一整个过程，吃午饭的时候，还有一处证明细节不太明白，走回来的路上突然发现就是利用的之前已经证出来的一个结论以及一个定义，至此，整个定理十二步的证明过程浮现在脑海里，我不禁发现，该定理的证明所体",
+        "wordCount": 3
     }
 </script>
 
@@ -430,20 +402,10 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
         
 <nav id="article-nav">
     
-        <a href="/2023/02/24/lesson-2/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Study of Complex Analysis
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2023/02/23/life-13/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2023/03/19/life-32/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">小作业里的大乾坤</p>
+        <p class="article-nav-title">礼拜天晚间时刻（一）</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -646,7 +608,7 @@ P\left(\bigcup_{i=1}^{n}A_i\right)=&P\left(\left(\bigcup_{i=1}^{n-1}A_i\right)\c
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://nju-kevin.github.io/2023/02/24/lesson-1/';
+    var disqus_url = 'https://nju-kevin.github.io/2023/03/20/life-33/';
     
     (function() {
     var dsq = document.createElement('script');
