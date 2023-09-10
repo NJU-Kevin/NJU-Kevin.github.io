@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>数学建模国赛回顾 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="从9.7晚上六点至9.10晚上八点是数学建模国赛的比赛时间，这三天每个小队合力完成一篇针对赛题的论文撰写，可以说任务量还是蛮大的。我们队做的是C题，因为A、B题物理背景过于强，建模难度较高，而C题则是预测、评价、策略类问题，相对而言建模难度没有那么高，但难点在于需要考虑的东西非常多，数据量非常庞大，数据处理和数据分析部分十分繁琐。C题说的大概是超市里卖蔬菜往往都有时效性，很多蔬菜容易损坏变质，因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模国赛回顾">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/09/10/life-108/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="从9.7晚上六点至9.10晚上八点是数学建模国赛的比赛时间，这三天每个小队合力完成一篇针对赛题的论文撰写，可以说任务量还是蛮大的。我们队做的是C题，因为A、B题物理背景过于强，建模难度较高，而C题则是预测、评价、策略类问题，相对而言建模难度没有那么高，但难点在于需要考虑的东西非常多，数据量非常庞大，数据处理和数据分析部分十分繁琐。C题说的大概是超市里卖蔬菜往往都有时效性，很多蔬菜容易损坏变质，因">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.alphacoders.com/132/1323342.jpeg">
+<meta property="article:published_time" content="2023-09-10T08:59:31.000Z">
+<meta property="article:modified_time" content="2023-09-10T13:22:02.782Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.alphacoders.com/132/1323342.jpeg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/rudin">index.rudin</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/lesson">index.lesson</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/contest">index.contest</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Contest/">Contest</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-108" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        数学建模国赛回顾
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/09/10/life-108/" class="article-date">
+       <time datetime="2023-09-10T08:59:31.000Z" itemprop="datePublished">2023-09-10</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/09/10/life-108/" class="article-date">
+     <time datetime="2023-09-10T13:22:02.782Z" itemprop="dateModified">2023-09-10</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">2.4k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">8 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images.alphacoders.com/132/1323342.jpeg" alt=""></p>
+<p>从9.7晚上六点至9.10晚上八点是数学建模国赛的比赛时间，这三天每个小队合力完成一篇针对赛题的论文撰写，可以说任务量还是蛮大的。我们队做的是C题，因为A、B题物理背景过于强，建模难度较高，而C题则是预测、评价、策略类问题，相对而言建模难度没有那么高，但难点在于需要考虑的东西非常多，数据量非常庞大，数据处理和数据分析部分十分繁琐。C题说的大概是超市里卖蔬菜往往都有时效性，很多蔬菜容易损坏变质，因此每次进货进哪些货，进多少货，成了很重要的问题。然后需要我们对于给出的数据进行分析，分析销量和售价的关系，并给出一些条件帮助超市进行模拟定价使得超市的收益最大化。</p>
+<p>拿到题目后我们第一晚对于题目进行了分析，理解了一下题目意思，并且大致对于每一道题目有了建模的方法和计算公式，但由于数据没有处理，很多时候信息隐藏在数据里，因此也只能大致地分析一下。但审题确实是很重要的一环，如果题目要求都没有理解清楚，那么后面做的都只是无用功。第二天我们开始对数据进行处理，一共有四张表，其中有一张表格是某超市从2020.7.1到2023.6.30的所有销售记录，一共有八十七万多条数据。此时，Excel表格的弊端就显现出来了，那就是如果要对多张表格进行“连接”，对比，筛选处理会很麻烦。比如我们需要的数据分布在两张表上，而为了移动到一张表格上，我们不仅仅是复制黏贴，最重要的是数据必须和名称对应，例如青菜的售价应该和青菜对应，而Excel表格只能按原始顺序进行复制黏贴，这就给整合数据带来了很多麻烦。其次，Excel表格的分组筛选能力、合并筛选能力也较为薄弱，或者说要实现这样的操作需要很繁琐的过程。此时就体现了数据库的优点了。如果使用数据库SQL server，只要我们把Excel表格中的数据导入数据库，那么可以用数据库中的select等命令完成各项我们所需要的操作，尤其是数据量极为庞大的时候。</p>
+<p>我们在7.8日全天都在处理数据，尤其是表格导入SQL就需要二十分钟左右的时间。现在回想，我觉得我们数据预处理的效率太低。很多数据没有沟通好，导致整理好了之后才知道不需要这个，需要另一个。当然一方面是需要数据的同学也不知道需要什么样的数据。在7.8晚上更是发现有一张表最开始的数据连接就出了问题，导致后面根据这张基准表算的数据有几列是错误的，这也耗费了不少时间。另外，很多数据的计算公式也不相同，这也为后面建模的混乱埋下了伏笔。</p>
+<p>7.9日我把建模需要的算法打成LaTeX公式，然后却不知道要干什么了，我本以为另外两个同学在算，但事实上她们或许是感觉尚且来得及，所以实际上她们并没有做什么事情，这直到7.9日晚上发现来不及了，当时我们只做了第一问，相当于是一共三天的时间，我们用了前两天只做了第一问，而题目一共有四问。第四问是文字叙述题，尚且不算难，但第二、第三问所需要的工作量无疑是巨大的。首先她们用时间序列预测得到数据就需要一段时间，然后我还需要根据她们预测出的数据、以及表格中筛选出的数据，代入MATLAB进行规划运算，而MATLAB进行规划运算虽然有设定好的函数，但是需要将数据以相应的格式输入。第二问的目标函数就很繁琐，我还需要将六个变量化成矩阵形式输入到MATLAB的程序框里，这只是某一天的数据，我要预测七天的数据，而且约束条件还是和前一天预测得到的数据相关的，也就是需要迭代。每做一天的数据就需要12次运算，而一共需要7天的预测数据，繁杂程度可想而知。而且由于她们拟合得到的函数不精确，随后得到的利润最大值却是负的，也就是超市还会亏三千多块钱，这很显然是不合理的，然而由于她们之前拟合数据就拟合了好几天，而且她们也不知道应该怎么拟合，只能拟合成线性的，从而效果极为不好，这些从我代入MATLAB计算的结果也能看出。说实话我预想到这个计算量后，在7.9晚上确实有些难绷，甚至想要放弃，但不仅是我，还有我的朋友、家人都告诉我要坚持下去，因此我晚上回宿舍好好休整了下，顺便也要等她们预测出的数据。而她们则通宵拟合数据，一宿没睡，也挺不容易的。</p>
+<p>7.10早上我拿到她们的数据后在图书馆认认真真把数据输入MATLAB中，两三个小时后总算是把第二问的数据算出来了，至于负数的利润，我们不打算写在论文中。后来下午她们还需要我计算第三问，而第三问虽然只要预测一天的，但是预测的矩阵是33$\times$33阶的，而且当我预测完得到结果后却得知，她们给我的数据表没有更新，应该用更新后的，但是她们却在我算出来后才更新好，也就是说之前做的又是无用功。我内心也深以为队友之间的沟通真的很必要。当时以及下午三点，为了得到最新的数据，我也只能硬着头皮重新手打1089个数据，打到最后眼都花了。不过不管怎么说，最后还是做出来数据了。</p>
+<p>六点我和另一位同学修改论文，还发现论文中不少笔误，修改了一下摘要和排版，我还对每个问题画了流程图，对每个建模算法也配了一张流程图。七点多论文生成编码上传后，我长舒了一口气。我此时坐在图书馆中，脑中一片空白。这几天的确很累，但我也认为我收获了很多。首先我没有选择熬夜，这不代表我态度不端正，而是我知道我熬夜的效率不会高，而且我在7.9日晚上也干不了什么，因为数据还没预测完。因此我在保重健康的条件下尽力完成了此次比赛任务。其次技能方面，我又重拾起了大二上学期学习过的数据库，实战中发现如果没有数据库，数据处理要难上不止一个量级，可谓是功臣了。另外我对Excel表格的使用又有了新的了解，很多之前不太知道的功能现在也会用了。同时，我还学习画了流程图，也能画出比较美观、清晰的效果，比如<a target="_blank" rel="noopener" href="https://www.processon.com/diagraming/64fbeabeb97c585a85fa1d44">https://www.processon.com/diagraming/64fbeabeb97c585a85fa1d44</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/diagraming/64fd350e9aaeb84b4b3f51b4">https://www.processon.com/diagraming/64fd350e9aaeb84b4b3f51b4</a><img src="https://www.processon.com/diagraming/64fd32d9fdcfcd4c818d15b9" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/diagraming/64fbe3f127860e0a919850d3">https://www.processon.com/diagraming/64fbe3f127860e0a919850d3</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/diagraming/64fd371cfdcfcd4c818d18b6">https://www.processon.com/diagraming/64fd371cfdcfcd4c818d18b6</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.processon.com/diagraming/64fd38d02c1a257ae99761e8">https://www.processon.com/diagraming/64fd38d02c1a257ae99761e8</a></p>
+<p>我觉得这次建模比赛也算是让我体验一下当数据分析师是什么样的感受吧，这些东西没有什么理论难度，完全是熟练度的问题，多练练自然就会熟练了。而比赛由于只有三天的时间，而且最后做出来的结果很大程度上也和队友有关系，因此不能完全反应将来应用数学的工作风格。对于未来的发展，我也难免会有迷茫和焦虑，但好在这些都只是及其偶尔地出现一次，这得益于我的良好心态。我现在早已不会和大一大二时候一样还在关心所谓的“分数”“给分”云云，或许是变自信了吧，但我深知这坚定的自信的根本来源还是我<strong>平日里对自己的高要求和坚持不懈的努力</strong>。我每天也会进行放松，并且也有多种方式，但我能很自信地说出，我每天钻研在学习上的时间是足够长，也足够有效率的。<strong>当然，学无止境，我还需要把效率提的更高一些，对自己的要求更严格一些，学习方法更科学一些，心态看法更通透一些</strong>。如果问我每天在想些什么，那么除了数学题，剩余的大部分就是如何能够提升自己了。变得更好，是我永恒的追求。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/09/10/life-108/" data-id="clmdhj7fg0021e0vdansr829l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "数学建模国赛回顾",
+        "image": "https://nju-kevin.github.iohttps://images.alphacoders.com/132/1323342.jpeg",
+        "keywords": "",
+        "genre": "Contest",
+        "datePublished": "2023-09-10",
+        "dateCreated": "2023-09-10",
+        "dateModified": "2023-09-10",
+        "url": "https://nju-kevin.github.io/2023/09/10/life-108/",
+        "description": "
+从9.7晚上六点至9.10晚上八点是数学建模国赛的比赛时间，这三天每个小队合力完成一篇针对赛题的论文撰写，可以说任务量还是蛮大的。我们队做的是C题，因为A、B题物理背景过于强，建模难度较高，而C题则是预测、评价、策略类问题，相对而言建模难度没有那么高，但难点在于需要考虑的东西非常多，数据量非常庞大，数据处理和数据分析部分十分繁琐。C题说的大概是超市里卖蔬菜往往都有时效性，很多蔬菜容易损坏变质，因",
+        "wordCount": 11
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/09/06/life-107/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">漫谈</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/09/10/life-108/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/132/1323342.jpeg)" alt="数学建模国赛回顾" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Contest/">Contest</a></p>
+                            <p class="item-title"><a href="/2023/09/10/life-108/" class="title">数学建模国赛回顾</a></p>
+                            <p class="item-date"><time datetime="2023-09-10T08:59:31.000Z" itemprop="datePublished">2023-09-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/09/06/life-107/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/132/1323336.jpeg)" alt="漫谈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/09/06/life-107/" class="title">漫谈</a></p>
+                            <p class="item-date"><time datetime="2023-09-06T13:11:51.000Z" itemprop="datePublished">2023-09-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/09/05/life-106/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images7.alphacoders.com/132/1323341.jpeg)" alt="本学期课程概述" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/09/05/life-106/" class="title">本学期课程概述</a></p>
+                            <p class="item-date"><time datetime="2023-09-05T12:46:10.000Z" itemprop="datePublished">2023-09-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/09/04/life-105/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/132/1327844.png)" alt="青蛙与飞鸟" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/09/04/life-105/" class="title">青蛙与飞鸟</a></p>
+                            <p class="item-date"><time datetime="2023-09-04T05:01:45.000Z" itemprop="datePublished">2023-09-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/09/02/life-104/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images7.alphacoders.com/132/1325253.png)" alt="2023暑期总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/09/02/life-104/" class="title">2023暑期总结</a></p>
+                            <p class="item-date"><time datetime="2023-09-02T13:52:15.000Z" itemprop="datePublished">2023-09-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">104</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/09/10/life-108/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
