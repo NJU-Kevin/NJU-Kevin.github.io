@@ -6,25 +6,25 @@
     
 
     
-    <title>学习概况总结 | Kevin&#39;s World</title>
+    <title>$Conway$泛函初探 | Kevin&#39;s World</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="今天收到短信，飞机票已经买好了，时间过得真得很快。之前还有种决赛离我还很远的感受，如今一想也就一个多礼拜了。 今天一天都泡在图书馆，算是学了不少东西。白天基本上在学概率论，把概率论中心极限定理之前的铺垫全都学了，我发现概率论中，尤其是中心极限定理部分，更关心的是依分布收敛，也就是弱收敛，与实变函数中关心的依测度收敛，依范数收敛，几乎处处收敛不同，弱收敛显然比这些收敛更弱，而正好弱收敛是实变函数中">
+    <meta name="description" content="今天接着昨天的泛函继续往下看，从前文我们已经知道，对于复$Banach$空间上的复有界线性算子，我们可以定义关于全纯函数的泛函积分；而如果想要定义连续函数的泛函积分，那么只在一般的$Banach$空间上则无法做到了，此时我们可以在复$Hilbert$空间上对于自伴算子定义在算子谱上关于连续函数的泛函积分。后面引入$Gelfand$变换之后我们会发现这里的自伴算子可以拓宽为正规算子关于谱上连续函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习概况总结">
-<meta property="og:url" content="https://nju-kevin.github.io/2023/05/17/life-80/index.html">
+<meta property="og:title" content="$Conway$泛函初探">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/09/17/life-113/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="今天收到短信，飞机票已经买好了，时间过得真得很快。之前还有种决赛离我还很远的感受，如今一想也就一个多礼拜了。 今天一天都泡在图书馆，算是学了不少东西。白天基本上在学概率论，把概率论中心极限定理之前的铺垫全都学了，我发现概率论中，尤其是中心极限定理部分，更关心的是依分布收敛，也就是弱收敛，与实变函数中关心的依测度收敛，依范数收敛，几乎处处收敛不同，弱收敛显然比这些收敛更弱，而正好弱收敛是实变函数中">
+<meta property="og:description" content="今天接着昨天的泛函继续往下看，从前文我们已经知道，对于复$Banach$空间上的复有界线性算子，我们可以定义关于全纯函数的泛函积分；而如果想要定义连续函数的泛函积分，那么只在一般的$Banach$空间上则无法做到了，此时我们可以在复$Hilbert$空间上对于自伴算子定义在算子谱上关于连续函数的泛函积分。后面引入$Gelfand$变换之后我们会发现这里的自伴算子可以拓宽为正规算子关于谱上连续函数">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.alphacoders.com/585/585121.jpg">
-<meta property="article:published_time" content="2023-05-17T13:25:07.000Z">
-<meta property="article:modified_time" content="2023-05-17T13:52:55.614Z">
+<meta property="og:image" content="https://images4.alphacoders.com/132/1329900.jpeg">
+<meta property="article:published_time" content="2023-09-17T14:05:19.000Z">
+<meta property="article:modified_time" content="2023-09-17T14:28:56.824Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.alphacoders.com/585/585121.jpg">
+<meta name="twitter:image" content="https://images4.alphacoders.com/132/1329900.jpeg">
     
 
     
@@ -176,14 +176,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-life-80" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-life-113" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        学习概况总结
+        $Conway$泛函初探
         </h1>
     
 
@@ -194,16 +194,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2023/05/17/life-80/" class="article-date">
-       <time datetime="2023-05-17T13:25:07.000Z" itemprop="datePublished">2023-05-17</time>
+    <a href="/2023/09/17/life-113/" class="article-date">
+       <time datetime="2023-09-17T14:05:19.000Z" itemprop="datePublished">2023-09-17</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2023/05/17/life-80/" class="article-date">
-     <time datetime="2023-05-17T13:52:55.614Z" itemprop="dateModified">2023-05-17</time>
+  <a href="/2023/09/17/life-113/" class="article-date">
+     <time datetime="2023-09-17T14:28:56.824Z" itemprop="dateModified">2023-09-17</time>
   </a>
 </div>
 
@@ -217,7 +217,7 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">445</span>
+      <span class="post-count">517</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
       <span class="post-count">1 mins. </span>
@@ -234,10 +234,10 @@
 
             
 
-            <p><img src="https://images.alphacoders.com/585/585121.jpg" alt=""></p>
-<p>今天收到短信，飞机票已经买好了，时间过得真得很快。之前还有种决赛离我还很远的感受，如今一想也就一个多礼拜了。</p>
-<p>今天一天都泡在图书馆，算是学了不少东西。白天基本上在学概率论，把概率论中心极限定理之前的铺垫全都学了，我发现概率论中，尤其是中心极限定理部分，更关心的是依分布收敛，也就是弱收敛，与实变函数中关心的依测度收敛，依范数收敛，几乎处处收敛不同，弱收敛显然比这些收敛更弱，而正好弱收敛是实变函数中没有涉及的，从而概率论对这方面展开了叙述，涉及弱收敛的判定，等价刻画，连续性定理，$Helly$选择定理，分布与特征函数的唯一确定性，矩唯一决定分布的条件等，尤其是收敛性部分，以及各个收敛性的刻画，关系转换，还是得花点时间认真研读的。后来把$RCA$复分析部分的解析延拓内容学了一下，因为期末考试要考，加上距离考试也不远了，因此今后我将把重点放在学习廖良文的教材上，尽早准备。</p>
-<p>晚上继续复习往年卷考点，也总结了不少常用的方法，如今以高视角重新回来审视，这些内容不难但仍然十分有趣，或许这也是数分高代解几这些基础课的特点，我们可能需要学很多遍，但每一遍都能有收获，每一遍都不感到无聊，每一遍都能汲取营养。</p>
+            <p><img src="https://images4.alphacoders.com/132/1329900.jpeg" alt=""></p>
+<p>今天接着昨天的泛函继续往下看，从前文我们已经知道，对于复$Banach$空间上的复有界线性算子，我们可以定义关于全纯函数的泛函积分；而如果想要定义连续函数的泛函积分，那么只在一般的$Banach$空间上则无法做到了，此时我们可以在复$Hilbert$空间上对于自伴算子定义在算子谱上关于连续函数的泛函积分。后面引入$Gelfand$变换之后我们会发现这里的自伴算子可以拓宽为正规算子关于谱上连续函数的泛函积分。不过$Salamon$在引入$Gelfand$变换的时候我觉得写的有些迷糊，有点乱，一开始抓不住要点。因此我就到书架上翻翻有没有其他介绍相关理论的书。</p>
+<p>一开始看到了算子理论和$C^<em>$代数的$AMS$系列丛书，但是后来觉得内容过于专业，于是拿出了经典的$Conway$的泛函分析。翻到相应部分之后发现$Conway$写的这部分很清晰。他直接介绍一般的交换$Banach$代数上以及$C^</em>-$代数上的结论，包括介绍了$Banach$代数的极大理想其实就是上面同态的核，这个刻画我认为对于$Gelfand$变换的建立很有帮助，得到这个之后就能得到所谓的极大理想空间，上面的同态作用在某个元素$a$上得到的就是这个元素的谱。</p>
+<p>看到八点多我意犹未尽，但是由于时间原因，我记下了比较重要的内容，回去继续消化。的确，$Salamon$写的更为具体，写了$Hilbert$空间上的泛函积分理论，事实上这些都其实是$C^*$代数上的结论，从这个角度来看，$Conway$由于讲的是一般的理论，因此更加简洁明了；而如果要看具体的例子，那么可以看$Salamon$上的具体应用。</p>
 
         </div>
         <footer class="article-footer">
@@ -245,7 +245,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/05/17/life-80/" data-id="clmnk03da006og0vd9k4g2tpq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/09/17/life-113/" data-id="clmnk03b4002eg0vddm947jfu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -315,17 +315,16 @@
             "@type": "Person",
             "name": "NJU-Kevin"
         },
-        "headline": "学习概况总结",
-        "image": "https://nju-kevin.github.iohttps://images.alphacoders.com/585/585121.jpg",
+        "headline": "$Conway$泛函初探",
+        "image": "https://nju-kevin.github.iohttps://images4.alphacoders.com/132/1329900.jpeg",
         "keywords": "",
         "genre": "Life",
-        "datePublished": "2023-05-17",
-        "dateCreated": "2023-05-17",
-        "dateModified": "2023-05-17",
-        "url": "https://nju-kevin.github.io/2023/05/17/life-80/",
+        "datePublished": "2023-09-17",
+        "dateCreated": "2023-09-17",
+        "dateModified": "2023-09-17",
+        "url": "https://nju-kevin.github.io/2023/09/17/life-113/",
         "description": "
-今天收到短信，飞机票已经买好了，时间过得真得很快。之前还有种决赛离我还很远的感受，如今一想也就一个多礼拜了。
-今天一天都泡在图书馆，算是学了不少东西。白天基本上在学概率论，把概率论中心极限定理之前的铺垫全都学了，我发现概率论中，尤其是中心极限定理部分，更关心的是依分布收敛，也就是弱收敛，与实变函数中关心的依测度收敛，依范数收敛，几乎处处收敛不同，弱收敛显然比这些收敛更弱，而正好弱收敛是实变函数中",
+今天接着昨天的泛函继续往下看，从前文我们已经知道，对于复$Banach$空间上的复有界线性算子，我们可以定义关于全纯函数的泛函积分；而如果想要定义连续函数的泛函积分，那么只在一般的$Banach$空间上则无法做到了，此时我们可以在复$Hilbert$空间上对于自伴算子定义在算子谱上关于连续函数的泛函积分。后面引入$Gelfand$变换之后我们会发现这里的自伴算子可以拓宽为正规算子关于谱上连续函数",
         "wordCount": 3
     }
 </script>
@@ -407,20 +406,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2023/05/18/contest-12/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            $CMC$准备系列（二）
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2023/05/16/life-79/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2023/09/16/life-112/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">浅谈院系开课乱象</p>
+        <p class="article-nav-title">全纯泛函积分与谱理论初探</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -623,7 +612,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://nju-kevin.github.io/2023/05/17/life-80/';
+    var disqus_url = 'https://nju-kevin.github.io/2023/09/17/life-113/';
     
     (function() {
     var dsq = document.createElement('script');
