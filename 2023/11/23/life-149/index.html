@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>惰﻿者集初读 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="今天学习的闲暇之余在知乎上看到有人推荐小平邦彦的自传《惰者集》，于是我便在网上找到了这本书，打开翻翻，大概是小平邦彦对于数学，数学研究等方面谈的自己的感受和思考。第一章就谈了他看书的方法，这也是流传很广的“抄书法”，事实上并不是抄书，而是在无法理解证明过程的时候抄书，反复抄书最后理解证明过程。我很欣赏文中的一个观点：理解了一个概念其实更应该是一种感觉，也就是一想到这个结论就和2+2&#x3D;4一样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="惰﻿者集初读">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/11/23/life-149/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="今天学习的闲暇之余在知乎上看到有人推荐小平邦彦的自传《惰者集》，于是我便在网上找到了这本书，打开翻翻，大概是小平邦彦对于数学，数学研究等方面谈的自己的感受和思考。第一章就谈了他看书的方法，这也是流传很广的“抄书法”，事实上并不是抄书，而是在无法理解证明过程的时候抄书，反复抄书最后理解证明过程。我很欣赏文中的一个观点：理解了一个概念其实更应该是一种感觉，也就是一想到这个结论就和2+2&#x3D;4一样">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images4.alphacoders.com/133/1338265.png">
+<meta property="article:published_time" content="2023-11-23T14:44:54.000Z">
+<meta property="article:modified_time" content="2023-11-23T14:47:32.165Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images4.alphacoders.com/133/1338265.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/rudin">index.rudin</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/lesson">index.lesson</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/contest">index.contest</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-149" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        惰﻿者集初读
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/11/23/life-149/" class="article-date">
+       <time datetime="2023-11-23T14:44:54.000Z" itemprop="datePublished">2023-11-23</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/11/23/life-149/" class="article-date">
+     <time datetime="2023-11-23T14:47:32.165Z" itemprop="dateModified">2023-11-23</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">958</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images4.alphacoders.com/133/1338265.png" alt="">
+﻿</p>
+<p>﻿今天学习的闲暇之余在知乎上看到有人推荐小平邦彦的自传《惰者集》，于是我便在网上找到了这本书，打开翻翻，大概是小平邦彦对于数学，数学研究等方面谈的自己的感受和思考。第一章就谈了他看书的方法，这也是流传很广的“抄书法”，事实上并不是抄书，而是在无法理解证明过程的时候抄书，反复抄书最后理解证明过程。我很欣赏文中的一个观点：理解了一个概念其实更应该是一种感觉，也就是一想到这个结论就和2+2=4一样直观清晰，这与平时人们所谈论的“能自己独立推导”“能教会别人”不同，但仔细一想的确很有道理。小平邦彦很强调定理的应用性，一个好的定理如果没有什么应用价值那也太可惜了。他所谓的理解透彻其实就是把一个定理真正融入变为了自己的感觉，相当于是把数学内容培养进了“数感”里面，就好像2+2=4一样永远不会忘，也永远不会记不得这个结论。</p>
+<p>﻿</p>
+<p>﻿不得不承认，数学是一门技术性的学科，学到非常熟练后就会内化为一种肌肉记忆，一种条件反射，如果一个定理能最终达到这样的状态，那就是理解透彻了。这是一种很新奇的观点，因为这种观点把掌握程度和人的感觉联系在一起，乍一想感觉不是很靠谱，但如果是真正学过数学的人，还是能感同身受的，如果一个定理我没有理解透彻，那么在需要用的时候我不能一下子反应过来可以用这个定理，甚至都不能一下子复述出来这个定理讲的是什么样的事情。所谓的独立推导，教会别人，时间长了还是会忘，但内化到肌肉记忆里的东西是不会忘的。当然，独立推导一些事情，是为了理解定理的证明过程，对于这一点，小平邦彦也直言，很多时候长时间不想这个证明过程就会忘掉，重新回去看的时候会感觉证明过程没有定理本身这么美，“有种牵强附会”的感觉，这其实就是在将一个定理融入了感觉之后再去看定理的来由，打个比方就是现在用一套完整的理论去证明2+2=4这个等式一样。其实现在我已经有这种体会了，许多实分析，泛函里的内容，即使当时学的时候把证明过程都弄明白了，时间一长也只记得一个结论，证明方法也只记得一个思路，过于具体的细节早已忘却。当然了，如果需要考试，自然是得把所有细节弄明白，但如果以后做研究，忘掉亦不可怕，因为在追求细节的过程中，基本功已经培养到了，到后来的研究更注重一个感觉，很多时候感觉对了，就容易解决出一些难题。因此，细扣证明这个过程是需要的，但并不是什么时候都需要，同时，如果没有这个过程也是万万不能的。</p>
+<p>﻿</p>
+<p>﻿纵然小平邦彦本人很谦虚，但他的思考在内行人眼里绝对是独到的，虽然还没看多少内容，但感觉他的话都能一针见血，一语中的，不愧是拿过Fields奖的大数学家。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/11/23/life-149/" data-id="clpbb63r7004hzkvd3ccr7080" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "惰﻿者集初读",
+        "image": "https://nju-kevin.github.iohttps://images4.alphacoders.com/133/1338265.png",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2023-11-23",
+        "dateCreated": "2023-11-23",
+        "dateModified": "2023-11-23",
+        "url": "https://nju-kevin.github.io/2023/11/23/life-149/",
+        "description": "
+﻿
+﻿今天学习的闲暇之余在知乎上看到有人推荐小平邦彦的自传《惰者集》，于是我便在网上找到了这本书，打开翻翻，大概是小平邦彦对于数学，数学研究等方面谈的自己的感受和思考。第一章就谈了他看书的方法，这也是流传很广的“抄书法”，事实上并不是抄书，而是在无法理解证明过程的时候抄书，反复抄书最后理解证明过程。我很欣赏文中的一个观点：理解了一个概念其实更应该是一种感觉，也就是一想到这个结论就和2+2=4一样",
+        "wordCount": 3
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/11/22/life-148/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">更严谨，更自律，更坚强</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/23/life-149/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images4.alphacoders.com/133/1338265.png)" alt="惰﻿者集初读" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/23/life-149/" class="title">惰﻿者集初读</a></p>
+                            <p class="item-date"><time datetime="2023-11-23T14:44:54.000Z" itemprop="datePublished">2023-11-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/22/life-148/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images4.alphacoders.com/134/1341419.png)" alt="更严谨，更自律，更坚强" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/22/life-148/" class="title">更严谨，更自律，更坚强</a></p>
+                            <p class="item-date"><time datetime="2023-11-22T14:42:26.000Z" itemprop="datePublished">2023-11-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/19/life-147/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/pastoral-road-260.jpg)" alt="偏微分方程学习记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/19/life-147/" class="title">偏微分方程学习记录</a></p>
+                            <p class="item-date"><time datetime="2023-11-19T14:19:32.000Z" itemprop="datePublished">2023-11-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/18/life-146/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.hdwallpapers.net/previews/horseshoe-bend-782.jpg)" alt="周末学习记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/18/life-146/" class="title">周末学习记录</a></p>
+                            <p class="item-date"><time datetime="2023-11-18T14:48:08.000Z" itemprop="datePublished">2023-11-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/17/life-145/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images4.alphacoders.com/134/1341428.png)" alt="埋头书本，踏实努力" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/17/life-145/" class="title">埋头书本，踏实努力</a></p>
+                            <p class="item-date"><time datetime="2023-11-17T14:52:18.000Z" itemprop="datePublished">2023-11-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">145</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/11/23/life-149/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
