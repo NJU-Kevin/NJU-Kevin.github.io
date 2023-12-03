@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>周末学习记录（四） | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。 周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几">
+<meta property="og:type" content="article">
+<meta property="og:title" content="周末学习记录（四）">
+<meta property="og:url" content="https://nju-kevin.github.io/2023/12/03/life-152/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。 周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.alphacoders.com/134/1341845.jpeg">
+<meta property="article:published_time" content="2023-12-03T13:56:49.000Z">
+<meta property="article:modified_time" content="2023-12-03T14:21:00.132Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.alphacoders.com/134/1341845.jpeg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/rudin">index.rudin</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/lesson">index.lesson</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/contest">index.contest</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-152" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        周末学习记录（四）
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/12/03/life-152/" class="article-date">
+       <time datetime="2023-12-03T13:56:49.000Z" itemprop="datePublished">2023-12-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/12/03/life-152/" class="article-date">
+     <time datetime="2023-12-03T14:21:00.132Z" itemprop="dateModified">2023-12-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">916</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images.alphacoders.com/134/1341845.jpeg" alt=""></p>
+<p>这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。</p>
+<p>周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几个关于一致可积的经典结论（$Vitali$收敛定理等）。后来又把$PDE$的调和方程引入部分，从散度定理出发一步步推到$Green$公式与调和函数的$Green$表示，推完之后觉得里面还是有不少细节、不少内容的，如果仅仅是老师讲一遍，跟着现有的思路抄一遍，有些地方还真不一定能走过去，而自己独立走一遍才知道哪里可能会有一下子想不到的坑存在。推完这些之后已经到了晚上，后来晚上就对$PTE$上鞅论部分继续进行学习，关于$Doob$的有界停时定理，极大不等式等。现在发现，许多高等概率论中的内容都可以用鞅的理论解决，这两者相辅相成。实际上，把鞅和$Markov$链学扎实后，随机过程里许多东西其实就并不难了，曾经觉得随机过程很难，如今的视角来看，更觉得很有趣，而不觉得有多难。</p>
+<p>周日上午一位同学问了我这周实变作业题，正好我做的时候就意识到这如果用$Rudin$上的一道课后习题就可以秒，因为那道课后习题介绍的是更一般的情况，在欧式空间上仍然适用。我在给他写了一遍思路后自己又把这部分内容重新看了一遍。之前做这些题的时候觉得很复杂很难，即使是把答案抄一遍也不太能搞明白（大约是今年上半年的时候），奇怪的是，今天再一瞧，感觉难度陡降，而且思路很清晰，一下子就走通了；后来我还重新做了一遍$Rudin$上了其他几道很经典的课后习题，对于$p$范数的性质有了更多的了解，之前看的时候学了一遍答案，但感觉并没有完全学懂，今天又手算了一遍，理解必然是更精进了一些，至少思路很清晰，而且过程中也没有什么卡壳。傍晚和晚上的时间用来复习数理统计，以及学习$R$语言，跟着北大数院网站上的<a target="_blank" rel="noopener" href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/ggplot2.html">R语言讲义</a>学，效果还是不错的，至少画图、数据分析等基本操作看教程都能比较熟悉了，等把书上需要执行的操作学完后，下周开始就可以着手写报告了，报告没有字数要求，但我也不想只是交个差，毕竟R语言在今后的用处是巨大的，尤其是对于需要进行数据分析等工作的人，因此趁这学期数理统计课程的硬性要求，我也想认真学一学，不说学的多精通，至少要懂个皮毛，等今后有空再深入学习。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2023/12/03/life-152/" data-id="clppkm3ou004uvkvd5s5f7a5t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "周末学习记录（四）",
+        "image": "https://nju-kevin.github.iohttps://images.alphacoders.com/134/1341845.jpeg",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2023-12-03",
+        "dateCreated": "2023-12-03",
+        "dateModified": "2023-12-03",
+        "url": "https://nju-kevin.github.io/2023/12/03/life-152/",
+        "description": "
+这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。
+周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几",
+        "wordCount": 4
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/11/30/life-151/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">十一月总结</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/12/03/life-152/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/134/1341845.jpeg)" alt="周末学习记录（四）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/12/03/life-152/" class="title">周末学习记录（四）</a></p>
+                            <p class="item-date"><time datetime="2023-12-03T13:56:49.000Z" itemprop="datePublished">2023-12-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/30/life-151/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/133/1337544.png)" alt="十一月总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/11/30/life-151/" class="title">十一月总结</a></p>
+                            <p class="item-date"><time datetime="2023-11-30T13:10:22.000Z" itemprop="datePublished">2023-11-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/27/lesson-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images7.alphacoders.com/133/1339107.png)" alt="大三上期中考试总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Lesson/">Lesson</a></p>
+                            <p class="item-title"><a href="/2023/11/27/lesson-7/" class="title">大三上期中考试总结</a></p>
+                            <p class="item-date"><time datetime="2023-11-27T13:55:55.000Z" itemprop="datePublished">2023-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/26/rudin-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://ebus.ams.org/ProductImages/gsm-19-r-e-cov-1.jpg)" alt="Partial Differential Equations" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Rudin/">Rudin</a></p>
+                            <p class="item-title"><a href="/2023/11/26/rudin-6/" class="title">Partial Differential Equations</a></p>
+                            <p class="item-date"><time datetime="2023-11-26T11:31:29.000Z" itemprop="datePublished">2023-11-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/26/rudin-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://zlib.pub/img/crop/300x450/145r2qoq8ato.jpg)" alt="Real and Complex Analysis" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Rudin/">Rudin</a></p>
+                            <p class="item-title"><a href="/2023/11/26/rudin-5/" class="title">Real and Complex Analysis</a></p>
+                            <p class="item-date"><time datetime="2023-11-26T09:43:32.000Z" itemprop="datePublished">2023-11-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">148</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2023/12/03/life-152/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
