@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://readintrobooks.com/wp-content/uploads/2016/10/Probability-Theory-199x300.jpg">
 <meta property="article:published_time" content="2023-12-10T11:20:09.000Z">
-<meta property="article:modified_time" content="2023-12-10T14:19:47.873Z">
+<meta property="article:modified_time" content="2023-12-24T13:55:31.256Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://readintrobooks.com/wp-content/uploads/2016/10/Probability-Theory-199x300.jpg">
@@ -203,7 +203,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2023/12/10/rudin-7/" class="article-date">
-     <time datetime="2023-12-10T14:19:47.873Z" itemprop="dateModified">2023-12-10</time>
+     <time datetime="2023-12-24T13:55:31.256Z" itemprop="dateModified">2023-12-24</time>
   </a>
 </div>
 
@@ -217,10 +217,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">1.4k</span>
+      <span class="post-count">1.9k</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
-      <span class="post-count">4 mins. </span>
+      <span class="post-count">7 mins. </span>
    </div>
 
 
@@ -239,10 +239,16 @@
 <h1 id="O-总览"><a href="#O-总览" class="headerlink" title="O 总览"></a>O 总览</h1><p>对于概率这门学科，我算是入门比较晚的。之前由于范学长是研究的概率方向，从而略微听说过些许，但当时很天真地以为概率和高中的摸球一样无趣。等到大二下学期学概率论基础这门课程的时候，第一次接触到现代概率论（即以测度论为基础建立的概率论），瞬间便被这门学科所吸引，以至于有一种“相见恨晚”的感觉。当时我恰好正在看实分析，因此可以说这二者在齐头并进地学习，当然由于当时实分析的基础并不牢固，很多细节并没有弄清楚，但即使这样，在学完大数定律和中心极限定理后，我也对概率论这门学科有了一个初步的了解，也深刻地感受到了实分析对于学好概率论的重要性。大三上学习随机过程的时候，我也继续学习这本书后半部分随机过程的内容，而此时我以及有了一定的分析学基础，看这些理论的时候阻力明显小了许多，学到了许多思想，也惊讶于更高级的手段（例如鞅方法等）能够更加轻松地证明高等概率论中的一些基本定理。对于概率论的学习没有终点，作为分析学衍生的学科，来源于实际又能反馈于实际，可谓是既具备足够的理论深度又有不菲的应用价值的数学分支。</p>
 <h1 id="I-分析学基础"><a href="#I-分析学基础" class="headerlink" title="I 分析学基础"></a>I 分析学基础</h1><p>第一部分我想来谈一谈学习概率论所需要具备的分析学基础。众所周知，现代概率论是建立在实分析的基础上的，而分析中的一些术语在概率论这门学科中又有特别的称谓，因此这一部分就来解决这一问题。</p>
 <h2 id="测度空间"><a href="#测度空间" class="headerlink" title="测度空间"></a>测度空间</h2><p>概率论中考虑的测度空间通常为$(\Omega,\mathcal{F},\mathbb{P})$，$\Omega$为样本空间，$\mathcal{F}$ 为样本空间$\Omega$上的$\sigma$代数，$\mathbb{P}$ 为$\mathcal{F}$ 上的概率测度。概率测度是一类有限测度，而任意的有限测度都可以通过单位化得到一个概率测度，因此某种意义上可以将所有的有限测度就看成是概率测度。</p>
-<p>在实分析中，原空间的性质是十分重要的，具有良好拓扑性质的空间能够得到一系列丰富的理论，而在概率论中，往往不会特意关注样本空间的拓扑性质等，即使是$Kolmogorov$的扩张定理里面，也只是要求概率空间是“良好的”，即存在概率空间$(\Omega,\mathcal{F})$到$(\mathbb{R}^n,\mathcal{B}(\mathbb{R}^n))$的1-1映射。</p>
-<h2 id="条件期望"><a href="#条件期望" class="headerlink" title="条件期望"></a>条件期望</h2><p>这部分属于概率论中的经典内容，在实分析中也有很重要的对应，即$Radon-Nikodym$导数。考虑一个概率空间上的随机变量$\xi$与一个子$\sigma$代数$\mathcal{F_0}$，$\xi$是概率空间上的可测函数，但不一定关于子$\sigma$代数$\mathcal{F_0}$可测，而条件期望则是在一定的意义下将$\xi$变为关于$\mathcal{F_0}$可测的随机变量，即$E(\xi|\mathcal{F}_0)$满足：</p>
-<p>（i）$E(\xi|\mathcal{F}_0) \in \mathcal{F}_0$</p>
-<p>（ii）$\int_{A}\xi d\mathbb{P}=\int_{A}E(\xi|\mathcal{F}_0) d\mathbb{P}$</p>
+<p>在实分析中，原空间的性质是十分重要的，具有良好拓扑性质的空间能够得到一系列丰富的理论，而在概率论中，往往不会特意关注样本空间的拓扑性质等，即使是$Kolmogorov$的扩张定理里面，也只是要求概率空间是“良好的”，即存在概率空间$(\Omega,\mathcal{F})$到$(\mathbb{R}^n,\mathcal{B}(\mathbb{R}^n))$的$1-1$映射。</p>
+<h2 id="条件期望"><a href="#条件期望" class="headerlink" title="条件期望"></a>条件期望</h2><p>这部分属于概率论中的经典内容，在实分析中也有很重要的对应，即$Radon-Nikodym$导数。给定概率空间$(\Omega,\mathcal{F},\mathbb{P})$上的随机变量$\xi$与一个子$\sigma$代数$\mathcal{F}_0$，我们可以构造一个正测度<script type="math/tex">\nu(A)=\int_{A}\xi d\mathbb{P}</script>其中$A\in \mathcal{F}_0$</p>
+<p>易知$\nu \ll \mathbb{P}$，从而由$Radon-Nikodym$定理，存在$h\in L^1(\Omega,\mathcal{F}_0,\mathbb{P})$使得 <script type="math/tex">\int_{A}hd\mathbb{P}=\nu(A) \quad \forall A\in \mathcal{F}_0</script></p>
+<p>这正是条件期望的构造，以下为条件期望的定义：</p>
+<p>考虑一个概率空间$(\Omega,\mathcal{F},\mathbb{P})$上的随机变量$\xi$与一个子$\sigma$代数$\mathcal{F}_0$，$\xi$是概率空间上的可测函数，但不一定关于子$\sigma$代数$\mathcal{F_0}$可测，而条件期望则是在一定的意义下将$\xi$变为关于$\mathcal{F}_0$可测的随机变量，即$E(\xi|\mathcal{F}_0)$满足：</p>
+<p>（i）<script type="math/tex">E(\xi|\mathcal{F}_0) \in \mathcal{F}_0</script></p>
+<p>（ii）<script type="math/tex">\int_{A}\xi d\mathbb{P}=\int_{A}E(\xi|\mathcal{F}_0) d\mathbb{P} \quad \forall A\in \mathcal{F}_0</script></p>
+<p>条件期望有非常多的性质，但所有的性质归根到底都是对于上述定义的运用，因此这里不一一列举。值得一提的是，条件期望可以看成是一种线性算子，这在后续的论述中也会提到，于是从这种角度来看，我们就可以将条件期望与泛函分析中的理论相结合，用算子理论来研究条件期望。比如下面的这个重要性质</p>
+<p>条件期望作用在$L^2(\Omega,\mathcal{F}, \mathbb{P})$时，则成为一个投影算子。当$\xi \in L^2(\Omega,\mathcal{F}, \mathbb{P})$时，由于$L^2(\Omega,\mathcal{F}, \mathbb{P})$为$Hilbert$空间，此时条件期望可以看成将$\xi$投影到子空间$L^2(\Omega,\mathcal{F}_0, \mathbb{P})$的投影算子，这是由下述等式保证的： <script type="math/tex">E(\xi-Y)^2 \geq E(\xi-E(\xi|\mathcal{F}_0))^2 \quad \forall Y\in L^2(\Omega,\mathcal{F}_0, \mathbb{P})</script></p>
+<h2 id="弱拓扑与弱收敛"><a href="#弱拓扑与弱收敛" class="headerlink" title="弱拓扑与弱收敛"></a>弱拓扑与弱收敛</h2><p>一般的弱拓扑是在拓扑向量空间的范畴下讨论的，在概率论中，我们更多的是关心赋范空间，进一步地，$Banach$空间上的弱拓扑以及弱收敛。我们考虑随机变量$\xi$所诱导的$\mathbb{R}$上的概率测度$\mu(A)=\mathbb{P}(\xi^{-1}(A))$，由于对偶关系$C_c(X)^{\ast} \cong \mathcal{B}(X)$（$Riesz-Markov$定理），从而概率测度都可以看成是$C_c(\mathbb{R})$上的泛函，因此概率测度的弱收敛（实际上应是弱 * 收敛）即为<script type="math/tex">\lim_{n\to \infty}\int{x}d\mu_n=\int{xd\mu} \quad x\in C_c(\mathbb{R})</script></p>
 
         </div>
         <footer class="article-footer">
@@ -250,7 +256,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2023/12/10/rudin-7/" data-id="clqj6blsl00bc50vdbvck9weu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2023/12/10/rudin-7/" data-id="clqjkobc400beq8vd5apa1c9v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -326,11 +332,11 @@
         "genre": "Rudin",
         "datePublished": "2023-12-10",
         "dateCreated": "2023-12-10",
-        "dateModified": "2023-12-10",
+        "dateModified": "2023-12-24",
         "url": "https://nju-kevin.github.io/2023/12/10/rudin-7/",
         "description": "
 前言这一系列旨在阐述我对于几门分析学基础学科的学习体验与认知，主要通过阅读的书籍按时间顺序更新。在这一系列中，涉及到的定理与命题都会完整提到，而其证明过程不会事无巨细地写出，一些比较关键的定理证明也仅写出核心思路。除了命题本身及其相关内容，学科的研究目的和研究思路也会有所涉及，这样能够对于学科的脉络有一个更清楚的掌握，在许多时候更能做到“知其然而知其所以然”。此外，我个人在学习过程中的一些思考，",
-        "wordCount": 34
+        "wordCount": 80
     }
 </script>
 
