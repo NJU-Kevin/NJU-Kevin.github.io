@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>啾啾常有鸟，岁岁不知春 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="今天上午把推荐信的事情弄好之后，一直到晚上都在复习$Durrett$概率论，中间下午5-6节课去听了一下邱华老师的分析专题选讲课程，今天讲的是自相似集的$Hausdorff$维数计算，用的方法是把自相似集的点用编码表示出来，进而通过在编码集上构造测度，然后诱导出自相似集合上的测度，进而用质量分布原理得到下界估计，上界估计只需要用好的覆盖就能得到，因此难点就在于下界估计。而这个编码集，其实可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="啾啾常有鸟，岁岁不知春">
+<meta property="og:url" content="https://nju-kevin.github.io/2024/03/18/life-192/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="今天上午把推荐信的事情弄好之后，一直到晚上都在复习$Durrett$概率论，中间下午5-6节课去听了一下邱华老师的分析专题选讲课程，今天讲的是自相似集的$Hausdorff$维数计算，用的方法是把自相似集的点用编码表示出来，进而通过在编码集上构造测度，然后诱导出自相似集合上的测度，进而用质量分布原理得到下界估计，上界估计只需要用好的覆盖就能得到，因此难点就在于下界估计。而这个编码集，其实可以">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.alphacoders.com/133/1330430.png">
+<meta property="article:published_time" content="2024-03-18T13:35:32.000Z">
+<meta property="article:modified_time" content="2024-03-18T13:41:01.614Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.alphacoders.com/133/1330430.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/life/">life</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/math">index.math</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/life">index.life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/rudin">index.rudin</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/lesson">index.lesson</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/contest">index.contest</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-192" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        啾啾常有鸟，岁岁不知春
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/03/18/life-192/" class="article-date">
+       <time datetime="2024-03-18T13:35:32.000Z" itemprop="datePublished">2024-03-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/03/18/life-192/" class="article-date">
+     <time datetime="2024-03-18T13:41:01.614Z" itemprop="dateModified">2024-03-18</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images.alphacoders.com/133/1330430.png" alt="">﻿</p>
+<p>﻿今天上午把推荐信的事情弄好之后，一直到晚上都在复习$Durrett$概率论，中间下午5-6节课去听了一下邱华老师的分析专题选讲课程，今天讲的是自相似集的$Hausdorff$维数计算，用的方法是把自相似集的点用编码表示出来，进而通过在编码集上构造测度，然后诱导出自相似集合上的测度，进而用质量分布原理得到下界估计，上界估计只需要用好的覆盖就能得到，因此难点就在于下界估计。而这个编码集，其实可以看成由字母表中的字母通过连接构成单词，所有的词构成的集合就是所谓的编码集，每个点都能对应一个词，这个词就是这个自相似集中点的编码。课上所讲的先构造在编码集上的测度，然后再映射成自相似集上的测度，原理就和随机变量诱导$R$或$\mathbb{R}^n$上的测度是一模一样的原理。</p>
+<p>﻿</p>
+<p>﻿说到这个，我立刻想到了今天复习概率论遇到的一个有趣的例子coupon collector，简而言之可以看成一个集邮问题，而套到这个单词上也成立。假设我们在字母表中随机选一个字母，然后将他们组成一个单词（且不管这个单词是否在语言的意义下存在），我们想知道什么时候这个单词能够出现字母表中的所有的字母，也就是说，如果我们考虑随机构造一个单词，这个单词出现所有的字母时单词的长度，这是一个随机变量，并且可以写成随机变量和的形式（因为我们可以一步一步看，出现第一个字母的长度自然是1，然后什么时候出现第二个字母，第三个字母，等等），并且这几个随机变量独立同分布，都服从几何分布，因此由大数定律就可以知道其极限分布，也就是说当字母表中的字母越来越多时，出现所有字母所需要的单词长度自然也会越来越多，但和字母表中字母数字的增长有一个倍数关系，这个倍数就是几何分布的期望。</p>
+<p>﻿</p>
+<p>还有一个有趣的例子，同样可以用字母表来阐述。假设现在有一台打字机，每次打一个字母，有一个聪明的猴子坐在打字机前每次随机打一个字，但打出每个字的概率不一样，毕竟这是猴子而不是机器。那么有没有什么量来衡量打出来的这个词的混乱程度？我们可以构造一个随机变量，其值是这样确定的：对于每个$\omega$，在前$n$步，猴子打出来一个长度为$n$的词，我们看到这个词之后计算该猴子打出这个词的概率，因此可以记为<script type="math/tex">\pi_n(\omega)=p(X_1)\cdots p(X_n)</script> 进而取对数就能写成独立同分布随机变量的和，用大数定律知道其有极限，就是均值<script type="math/tex">-\sum_{k=1}^{r}p(k)\log{p(k)}</script>这里$r$为字母表（也就是打字机）上的字母个数，这个值成为香农熵，用于看这个序列的混乱程度。在数据科学中这个例子就可以表述成一个数据源生成数据流的混乱程度，可见概率论中的许多东西在实际中都有着非常广泛的应用场景，往往人们做的其实就与我写日记的标题一样，结合一句诗中的不同的句子，有的时候连起来读也能读，甚至能有不同的意境，在实际生活中，结合不同领域的数学知识，往往能擦出美妙的火花，道理都是相通的。</p>
+<p>﻿</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2024/03/18/life-192/" data-id="cltwzv3x600777cvd5fjv8w06" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "啾啾常有鸟，岁岁不知春",
+        "image": "https://nju-kevin.github.iohttps://images.alphacoders.com/133/1330430.png",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2024-03-18",
+        "dateCreated": "2024-03-18",
+        "dateModified": "2024-03-18",
+        "url": "https://nju-kevin.github.io/2024/03/18/life-192/",
+        "description": "﻿
+﻿今天上午把推荐信的事情弄好之后，一直到晚上都在复习$Durrett$概率论，中间下午5-6节课去听了一下邱华老师的分析专题选讲课程，今天讲的是自相似集的$Hausdorff$维数计算，用的方法是把自相似集的点用编码表示出来，进而通过在编码集上构造测度，然后诱导出自相似集合上的测度，进而用质量分布原理得到下界估计，上界估计只需要用好的覆盖就能得到，因此难点就在于下界估计。而这个编码集，其实可以",
+        "wordCount": 8
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2024/03/17/life-191/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">野人自爱幽栖所，罨画楼台青黛山</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/life-192/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/133/1330430.png)" alt="啾啾常有鸟，岁岁不知春" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2024/03/18/life-192/" class="title">啾啾常有鸟，岁岁不知春</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T13:35:32.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/17/life-191/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images7.alphacoders.com/133/1339757.jpeg)" alt="野人自爱幽栖所，罨画楼台青黛山" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2024/03/17/life-191/" class="title">野人自爱幽栖所，罨画楼台青黛山</a></p>
+                            <p class="item-date"><time datetime="2024-03-17T13:02:45.000Z" itemprop="datePublished">2024-03-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/16/life-190/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images7.alphacoders.com/134/1346364.png)" alt="常规训练" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2024/03/16/life-190/" class="title">常规训练</a></p>
+                            <p class="item-date"><time datetime="2024-03-16T12:30:52.000Z" itemprop="datePublished">2024-03-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/15/life-189/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/133/1339176.png)" alt="随想" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2024/03/15/life-189/" class="title">随想</a></p>
+                            <p class="item-date"><time datetime="2024-03-15T13:40:31.000Z" itemprop="datePublished">2024-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/14/life-188/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/133/1330196.jpeg)" alt="π日" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2024/03/14/life-188/" class="title">π日</a></p>
+                            <p class="item-date"><time datetime="2024-03-14T13:54:34.000Z" itemprop="datePublished">2024-03-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">187</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2024/03/18/life-192/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
