@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="这篇文章主要介绍的是重随机化。 在读到Mahalanobis距离的时候卡在了验证如下等式： \begin{aligned} M &amp; &#x3D;\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}^{\top} \operatorname{Cov}^{-1}\left(\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}\">
+    <meta name="description" content="这篇文章主要介绍的是重随机化。 以下为本篇中的常用记号： \tau_{i}&#x3D;Y_{i}(1)-Y_{i}(0)\tau&#x3D;n^{-1} \sum_{i&#x3D;1}^{n} \tau_{i}Y_{i}&#x3D;Z_{i} Y_{i}(1)+\left(1-Z_{i}\right) Y_{i}(0)S_{z}^{2}&#x3D;(n-1)^{-1} \sum_{i&#x3D;1}^{n}\left\{Y_{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RERANDOMIZATION WITH DIMINISHING COVARIATE IMBALANCE AND DIVERGING NUMBER OF COVARIATES">
 <meta property="og:url" content="https://nju-kevin.github.io/2024/11/12/paper-1/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="这篇文章主要介绍的是重随机化。 在读到Mahalanobis距离的时候卡在了验证如下等式： \begin{aligned} M &amp; &#x3D;\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}^{\top} \operatorname{Cov}^{-1}\left(\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}\">
+<meta property="og:description" content="这篇文章主要介绍的是重随机化。 以下为本篇中的常用记号： \tau_{i}&#x3D;Y_{i}(1)-Y_{i}(0)\tau&#x3D;n^{-1} \sum_{i&#x3D;1}^{n} \tau_{i}Y_{i}&#x3D;Z_{i} Y_{i}(1)+\left(1-Z_{i}\right) Y_{i}(0)S_{z}^{2}&#x3D;(n-1)^{-1} \sum_{i&#x3D;1}^{n}\left\{Y_{">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-9dcc3b40295ff43cee7cf14c21027a0d_r.jpg">
 <meta property="article:published_time" content="2024-11-12T02:00:43.000Z">
-<meta property="article:modified_time" content="2024-11-12T02:48:03.611Z">
+<meta property="article:modified_time" content="2024-11-12T08:32:09.392Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic3.zhimg.com/v2-9dcc3b40295ff43cee7cf14c21027a0d_r.jpg">
@@ -183,7 +183,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/11/12/paper-1/" class="article-date">
-     <time datetime="2024-11-12T02:48:03.611Z" itemprop="dateModified">2024-11-12</time>
+     <time datetime="2024-11-12T08:32:09.392Z" itemprop="dateModified">2024-11-12</time>
   </a>
 </div>
 
@@ -197,10 +197,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">698</span>
+      <span class="post-count">1.1k</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
-      <span class="post-count">3 mins. </span>
+      <span class="post-count">5 mins. </span>
    </div>
 
 
@@ -224,7 +224,8 @@
 
 
 <p>这篇文章主要介绍的是重随机化。</p>
-<p>在读到Mahalanobis距离的时候卡在了验证如下等式：</p>
+<p>以下为本篇中的常用记号：</p>
+<script type="math/tex; mode=display">\tau_{i}=Y_{i}(1)-Y_{i}(0)</script><script type="math/tex; mode=display">\tau=n^{-1} \sum_{i=1}^{n} \tau_{i}</script><script type="math/tex; mode=display">Y_{i}=Z_{i} Y_{i}(1)+\left(1-Z_{i}\right) Y_{i}(0)</script><script type="math/tex; mode=display">S_{z}^{2}=(n-1)^{-1} \sum_{i=1}^{n}\left\{Y_{i}(z)-\bar{Y}(z)\right\}^{2}</script><script type="math/tex; mode=display">S_{\boldsymbol{X}}^{2}=(n-1)^{-1} \sum_{i=1}^{n}\left(\boldsymbol{X}_{i}-\bar{\boldsymbol{X}}\right)\left(\boldsymbol{X}_{i}-\bar{\boldsymbol{X}}\right)^{\top}</script><script type="math/tex; mode=display">\boldsymbol{S}_{z, \boldsymbol{X}}=\boldsymbol{S}_{\boldsymbol{X}, z}^{\top}=(n-1)^{-1} \sum_{i=1}^{n}\left\{Y_{i}(z)-\bar{Y}(z)\right\}\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)^{\top}</script><script type="math/tex; mode=display">S_{\tau}^{2}=(n-1)^{-1} \sum_{i=1}^{n}\left(\tau_{i}-\tau\right)^{2}</script><script type="math/tex; mode=display">\boldsymbol{S}_{\tau, X}=\boldsymbol{S}_{\boldsymbol{X}, \tau}^{\top}=(n-1)^{-1} \sum_{i=1}^{n}\left(\tau_{i}-\tau\right)\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)^{\top}</script><p>在读到Mahalanobis距离的时候卡在了验证如下等式：</p>
 <script type="math/tex; mode=display">\begin{aligned} M & =\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}^{\top} \operatorname{Cov}^{-1}\left(\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}\right) \hat{\boldsymbol{\tau}}_{\boldsymbol{X}}=\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}^{\top}\left(\frac{n}{n_{1} n_{0}} \boldsymbol{S}_{\boldsymbol{X}}^{2}\right)^{-1} \hat{\boldsymbol{\tau}}_{\boldsymbol{X}} \\ & =\frac{n_{1} n_{0}}{n}\left(\overline{\boldsymbol{X}}_{1}-\overline{\boldsymbol{X}}_{0}\right)^{\top}\left(\boldsymbol{S}_{\boldsymbol{X}}^{2}\right)^{-1}\left(\overline{\boldsymbol{X}}_{1}-\overline{\boldsymbol{X}}_{0}\right) .\end{aligned}</script><p>其中，</p>
 <script type="math/tex; mode=display">\boldsymbol{S}_{\boldsymbol{X}}^{2}=(n-1)^{-1} \sum_{i=1}^{n}\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)^{\top}</script><script type="math/tex; mode=display">\hat{\boldsymbol{\tau}}_{X} \equiv \overline{\boldsymbol{X}}_{1}-\overline{\boldsymbol{X}}_{0}=\frac{1}{n_{1}} \sum_{i=1}^{n} Z_{i} \boldsymbol{X}_{i}-\frac{1}{n_{0}} \sum_{i=1}^{n}\left(1-Z_{i}\right) \boldsymbol{X}_{i}</script><p>等式中第一步是定义，我主要卡在验证第二步，得到第二步之后第三步就是顺水推舟的事情。首先需要了解式子中各变量的含义。这个式子用来刻画两组试验（treatment and control）协变量之间的“距离”，因此一般处理高维数据时常使用Mahalanobis距离。在本文的语境下，随机化试验的随机性只体现在<strong>随机选择试验组和控制组</strong>，而不体现在协变量或者结果的随机性方面，此外，试验组的个体数目也是固定的，即为$n_1$，剩余的都为控制组$n_0$，二者之和为$n$. 因此在上式中，$X_i$为可观测的协变量，我们视为样本，而$Z_i$为试验指示变量，若第$i$个个体在试验组，那么$Z_i=1$，否则$Z_i=0$。因此根据$Z_i$的定义我们可以得到$Z_i$的分布，并计算其方差和协方差：</p>
 <script type="math/tex; mode=display">\operatorname{Cov}\left(Z_{i}, Z_{j}\right)=\left\{\begin{array}{cl}\frac{n_{1}\left(n_{1}-1\right)}{n(n-1)}-\left(\frac{n_{1}}{n}\right)^{2} & \text { if } i \neq j \\ \frac{n_{1}}{n}\left(1-\frac{n_{1}}{n}\right) & \text { if } i=j\end{array}\right.</script><p>从而</p>
@@ -237,14 +238,15 @@
 &\overset{*}{=}\frac{n}{n_0n_1}\left(\frac{1}{n-1} \sum_{i=1}^{n}\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)\left(\boldsymbol{X}_{i}-\overline{\boldsymbol{X}}\right)^{\top}\right)\\
 &=\frac{n}{n_0n_1}\boldsymbol{S}_{\boldsymbol{X}}^{2}\\
 \end{aligned}</script><p>即得到的所需验证的等式。</p>
-
+<p>后续对于<script type="math/tex">\hat{\tau} \equiv \bar{Y}_{1}-\bar{Y}_{0}=\frac{1}{n_{1}} \sum_{i=1}^{n} Z_{i} Y_{i}-\frac{1}{n_{0}} \sum_{i=1}^{n}\left(1-Z_{i}\right) Y_{i}</script>同理，将变量$Y_i$用开头中的等式<script type="math/tex">Y_{i}=Z_{i} Y_{i}(1)+\left(1-Z_{i}\right) Y_{i}(0)</script>代入，$Y_i(1)$和$Y_i(0)$为固定的，利用$Z_i$的分布计算方差和协方差可以得到</p>
+<script type="math/tex; mode=display">\begin{aligned} \operatorname{Cov}\binom{\hat{\tau}}{\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}} & =\left(\begin{array}{cc}n_{1}^{-1} S_{1}^{2}+n_{0}^{-1} S_{0}^{2}-n^{-1} S_{\tau}^{2} & n_{1}^{-1} \boldsymbol{S}_{1, \boldsymbol{X}}+n_{0}^{-1} \boldsymbol{S}_{0, \boldsymbol{X}} \\ n_{1}^{-1} \boldsymbol{S}_{\boldsymbol{X}, 1}+n_{0}^{-1} \boldsymbol{S}_{\boldsymbol{X}, 0} & n /\left(n_{1} n_{0}\right) \cdot \boldsymbol{S}_{\boldsymbol{X}}^{2}\end{array}\right) \\ & \equiv \boldsymbol{V} \equiv\left(\begin{array}{cc}V_{\tau \tau} & \boldsymbol{V}_{\tau \boldsymbol{x}} \\ \boldsymbol{V}_{\boldsymbol{x} \tau} & \boldsymbol{V}_{\boldsymbol{x} \boldsymbol{x}}\end{array}\right),\end{aligned}</script>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://nju-kevin.github.io/2024/11/12/paper-1/" data-id="cm3e07ykt00f064vdc2jo5lyv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2024/11/12/paper-1/" data-id="cm3e744j900f10gvd6fw9al9h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,9 +334,9 @@
 
 
 这篇文章主要介绍的是重随机化。
-在读到Mahalanobis距离的时候卡在了验证如下等式：
-\begin{aligned} M & =\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}^{\top} \operatorname{Cov}^{-1}\left(\hat{\boldsymbol{\tau}}_{\boldsymbol{X}}\",
-        "wordCount": 78
+以下为本篇中的常用记号：
+\tau_{i}=Y_{i}(1)-Y_{i}(0)\tau=n^{-1} \sum_{i=1}^{n} \tau_{i}Y_{i}=Z_{i} Y_{i}(1)+\left(1-Z_{i}\right) Y_{i}(0)S_{z}^{2}=(n-1)^{-1} \sum_{i=1}^{n}\left\{Y_{",
+        "wordCount": 159
     }
 </script>
 
