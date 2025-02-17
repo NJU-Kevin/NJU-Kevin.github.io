@@ -19,12 +19,12 @@
 <meta property="og:site_name" content="Kevin&#39;s World">
 <meta property="og:description" content="本篇文章给出了度量两个概率分布之间相关性的一个免分布测度，即当两个概率分布独立时，该测度与联合概率分布无关，此时不需要对原来的概率分布加任何假设，本文给出的测度均能对相关性得到度量。这篇文章结合了再生核希尔伯特空间、几何图泛函、最优传输三部分的方法最终给出了所需的测度，我认为是一篇很值得一读的文章。 关于再生核希尔伯特空间RKHS，最重要的是Moore-Aronsza">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pic1.zhimg.com/v2-d08893b54b0d01dde51a21418d1e0e5e_1440w.jpg?source=172ae18b">
+<meta property="og:image" content="https://images3.alphacoders.com/133/thumb-1920-1335169.png">
 <meta property="article:published_time" content="2025-01-21T09:27:22.000Z">
-<meta property="article:modified_time" content="2025-01-21T11:49:11.922Z">
+<meta property="article:modified_time" content="2025-02-17T14:32:07.612Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic1.zhimg.com/v2-d08893b54b0d01dde51a21418d1e0e5e_1440w.jpg?source=172ae18b">
+<meta name="twitter:image" content="https://images3.alphacoders.com/133/thumb-1920-1335169.png">
     
 
     
@@ -183,7 +183,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2025/01/21/paper-2/" class="article-date">
-     <time datetime="2025-01-21T11:49:11.922Z" itemprop="dateModified">2025-01-21</time>
+     <time datetime="2025-02-17T14:32:07.612Z" itemprop="dateModified">2025-02-17</time>
   </a>
 </div>
 
@@ -214,7 +214,7 @@
 
             
 
-            <p><img src="https://pic1.zhimg.com/v2-d08893b54b0d01dde51a21418d1e0e5e_1440w.jpg?source=172ae18b" alt=""></p>
+            <p><img src="https://images3.alphacoders.com/133/thumb-1920-1335169.png" alt=""></p>
 
 
 	<div class="row">
@@ -231,13 +231,20 @@
 <p>最后，作者利用最优传输OT理论将概率测度最优传输到$[0,1]^d$均匀分布测度。即在$[0,1]^d$中选取<script type="math/tex">\mathcal{H}_{n}^{d}:=\left\{h_{1}^{d}, \ldots, h_{n}^{d}\right\}</script>使得<script type="math/tex">n^{-1} \sum_{i=1}^{n} \delta_{h_{i}^{d}}</script>弱收敛到均匀分布且与$X$样本的距离最小，从而尽可能大地保持了$X$样本的特点，从而保持相应的$Y$样本的特点。实际上这件事就是利用OT对样本进行了一个排序，但是样本都是对称的，因此这个最优排序就具备了免分布性质，进而可以用<script type="math/tex">\widehat{R}_{n}\left(X_{i}\right)=h_{\widehat{\sigma}_{n}(i)}^{d}, \quad
 i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相关性测度<script type="math/tex">\widehat{\eta}_{n}^{\text {RANK }}:=\frac{n^{-1} \sum_{i} d_{i}^{-1} \sum_{j:(i, j) \in \mathcal{E}\left(\mathcal{G}_{n}^{\text {RNN }}\right)} K\left(\widehat{R}_{n}^{Y}\left(Y_{i}\right), \widehat{R}_{n}^{Y}\left(Y_{j}\right)\right)-F_{n}}{n^{-1} \sum_{i=1}^{n} K\left(\widehat{R}_{n}^{Y}\left(Y_{i}\right), \widehat{R}_{n}^{Y}\left(Y_{i}\right)\right)-F_{n}}</script>其中<script type="math/tex">F_{n}:=(n(n-1))^{-1} \sum_{i \neq j} K\left(\widehat{R}_{n}^{Y}\left(Y_{i}\right), \widehat{R}_{n}^{Y}\left(Y_{j}\right)\right)</script>作者最终证明了在一定的条件下，该检验测度能够依概率收敛到目标测度，同时还在原概率分布独立的情况下证明了该相关性测度的一个中心极限定理。</p>
 
+
+	<div class="row">
+    <embed src="/file/paperppt/2.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://nju-kevin.github.io/2025/01/21/paper-2/" data-id="cm6euj26400ff4cx47wg00lfx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2025/01/21/paper-2/" data-id="cm795mz3l00feb4x470tz5370" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,12 +315,12 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
             "name": "NJU-Kevin"
         },
         "headline": "Distribution-free Measures of Association based on Optimal Transport",
-        "image": "https://nju-kevin.github.iohttps://pic1.zhimg.com/v2-d08893b54b0d01dde51a21418d1e0e5e_1440w.jpg?source=172ae18b",
+        "image": "https://nju-kevin.github.iohttps://images3.alphacoders.com/133/thumb-1920-1335169.png",
         "keywords": "",
         "genre": "Paper",
         "datePublished": "2025-01-21",
         "dateCreated": "2025-01-21",
-        "dateModified": "2025-01-21",
+        "dateModified": "2025-02-17",
         "url": "https://nju-kevin.github.io/2025/01/21/paper-2/",
         "description": "
 
@@ -326,7 +333,7 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
 
 本篇文章给出了度量两个概率分布之间相关性的一个免分布测度，即当两个概率分布独立时，该测度与联合概率分布无关，此时不需要对原来的概率分布加任何假设，本文给出的测度均能对相关性得到度量。这篇文章结合了再生核希尔伯特空间、几何图泛函、最优传输三部分的方法最终给出了所需的测度，我认为是一篇很值得一读的文章。
 关于再生核希尔伯特空间RKHS，最重要的是Moore-Aronsza",
-        "wordCount": 89
+        "wordCount": 98
     }
 </script>
 
@@ -442,6 +449,26 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2025/02/17/paper-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images6.alphacoders.com/685/thumb-1920-685698.jpg)" alt="Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Paper/">Paper</a></p>
+                            <p class="item-title"><a href="/2025/02/17/paper-3/" class="title">Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics</a></p>
+                            <p class="item-date"><time datetime="2025-02-17T14:04:27.000Z" itemprop="datePublished">2025-02-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/01/27/life-241/" class="thumbnail">
     
     
@@ -465,7 +492,7 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
                             <a href="/2025/01/21/paper-2/" class="thumbnail">
     
     
-        <span style="background-image:url(https://pic1.zhimg.com/v2-d08893b54b0d01dde51a21418d1e0e5e_1440w.jpg?source=172ae18b)" alt="Distribution-free Measures of Association based on Optimal Transport" class="thumbnail-image"></span>
+        <span style="background-image:url(https://images3.alphacoders.com/133/thumb-1920-1335169.png)" alt="Distribution-free Measures of Association based on Optimal Transport" class="thumbnail-image"></span>
     
     
 </a>
@@ -519,26 +546,6 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/12/04/life-239/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://gupls.com.hk/wp-content/uploads/2024/10/session-3-1.png)" alt="全球校长和领导者峰会（二）" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2024/12/04/life-239/" class="title">全球校长和领导者峰会（二）</a></p>
-                            <p class="item-date"><time datetime="2024-12-04T12:28:56.000Z" itemprop="datePublished">2024-12-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -548,7 +555,7 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">236</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">236</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
         </div>
     </div>
 
@@ -558,7 +565,7 @@ i=1, \ldots, n</script>代替原来的$X_i$样本。从而得到免分布的相�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
