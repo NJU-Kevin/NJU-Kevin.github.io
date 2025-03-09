@@ -6,25 +6,25 @@
     
 
     
-    <title>科研小记（二） | Kevin&#39;s World</title>
+    <title>科研小记（三） | Kevin&#39;s World</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="" />
     
-    <meta name="description" content="自前几天将混合线性模型的单调性证明出来后，我一直在思考另外两种模型的单调性证明。另外两种模型计算方面要更加麻烦，因为在混合线性模型中，两个分布都是固定的，变化的是他们的相关性。而在回归模型中，参数变化会导致初始的分布也变化，这大大提高了计算的复杂度，因为要算四个量，而分子和分母的变化趋势是一致的，这个时候要判断分数的变化，需要比较分子和分母的变化速度谁更快，如果分子更快那么趋势就与分子一致；如果">
+    <meta name="description" content="这两天在之前的基础上继续思考如果把一般的概率分布最优传输到无界的概率分布上，相应的关联测度与经验逼近测度之间是否是渐进相等的关系。倘若能够证出这一点，那么相当于是把前人的工作进一步推广了，并生发出传输到无界分布得到的关联测度的功效分析等一系列问题。 将有界情形推广到无界情形的常用方法便是截断（Truncation），通过截断可以让无界的东西暂时成为有界的，然后再令截断的界趋于无穷得到无界的情形。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="科研小记（二）">
-<meta property="og:url" content="https://nju-kevin.github.io/2025/02/24/life-243/index.html">
+<meta property="og:title" content="科研小记（三）">
+<meta property="og:url" content="https://nju-kevin.github.io/2025/02/27/phd-3/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
-<meta property="og:description" content="自前几天将混合线性模型的单调性证明出来后，我一直在思考另外两种模型的单调性证明。另外两种模型计算方面要更加麻烦，因为在混合线性模型中，两个分布都是固定的，变化的是他们的相关性。而在回归模型中，参数变化会导致初始的分布也变化，这大大提高了计算的复杂度，因为要算四个量，而分子和分母的变化趋势是一致的，这个时候要判断分数的变化，需要比较分子和分母的变化速度谁更快，如果分子更快那么趋势就与分子一致；如果">
+<meta property="og:description" content="这两天在之前的基础上继续思考如果把一般的概率分布最优传输到无界的概率分布上，相应的关联测度与经验逼近测度之间是否是渐进相等的关系。倘若能够证出这一点，那么相当于是把前人的工作进一步推广了，并生发出传输到无界分布得到的关联测度的功效分析等一系列问题。 将有界情形推广到无界情形的常用方法便是截断（Truncation），通过截断可以让无界的东西暂时成为有界的，然后再令截断的界趋于无穷得到无界的情形。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images4.alphacoders.com/134/thumb-1920-1347179.png">
-<meta property="article:published_time" content="2025-02-24T13:19:00.000Z">
-<meta property="article:modified_time" content="2025-02-25T13:45:14.089Z">
+<meta property="og:image" content="https://images5.alphacoders.com/134/thumb-1920-1344302.png">
+<meta property="article:published_time" content="2025-02-27T10:45:12.000Z">
+<meta property="article:modified_time" content="2025-03-09T09:18:17.744Z">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images4.alphacoders.com/134/thumb-1920-1347179.png">
+<meta name="twitter:image" content="https://images5.alphacoders.com/134/thumb-1920-1344302.png">
     
 
     
@@ -93,7 +93,7 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
                                 
                         </ul>
                         <nav id="sub-nav">
@@ -151,19 +151,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Life/">Life</a>
+    <a class="page-title-link" href="/categories/PhD/">PhD</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-life-243" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-phd-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        科研小记（二）
+        科研小记（三）
         </h1>
     
 
@@ -174,16 +174,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2025/02/24/life-243/" class="article-date">
-       <time datetime="2025-02-24T13:19:00.000Z" itemprop="datePublished">2025-02-24</time>
+    <a href="/2025/02/27/phd-3/" class="article-date">
+       <time datetime="2025-02-27T10:45:12.000Z" itemprop="datePublished">2025-02-27</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2025/02/24/life-243/" class="article-date">
-     <time datetime="2025-02-25T13:45:14.089Z" itemprop="dateModified">2025-02-25</time>
+  <a href="/2025/02/27/phd-3/" class="article-date">
+     <time datetime="2025-03-09T09:18:17.744Z" itemprop="dateModified">2025-03-09</time>
   </a>
 </div>
 
@@ -197,10 +197,10 @@
    <div class="article-counter">
       <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">626</span>
+      <span class="post-count">418</span>
       <i class="fa fa-clock-o"></i>
       <span class="post-time-item-text">Reading time: </span>
-      <span class="post-count">2 mins. </span>
+      <span class="post-count">1 mins. </span>
    </div>
 
 
@@ -214,11 +214,10 @@
 
             
 
-            <p><img src="https://images4.alphacoders.com/134/thumb-1920-1347179.png" alt=""></p>
-<p>自前几天将混合线性模型的单调性证明出来后，我一直在思考另外两种模型的单调性证明。另外两种模型计算方面要更加麻烦，因为在混合线性模型中，两个分布都是固定的，变化的是他们的相关性。而在回归模型中，参数变化会导致初始的分布也变化，这大大提高了计算的复杂度，因为要算四个量，而分子和分母的变化趋势是一致的，这个时候要判断分数的变化，需要比较分子和分母的变化速度谁更快，如果分子更快那么趋势就与分子一致；如果分母更快那么趋势就和分母一致。不幸的是，原本的表达式已经够复杂了，求个导数之后更加不知道正负，证明一度陷入了僵局。</p>
-<p>到昨天我突然意识到，这个相关系数对于两个分布应该是对称的，也就是，$X$关于$Y$的相关系数应该等于$Y$关于$X$的相关系数，因此我转换一下$X$与$Y$的地位，发现就好算很多。中间还出现了几次计算错误，在正确化简后，我发现还是比较难看出趋势是增加还是减少，这个问题也想了很久，甚至一度以为没办法证明出来。</p>
-<p>然而今天，我反复观察求完导后的式子，用计算机算了几个广义积分的值来比较大小，突然发现，可以把广义积分写成有限积分的极限，而每个有限积分都是正数，极限一定非负，进而证明了单调性。</p>
-<p>另一个是纯高斯模型，计算过程中也出现了不少错误，导致我算出来后发现与事实毫不相符。后来才发现是少算了一项概率密度，在几经周折并正确化简之后，得到的式子与前面的回归模型类似，求完导后仍可以用逼近的方式得到单调性结果。于是到今天为止，我完成了对了三种模型的单调性的证明，这是对前几年论文的推广，可以算作是一个小小的成果。接下来开始尝试对参照分布进行推广，想要把有界的推广到无界分布上去。</p>
+            <p><img src="https://images5.alphacoders.com/134/thumb-1920-1344302.png" alt=""></p>
+<p>这两天在之前的基础上继续思考如果把一般的概率分布最优传输到无界的概率分布上，相应的关联测度与经验逼近测度之间是否是渐进相等的关系。倘若能够证出这一点，那么相当于是把前人的工作进一步推广了，并生发出传输到无界分布得到的关联测度的功效分析等一系列问题。</p>
+<p>将有界情形推广到无界情形的常用方法便是截断（Truncation），通过截断可以让无界的东西暂时成为有界的，然后再令截断的界趋于无穷得到无界的情形。目前已经有的结果是有界的情形，即将概率分布最优传输到有界的概率分布上，经验测度几乎必然渐进逼近关联测度。于是我便把有界的情形的证明仔细研究了一边，列出了几个用到有界条件的地方，因为当无界的时候，有界的条件便不成立，因此凡是用到有界的性质的地方都需要特别注意。</p>
+<p>在经过两个下午的思考后，我想到了一种截断方法，并且该方法目前看来逻辑上是没有问题的，并且也是数学中的常用的截断后逼近的证明方法。接下来继续看一些关于功效和检验阈值的文章，了解这部分研究的一般步骤和基础知识，并尝试对关联测度进行功效分析并求出检验阈值。</p>
 
         </div>
         <footer class="article-footer">
@@ -226,7 +225,7 @@
 
 
 
-    <a data-url="https://nju-kevin.github.io/2025/02/24/life-243/" data-id="cm7otpfw400aj6gx4fyq9b42a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nju-kevin.github.io/2025/02/27/phd-3/" data-id="cm81gvnto00frekx41r46h3t0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -296,16 +295,17 @@
             "@type": "Person",
             "name": "NJU-Kevin"
         },
-        "headline": "科研小记（二）",
-        "image": "https://nju-kevin.github.iohttps://images4.alphacoders.com/134/thumb-1920-1347179.png",
+        "headline": "科研小记（三）",
+        "image": "https://nju-kevin.github.iohttps://images5.alphacoders.com/134/thumb-1920-1344302.png",
         "keywords": "",
-        "genre": "Life",
-        "datePublished": "2025-02-24",
-        "dateCreated": "2025-02-24",
-        "dateModified": "2025-02-25",
-        "url": "https://nju-kevin.github.io/2025/02/24/life-243/",
+        "genre": "PhD",
+        "datePublished": "2025-02-27",
+        "dateCreated": "2025-02-27",
+        "dateModified": "2025-03-09",
+        "url": "https://nju-kevin.github.io/2025/02/27/phd-3/",
         "description": "
-自前几天将混合线性模型的单调性证明出来后，我一直在思考另外两种模型的单调性证明。另外两种模型计算方面要更加麻烦，因为在混合线性模型中，两个分布都是固定的，变化的是他们的相关性。而在回归模型中，参数变化会导致初始的分布也变化，这大大提高了计算的复杂度，因为要算四个量，而分子和分母的变化趋势是一致的，这个时候要判断分数的变化，需要比较分子和分母的变化速度谁更快，如果分子更快那么趋势就与分子一致；如果",
+这两天在之前的基础上继续思考如果把一般的概率分布最优传输到无界的概率分布上，相应的关联测度与经验逼近测度之间是否是渐进相等的关系。倘若能够证出这一点，那么相当于是把前人的工作进一步推广了，并生发出传输到无界分布得到的关联测度的功效分析等一系列问题。
+将有界情形推广到无界情形的常用方法便是截断（Truncation），通过截断可以让无界的东西暂时成为有界的，然后再令截断的界趋于无穷得到无界的情形。",
         "wordCount": 3
     }
 </script>
@@ -387,20 +387,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2025/02/27/life-244/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2025/03/04/paper-4/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            科研小记（三）
+            Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2025/02/20/life-242/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2025/02/24/phd-2/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">科研小记（一）</p>
+        <p class="article-nav-title">科研小记（二）</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -422,7 +422,47 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2025/02/27/life-244/" class="thumbnail">
+                            <a href="/2025/03/07/phd-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images3.alphacoders.com/135/thumb-1920-1350133.png)" alt="科研小记（四）：组会1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/03/07/phd-4/" class="title">科研小记（四）：组会1</a></p>
+                            <p class="item-date"><time datetime="2025-03-07T09:19:47.000Z" itemprop="datePublished">2025-03-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/03/04/paper-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images6.alphacoders.com/135/thumb-1920-1353238.jpeg)" alt="Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Paper/">Paper</a></p>
+                            <p class="item-title"><a href="/2025/03/04/paper-4/" class="title">Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics</a></p>
+                            <p class="item-date"><time datetime="2025-03-04T05:29:38.000Z" itemprop="datePublished">2025-03-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/27/phd-3/" class="thumbnail">
     
     
         <span style="background-image:url(https://images5.alphacoders.com/134/thumb-1920-1344302.png)" alt="科研小记（三）" class="thumbnail-image"></span>
@@ -433,8 +473,8 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/02/27/life-244/" class="title">科研小记（三）</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/02/27/phd-3/" class="title">科研小记（三）</a></p>
                             <p class="item-date"><time datetime="2025-02-27T10:45:12.000Z" itemprop="datePublished">2025-02-27</time></p>
                         </div>
                     </li>
@@ -442,7 +482,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2025/02/24/life-243/" class="thumbnail">
+                            <a href="/2025/02/24/phd-2/" class="thumbnail">
     
     
         <span style="background-image:url(https://images4.alphacoders.com/134/thumb-1920-1347179.png)" alt="科研小记（二）" class="thumbnail-image"></span>
@@ -453,8 +493,8 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/02/24/life-243/" class="title">科研小记（二）</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/02/24/phd-2/" class="title">科研小记（二）</a></p>
                             <p class="item-date"><time datetime="2025-02-24T13:19:00.000Z" itemprop="datePublished">2025-02-24</time></p>
                         </div>
                     </li>
@@ -462,7 +502,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2025/02/20/life-242/" class="thumbnail">
+                            <a href="/2025/02/20/phd-1/" class="thumbnail">
     
     
         <span style="background-image:url(https://images8.alphacoders.com/136/thumb-1920-1360352.png)" alt="科研小记（一）" class="thumbnail-image"></span>
@@ -473,49 +513,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/02/20/life-242/" class="title">科研小记（一）</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/02/20/phd-1/" class="title">科研小记（一）</a></p>
                             <p class="item-date"><time datetime="2025-02-20T11:11:52.000Z" itemprop="datePublished">2025-02-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/02/17/paper-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images6.alphacoders.com/685/thumb-1920-685698.jpg)" alt="Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Paper/">Paper</a></p>
-                            <p class="item-title"><a href="/2025/02/17/paper-3/" class="title">Distribution-free tests of multivariate independence based on center-outward quadrant, Spearman, Kendall, and van der Waerden statistics</a></p>
-                            <p class="item-date"><time datetime="2025-02-17T14:04:27.000Z" itemprop="datePublished">2025-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/01/27/life-241/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/01/27/life-241/" class="title">2024年度总结</a></p>
-                            <p class="item-date"><time datetime="2025-01-27T07:36:10.000Z" itemprop="datePublished">2025-01-27</time></p>
                         </div>
                     </li>
                 
@@ -528,7 +528,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">236</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
         </div>
     </div>
 
@@ -538,7 +538,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -603,7 +603,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://nju-kevin.github.io/2025/02/24/life-243/';
+    var disqus_url = 'https://nju-kevin.github.io/2025/02/27/phd-3/';
     
     (function() {
     var dsq = document.createElement('script');
