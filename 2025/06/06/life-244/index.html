@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>conda配置pycharm项目环境 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="conda配置pycharm项目环境">
+<meta property="og:url" content="https://nju-kevin.github.io/2025/06/06/life-244/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://avatarfiles.alphacoders.com/374/374741.png">
+<meta property="article:published_time" content="2025-06-06T08:03:56.000Z">
+<meta property="article:modified_time" content="2025-06-06T08:41:14.610Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatarfiles.alphacoders.com/374/374741.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Life/">Life</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-life-244" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        conda配置pycharm项目环境
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/06/06/life-244/" class="article-date">
+       <time datetime="2025-06-06T08:03:56.000Z" itemprop="datePublished">2025-06-06</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2025/06/06/life-244/" class="article-date">
+     <time datetime="2025-06-06T08:41:14.610Z" itemprop="dateModified">2025-06-06</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.1k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://avatarfiles.alphacoders.com/374/374741.png" alt=""></p>
+<p>最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大致已经搞明白了，于是为了防止以后忘记之后的繁复查教程，特此记录一下。</p>
+<h1 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h1><p>python项目的虚拟环境是一个独立的python运行环境，它可以包含特定版本的python解释器和一组独立的第三方库。pycharm可以通过配置项目的虚拟环境来管理项目所需的依赖。因此，一般在写项目的时候，最好每个项目创建一个专属于该项目的虚拟环境，因为不同项目所需要的python版本和第三方库都不一样，为了避免繁复的报错，每个项目都创建一个独立的虚拟环境是最好的选择。这里就遇到了第一个问题，我想要把虚拟环境建在项目目录下而非C盘的.conda目录下，以下为指定位置创建虚拟环境的powershell命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--prefix</span>=D:\test\env\env_name python=<span class="number">3.10</span></span><br></pre></td></tr></table></figure>
+<p>上述命令建立了D盘test项目中env文件夹中的名为env_name的虚拟环境，并指定了python版本为3.10。注意这里的<code>--prefix</code>参数是用来指定虚拟环境的路径的。但这样也有一个问题，那就是该虚拟环境的名字默认为上述的D:\test\env\env_name，而pycharm在配置项目时需要的是一个简短的名字，所以可以继续使用以下命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config <span class="literal">--append</span> envs_dirs D:\test\env</span><br></pre></td></tr></table></figure>
+<p>将虚拟环境的上级目录添加到conda的环境目录中，此时该虚拟环境的名字自动变为env_name。另外一种办法是在创建虚拟环境时使用<code>--name</code>参数来指定一个简短的名字：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--prefix</span>=D:\test\env\env_name <span class="literal">--name</span> env_name python=<span class="number">3.10</span></span><br></pre></td></tr></table></figure>
+<p>创建好虚拟环境后可以用<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--envs</span></span><br></pre></td></tr></table></figure><br>查看当前所有的虚拟环境，确认env_name已经创建成功。</p>
+<p>如果要在当前虚拟环境中安装第三方包，则应先激活该虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br></pre></td></tr></table></figure><br>激活后就可以使用pip或conda命令来安装所需的第三方库。结束后可以使用以下命令来退出虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></p>
+<p>此外，有的时候想要改变虚拟环境的文件夹位置，一般采取的方法是先在目标文件夹创建一个新的虚拟环境，然后将原先的虚拟环境克隆到新的虚拟环境中，最后删除原先的虚拟环境。虚拟环境的克隆可以使用以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--name</span> new_env_name <span class="literal">--clone</span> old_env_name</span><br></pre></td></tr></table></figure><br>然后删除原来的虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove <span class="literal">--name</span> old_env_name <span class="literal">--all</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="pycharm项目解释器"><a href="#pycharm项目解释器" class="headerlink" title="pycharm项目解释器"></a>pycharm项目解释器</h1><p>一般在配置项目解释器前首先创建好虚拟环境（用上述的powershell命令），然后便可使用该虚拟环境创建相应的项目解释器。这里我也遇到了不少问题，目前可行的方法是在项目解释器的设置里选择创建新的解释器，选择本地解释器，选择现有的环境（因为虚拟环境已经创建好了）。由于我下载的是conda，因此选择conda环境，环境路径这里很关键，我之前选择的是虚拟环境里的python.exe文件，结果发现pycharm无法识别，后来发现应该选择anaconda根目录下的condabin文件夹中的conda.exe文件，然后选择该项目的虚拟环境（注意不要选择anaconda的base环境），这样创建便成功了。后续的安装包都可以在powershell激活虚拟环境后使用pip或conda命令来安装，或者在pycharm的终端里使用相同的命令来安装。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2025/06/06/life-244/" data-id="cmbkkftun00aiqkx418qua50h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "conda配置pycharm项目环境",
+        "image": "https://nju-kevin.github.iohttps://avatarfiles.alphacoders.com/374/374741.png",
+        "keywords": "",
+        "genre": "Life",
+        "datePublished": "2025-06-06",
+        "dateCreated": "2025-06-06",
+        "dateModified": "2025-06-06",
+        "url": "https://nju-kevin.github.io/2025/06/06/life-244/",
+        "description": "
+最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大",
+        "wordCount": 96
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2025/04/22/life-243/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">和朋友的聚餐</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/06/life-244/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://avatarfiles.alphacoders.com/374/374741.png)" alt="conda配置pycharm项目环境" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2025/06/06/life-244/" class="title">conda配置pycharm项目环境</a></p>
+                            <p class="item-date"><time datetime="2025-06-06T08:03:56.000Z" itemprop="datePublished">2025-06-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/22/life-243/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images3.alphacoders.com/134/thumb-1920-1340741.png)" alt="和朋友的聚餐" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2025/04/22/life-243/" class="title">和朋友的聚餐</a></p>
+                            <p class="item-date"><time datetime="2025-04-22T14:03:41.000Z" itemprop="datePublished">2025-04-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/02/life-242/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://alumni.nju.edu.cn/_upload/article/images/12/77/55d1eb0e4297b6736e5b83c68262/50848ae2-d550-4507-bf0d-d2d8e587ff86_d.jpg)" alt="宜兴扫墓" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2025/04/02/life-242/" class="title">宜兴扫墓</a></p>
+                            <p class="item-date"><time datetime="2025-04-02T14:02:26.000Z" itemprop="datePublished">2025-04-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/01/phd-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.alphacoders.com/134/thumb-1920-1346623.png)" alt="科研小记（四）：组会2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/04/01/phd-5/" class="title">科研小记（四）：组会2</a></p>
+                            <p class="item-date"><time datetime="2025-04-01T13:25:14.000Z" itemprop="datePublished">2025-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/03/07/phd-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images3.alphacoders.com/135/thumb-1920-1350133.png)" alt="科研小记（四）：组会1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/03/07/phd-4/" class="title">科研小记（四）：组会1</a></p>
+                            <p class="item-date"><time datetime="2025-03-07T09:19:47.000Z" itemprop="datePublished">2025-03-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2025/06/06/life-244/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
