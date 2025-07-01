@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Ants项目专题记录 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="这篇文章主要记录完成cs61A几个项目过程中所遇到的值得关注的事情。目前我在写Ants项目，在这之前，我已经完成了Hog和Cats两个项目，这两个项目所需要的python相关知识不深，只需要理解了含义便能完成，因此这里便不详细阐述了。 Ants06-27更新：这个项目的目标是完成一个Ants vs Bees的游戏，在我看来很像是Plants vs Zombies的简化版，主要需要用类的知识来面向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ants项目专题记录">
+<meta property="og:url" content="https://nju-kevin.github.io/2025/06/27/phd-9/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="这篇文章主要记录完成cs61A几个项目过程中所遇到的值得关注的事情。目前我在写Ants项目，在这之前，我已经完成了Hog和Cats两个项目，这两个项目所需要的python相关知识不深，只需要理解了含义便能完成，因此这里便不详细阐述了。 Ants06-27更新：这个项目的目标是完成一个Ants vs Bees的游戏，在我看来很像是Plants vs Zombies的简化版，主要需要用类的知识来面向">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png">
+<meta property="article:published_time" content="2025-06-27T14:19:45.000Z">
+<meta property="article:modified_time" content="2025-07-01T10:57:10.634Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/PhD/">PhD</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-phd-9" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Ants项目专题记录
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/06/27/phd-9/" class="article-date">
+       <time datetime="2025-06-27T14:19:45.000Z" itemprop="datePublished">2025-06-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2025/06/27/phd-9/" class="article-date">
+     <time datetime="2025-07-01T10:57:10.634Z" itemprop="dateModified">2025-07-01</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.5k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">5 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png" alt=""></p>
+<p>这篇文章主要记录完成cs61A几个项目过程中所遇到的值得关注的事情。目前我在写Ants项目，在这之前，我已经完成了Hog和Cats两个项目，这两个项目所需要的python相关知识不深，只需要理解了含义便能完成，因此这里便不详细阐述了。</p>
+<h1 id="Ants"><a href="#Ants" class="headerlink" title="Ants"></a>Ants</h1><h2 id="06-27更新："><a href="#06-27更新：" class="headerlink" title="06-27更新："></a>06-27更新：</h2><p>这个项目的目标是完成一个Ants vs Bees的游戏，在我看来很像是Plants vs Zombies的简化版，主要需要用类的知识来面向对象编程。代码中需要频繁使用类和子类，子类如何继承父类是最常用的方法。最开始我以为所有子类都比西定义了一个<code>__init__</code>方法，但实际上并不是这样，子类可以不定义<code>__init__</code>方法，这样就会继承父类的<code>__init__</code>方法。而什么时候需要这样定义呢？主要是当子类的属性和父类不一致的时候，例如在这个项目里，不同种类的昆虫的health是不一样的，子类需要定义自己的<code>__init__</code>方法来初始化自己的属性。而如果某些子类和父类的属性完全相同时，可以不定义<code>__init__</code>。对于函数也是同理，如果子类的某些函数与父类中的完全一致，在子类中就不需要重复定义了，即使什么都不写也能自动继承父类中的所有函数。</p>
+<p>类<code>class</code>的类属性和实例属性的区别也很重要。类属性是所有实例共享的，而实例属性是每个实例独有的。类属性可以通过类名直接访问，而实例属性需要通过实例来访问。类属性直接在<code>class</code>下声明，而实例属性一般在<code>__init__</code>方法中声明。此外，实例属性不一定都要在<code>__init__</code>的变量中，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">foodcarryAnt</span>(<span class="title class_ inherited__">Ant</span>):</span><br><span class="line">    name = <span class="string">&#x27;foodcarry&#x27;</span>  <span class="comment"># 类属性</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, health = <span class="number">3</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(health)  <span class="comment"># 实例属性</span></span><br><span class="line">        self.food_store = <span class="number">0</span>  <span class="comment"># 实例属性，虽然没有在__init__中声明，但仍然是实例属性</span></span><br></pre></td></tr></table></figure></p>
+<p>在上述例子中，<code>name</code>是类属性，所有<code>foodcarryAnt</code>的实例都共享这个属性，而<code>health</code>和<code>food_store</code>是实例属性，每个实例都有自己的值。而且<code>health</code>是在父类中的变量，且子类的值和父类不同，从而子类声明的时候也需要把<code>health</code>传递给<code>__init__</code>，并赋值。与<code>health</code>不同的是，<code>food_store</code>虽然也为实例属性，每个实例的值有可能不同，但实例的初始化的值都是0，因此就不再需要放在<code>__init__</code>的变量中。</p>
+<p>另外，由于很多时候在遍历一个列表的时候，如果每一步都有可能对列表进行修改，那么此时应该遍历列表的一个副本，否则会导致遍历过程中列表的长度发生变化，从而导致错误。但我以前一直没有关注的是，在遍历列表副本的过程中如果对其中的元素进行了修改，那么这个修改会影响到原列表中的元素。这是因为在python中，列表中的元素是引用类型的，如果对其中的元素进行了修改，那么原列表中的元素也会被修改。有没有不影响的办法呢？可以使用<code>copy.deepcopy()</code>来创建一个深拷贝，这样就可以确保修改副本中的元素不会影响到原列表中的元素。</p>
+<h2 id="06-29更新："><a href="#06-29更新：" class="headerlink" title="06.29更新："></a>06.29更新：</h2><p>从昨天中午开始，我便一直在写Ants项目的附加题EC1，但是一直通不过样例。题目要求是实现一个SlowThrower类，这种蚂蚁投掷的是一种减速弹，蜜蜂在受到减速后的5回合内，如果<code>gamestate.time</code>为偶数，则该回合停留在原来的格子里（可以叮咬该格子内的蚂蚁），不能向前走；5个回合结束后恢复原来的行动。这道题看上去并不是很困难，但是在我上的这个版本<code>Fall 2024</code>中，课程要求只能够编辑<code>SlowThrower</code>类的代码，而不能修改任何其他地方的代码。也就是说，我们不能在<code>Bee.action</code>中进行修改，而应该构造一种函数能够根据<code>gamestate.time</code>的奇偶性有条件地调用<code>Bee.action</code>。</p>
+<p>这个问题我想了很久，由于网上网友们提供的代码都没有只修改<code>SlowThrower</code>的版本（后来发现是因为之前版本的课程没有这个要求），主要是对于<code>target.action</code>的调用，因为实际测试样例的时候<code>target = Bee()</code>，但是<code>target.action</code>需要重新进行定义，否则样例中就是<code>target.action = Bee.action</code>。最初我一直发现我的<code>target.action</code>在每次调用的时候都会自动调用<code>Bee.action</code>，在经过一个下午和一个上午的调试后，我发现可以在<code>throw_at</code>函数里重新定义一个函数，再将这个函数赋值给<code>target.action</code>，这样<code>throw_at</code>函数的功能就是每次<code>action</code>之后，让<code>target.action</code>变为我们所需要的行动就行了，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SlowThrower</span>(<span class="title class_ inherited__">ThrowerAnt</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;ThrowerAnt that causes Slow on Bees.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    name = <span class="string">&#x27;Slow&#x27;</span></span><br><span class="line">    food_cost = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># BEGIN Problem EC 1</span></span><br><span class="line">    implemented = <span class="literal">True</span>   <span class="comment"># Change to True to view in the GUI</span></span><br><span class="line">    <span class="comment"># END Problem EC 1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, health=<span class="number">1</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(health)</span><br><span class="line">        <span class="comment"># store the bee and its corresponding index</span></span><br><span class="line">        self.slowed_bees = &#123;&#125;  <span class="comment"># bee -&gt; end_time</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">throw_at</span>(<span class="params">self, target, gamestate</span>):</span><br><span class="line">        self.slowed_bees[target] = <span class="number">1</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;assign slowed_action to target.action&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">slowed_action</span>(<span class="params">gamestate</span>):</span><br><span class="line">            <span class="keyword">if</span> target <span class="keyword">not</span> <span class="keyword">in</span> self.slowed_bees:</span><br><span class="line">                self.slowed_bees[target] = <span class="number">1</span></span><br><span class="line">            <span class="comment"># get the index of target</span></span><br><span class="line">            index = self.slowed_bees.get(target)</span><br><span class="line">            <span class="comment"># check</span></span><br><span class="line">            <span class="keyword">if</span> index &gt; <span class="number">5</span>:</span><br><span class="line">            <span class="comment"># delete the target from dict since it&#x27;s not slowed</span></span><br><span class="line">                Bee.action(target, gamestate)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                index += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> gamestate.time % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                    Bee.action(target, gamestate)</span><br><span class="line">                self.slowed_bees[target] = index</span><br><span class="line"></span><br><span class="line">        <span class="comment"># replace the initial target.action</span></span><br><span class="line">        target.action = slowed_action</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># END Problem EC 1</span></span><br></pre></td></tr></table></figure>
+<p>最主要的一步就是最后的赋值<code>target.action = slowed_action</code>，这样被减速的蜜蜂的行动就不会直接在<code>Bee</code>类里调用<code>Bee.action</code>，而是调用我们定义的<code>slowed_action</code>函数。这个函数会根据<code>gamestate.time</code>的奇偶性来决定是否调用<code>Bee.action</code>，从而实现了减速的效果。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2025/06/27/phd-9/" data-id="cmcl6ei8n00gaq8x4ahmk2exp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "Ants项目专题记录",
+        "image": "https://nju-kevin.github.iohttps://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png",
+        "keywords": "",
+        "genre": "PhD",
+        "datePublished": "2025-06-27",
+        "dateCreated": "2025-06-27",
+        "dateModified": "2025-07-01",
+        "url": "https://nju-kevin.github.io/2025/06/27/phd-9/",
+        "description": "
+这篇文章主要记录完成cs61A几个项目过程中所遇到的值得关注的事情。目前我在写Ants项目，在这之前，我已经完成了Hog和Cats两个项目，这两个项目所需要的python相关知识不深，只需要理解了含义便能完成，因此这里便不详细阐述了。
+Ants06-27更新：这个项目的目标是完成一个Ants vs Bees的游戏，在我看来很像是Plants vs Zombies的简化版，主要需要用类的知识来面向",
+        "wordCount": 617
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2025/07/01/phd-10/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            cs61A：Tree与Link
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2025/06/27/life-245/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">本科毕业回忆</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/01/phd-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/115/thumb-1920-1156488.png)" alt="cs61A：Tree与Link" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/07/01/phd-10/" class="title">cs61A：Tree与Link</a></p>
+                            <p class="item-date"><time datetime="2025-07-01T09:36:34.000Z" itemprop="datePublished">2025-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/phd-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png)" alt="Ants项目专题记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/06/27/phd-9/" class="title">Ants项目专题记录</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T14:19:45.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/life-245/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/06/27/life-245/" class="title">本科毕业回忆</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T13:50:01.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/phd-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images4.alphacoders.com/136/thumb-1920-1369946.png)" alt="cs61A：自引用函数" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/06/19/phd-8/" class="title">cs61A：自引用函数</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T14:39:53.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/17/life-244/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/134/thumb-1920-1347312.png)" alt="充实的一天" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2025/06/17/life-244/" class="title">充实的一天</a></p>
+                            <p class="item-date"><time datetime="2025-06-17T14:20:29.000Z" itemprop="datePublished">2025-06-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2025/06/27/phd-9/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

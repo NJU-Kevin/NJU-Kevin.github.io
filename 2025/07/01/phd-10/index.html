@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>cs61A：Tree与Link | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="最近学习cs61A遇到了这几个很重要的结构，在这篇文章中整理一下。 Tree树也是一种很重要的数据结构，其每个结点都有一个标签label，以及相应的分支branches，其结构定义如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs61A：Tree与Link">
+<meta property="og:url" content="https://nju-kevin.github.io/2025/07/01/phd-10/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="最近学习cs61A遇到了这几个很重要的结构，在这篇文章中整理一下。 Tree树也是一种很重要的数据结构，其每个结点都有一个标签label，以及相应的分支branches，其结构定义如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images8.alphacoders.com/115/thumb-1920-1156488.png">
+<meta property="article:published_time" content="2025-07-01T09:36:34.000Z">
+<meta property="article:modified_time" content="2025-07-01T13:04:11.969Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images8.alphacoders.com/115/thumb-1920-1156488.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/PhD/">PhD</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-phd-10" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        cs61A：Tree与Link
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/07/01/phd-10/" class="article-date">
+       <time datetime="2025-07-01T09:36:34.000Z" itemprop="datePublished">2025-07-01</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2025/07/01/phd-10/" class="article-date">
+     <time datetime="2025-07-01T13:04:11.969Z" itemprop="dateModified">2025-07-01</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.1k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">5 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images8.alphacoders.com/115/thumb-1920-1156488.png" alt=""></p>
+<p>最近学习cs61A遇到了这几个很重要的结构，在这篇文章中整理一下。</p>
+<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><p>树也是一种很重要的数据结构，其每个结点都有一个标签<code>label</code>，以及相应的分支<code>branches</code>，其结构定义如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tree Data Abstraction</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tree</span>(<span class="params">label, branches=[]</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Construct a tree with the given label value and a list of branches.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> branch <span class="keyword">in</span> branches:</span><br><span class="line">        <span class="keyword">assert</span> is_tree(branch), <span class="string">&#x27;branches must be trees&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> [label] + <span class="built_in">list</span>(branches)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">label</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the label value of a tree.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> tree[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">branches</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the list of branches of the given tree.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> tree[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_tree</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns True if the given tree is a tree, and False otherwise.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(tree) != <span class="built_in">list</span> <span class="keyword">or</span> <span class="built_in">len</span>(tree) &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> branch <span class="keyword">in</span> branches(tree):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_tree(branch):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_leaf</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns True if the given tree&#x27;s list of branches is empty, and False</span></span><br><span class="line"><span class="string">    otherwise.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> branches(tree)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_tree</span>(<span class="params">t, indent=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Print a representation of this tree in which each node is</span></span><br><span class="line"><span class="string">    indented by two spaces times its depth from the root.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; print_tree(tree(1))</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; print_tree(tree(1, [tree(2)]))</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">      2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; print_tree(numbers)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">      2</span></span><br><span class="line"><span class="string">      3</span></span><br><span class="line"><span class="string">        4</span></span><br><span class="line"><span class="string">        5</span></span><br><span class="line"><span class="string">      6</span></span><br><span class="line"><span class="string">        7</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;  &#x27;</span> * indent + <span class="built_in">str</span>(label(t)))</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> branches(t):</span><br><span class="line">        print_tree(b, indent + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_tree</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns a copy of t. Only for testing purposes.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; t = tree(5)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; copy = copy_tree(t)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; t = tree(6)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; print_tree(copy)</span></span><br><span class="line"><span class="string">    5</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> tree(label(t), [copy_tree(b) <span class="keyword">for</span> b <span class="keyword">in</span> branches(t)])</span><br></pre></td></tr></table></figure></p>
+<p>树的数据抽象是一种嵌套的列表，有些类似LinkList，但其每个结点的<code>branches</code>可以有多个分支，而LinkList只有一个<code>rest</code>。树的根结点是一个列表，包含了标签和分支列表，分支列表中的每个元素也是一个树。因此对于树不能简单地取<code>branches</code>，而应该对<code>branches</code>中的元素进行递归或者迭代。</p>
+<h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h1><p>LinkedList是一种链表结构，其<code>rest</code>也是一个Link结构，还有一个<code>first</code>代表第一个元素，其结构定义如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Link</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;A linked list.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s = Link(1)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.first</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.rest is Link.empty</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s = Link(2, Link(3, Link(4)))</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.first = 5</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.rest.first = 6</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.rest.rest = Link.empty</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s                                    # Displays the contents of repr(s)</span></span><br><span class="line"><span class="string">    Link(5, Link(6))</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s.rest = Link(7, Link(Link(8, Link(9))))</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; s</span></span><br><span class="line"><span class="string">    Link(5, Link(7, Link(Link(8, Link(9)))))</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; print(s)                             # Prints str(s)</span></span><br><span class="line"><span class="string">    &lt;5 7 &lt;8 9&gt;&gt;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    empty = ()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, first, rest=empty</span>):</span><br><span class="line">        <span class="keyword">assert</span> rest <span class="keyword">is</span> Link.empty <span class="keyword">or</span> <span class="built_in">isinstance</span>(rest, Link)</span><br><span class="line">        self.first = first</span><br><span class="line">        self.rest = rest</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.rest <span class="keyword">is</span> <span class="keyword">not</span> Link.empty:</span><br><span class="line">            rest_repr = <span class="string">&#x27;, &#x27;</span> + <span class="built_in">repr</span>(self.rest)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            rest_repr = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Link(&#x27;</span> + <span class="built_in">repr</span>(self.first) + rest_repr + <span class="string">&#x27;)&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        string = <span class="string">&#x27;&lt;&#x27;</span></span><br><span class="line">        <span class="keyword">while</span> self.rest <span class="keyword">is</span> <span class="keyword">not</span> Link.empty:</span><br><span class="line">            string += <span class="built_in">str</span>(self.first) + <span class="string">&#x27; &#x27;</span></span><br><span class="line">            self = self.rest</span><br><span class="line">        <span class="keyword">return</span> string + <span class="built_in">str</span>(self.first) + <span class="string">&#x27;&gt;&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="LinkedList的修改和赋值"><a href="#LinkedList的修改和赋值" class="headerlink" title="LinkedList的修改和赋值"></a>LinkedList的修改和赋值</h2><p>直接通过指定<code>link.first</code>和<code>link.rest</code>来修改LinkedList的内容，与字典类似。初始化一个LinkedList需要指定其<code>first</code>参数，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = Link(<span class="number">1</span>)</span><br></pre></td></tr></table></figure><br>拷贝LinkedList可以直接使用<code>=</code>操作符赋值，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s2 = s</span><br><span class="line"></span><br><span class="line"><span class="comment">#亦可以</span></span><br><span class="line">s2 = Link(s.first, s.rest)</span><br></pre></td></tr></table></figure><br>但修改<code>s2</code>的内容<b>不影响</b><code>s</code>，这与<code>list</code>类型不同，这是需要区分的一点。迭代的时候只需要关注链表的两个参数<code>first</code>和<code>rest</code>即可，复制一份然后使用<code>_copy = _copy.rest</code>来迭代。</p>
+<h2 id="List类型的修改与赋值"><a href="#List类型的修改与赋值" class="headerlink" title="List类型的修改与赋值"></a>List类型的修改与赋值</h2><p>list类型（比如树就可抽象成一个list类型）在修改迭代的时候需要<b>拷贝副本</b>，因为如果修改后元素个数发生了变化，<code>for</code>循环不一定会遍历到原list的所有元素，可以使用<code>list.copy()</code>或者切片<code>list[:]</code>拷贝副本。但该拷贝方法只是浅拷贝，如果list中有嵌套的list，则嵌套的list仍然是原来的对象，进而修改副本后原来的list也会发生变化。如果需要完全分开，则一般使用深拷贝<code>deepcopy</code>方法。浅拷贝后副本里的元素变动是否影响原列表的元素取决于元素类型，如果是不可变类型（如整数、字符串等），则不会影响原列表；如果是可变类型（如列表、字典等），则会影响原列表。此外还要看列表元素所指向的对象，如果指向的是同一个对象，则修改副本会影响原列表。</p>
+<p>与LinkedList不同，普通的<code>=</code>无法进行复制，对于list对象，这会使得二者指向同一个对象，二者同步修改。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2025/07/01/phd-10/" data-id="cmcl6ei8d00fpq8x437ja6bgv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "cs61A：Tree与Link",
+        "image": "https://nju-kevin.github.iohttps://images8.alphacoders.com/115/thumb-1920-1156488.png",
+        "keywords": "",
+        "genre": "PhD",
+        "datePublished": "2025-07-01",
+        "dateCreated": "2025-07-01",
+        "dateModified": "2025-07-01",
+        "url": "https://nju-kevin.github.io/2025/07/01/phd-10/",
+        "description": "
+最近学习cs61A遇到了这几个很重要的结构，在这篇文章中整理一下。
+Tree树也是一种很重要的数据结构，其每个结点都有一个标签label，以及相应的分支branches，其结构定义如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575",
+        "wordCount": 1185
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2025/06/27/phd-9/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Ants项目专题记录</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/01/phd-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/115/thumb-1920-1156488.png)" alt="cs61A：Tree与Link" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/07/01/phd-10/" class="title">cs61A：Tree与Link</a></p>
+                            <p class="item-date"><time datetime="2025-07-01T09:36:34.000Z" itemprop="datePublished">2025-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/phd-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png)" alt="Ants项目专题记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/06/27/phd-9/" class="title">Ants项目专题记录</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T14:19:45.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/life-245/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/06/27/life-245/" class="title">本科毕业回忆</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T13:50:01.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/phd-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images4.alphacoders.com/136/thumb-1920-1369946.png)" alt="cs61A：自引用函数" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/06/19/phd-8/" class="title">cs61A：自引用函数</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T14:39:53.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/17/life-244/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/134/thumb-1920-1347312.png)" alt="充实的一天" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2025/06/17/life-244/" class="title">充实的一天</a></p>
+                            <p class="item-date"><time datetime="2025-06-17T14:20:29.000Z" itemprop="datePublished">2025-06-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2025/07/01/phd-10/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
