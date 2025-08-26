@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Scheme项目专题记录 | Kevin&#39;s World</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="这几天一直在写cs61a课程的Scheme项目，主要内容是用python语言实现一个Scheme解释器。这个项目的难点在于需要理解Scheme语言的语法和语义，并用python的数据结构来模拟Scheme的环境和求值过程。课程网站上拆分成了16个问题以及两个选做的EC问题。Frame和Procedure是两个重要的类，分别用于表示Scheme的环境和过程。每个问题都需要实现特定的功能，比如变量绑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scheme项目专题记录">
+<meta property="og:url" content="https://nju-kevin.github.io/2025/07/07/phd-11/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="这几天一直在写cs61a课程的Scheme项目，主要内容是用python语言实现一个Scheme解释器。这个项目的难点在于需要理解Scheme语言的语法和语义，并用python的数据结构来模拟Scheme的环境和求值过程。课程网站上拆分成了16个问题以及两个选做的EC问题。Frame和Procedure是两个重要的类，分别用于表示Scheme的环境和过程。每个问题都需要实现特定的功能，比如变量绑">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.topcfd.cn/wp-content/uploads/2022/10/7e49293bfc41fb2.jpg">
+<meta property="article:published_time" content="2025-07-07T10:27:01.000Z">
+<meta property="article:modified_time" content="2025-07-07T11:41:19.082Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.topcfd.cn/wp-content/uploads/2022/10/7e49293bfc41fb2.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/PhD/">PhD</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-phd-11" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Scheme项目专题记录
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/07/07/phd-11/" class="article-date">
+       <time datetime="2025-07-07T10:27:01.000Z" itemprop="datePublished">2025-07-07</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2025/07/07/phd-11/" class="article-date">
+     <time datetime="2025-07-07T11:41:19.082Z" itemprop="dateModified">2025-07-07</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.6k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">5 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://www.topcfd.cn/wp-content/uploads/2022/10/7e49293bfc41fb2.jpg" alt=""></p>
+<p>这几天一直在写cs61a课程的Scheme项目，主要内容是用python语言实现一个Scheme解释器。这个项目的难点在于需要理解Scheme语言的语法和语义，并用python的数据结构来模拟Scheme的环境和求值过程。课程网站上拆分成了16个问题以及两个选做的EC问题。<code>Frame</code>和<code>Procedure</code>是两个重要的类，分别用于表示Scheme的环境和过程。每个问题都需要实现特定的功能，比如变量绑定、过程调用、条件判断等。具体而言，环境维护了一个变量-值的字典，在后续需要引用变量的时候查找该变量的值。此外，为了解决嵌套的问题，环境还可以继续创建子环境，比如有些变量在外部环境有定义，而在子环境亦有重新定义，此时对于嵌套的操作来说，不同括号层级下就应该用相应的值，这时创建子环境就能够解决嵌套的问题。而<code>Procedure</code>则是对于Scheme中执行操作的一种抽象化，从最简单的加法减法乘除法，到一些判断语句，再到<code>lambda</code>，<code>quote</code>等过程，都算在<code>Procedure</code>类里，每一个类都有相应的环境，每一次“运算”都是在相应的环境下进行的。</p>
+<p>对于表达式的计算求值，核心思想也就是Scheme的核心思想：递归。由于求值表达式有可能有很多重嵌套表达式，每次只提取<code>first</code>部分的<code>procedure</code>，再对后面的部分递归调用求值即可。前16个问题根据课程提示一步步完成即可，写代码过程中发现<code>map()</code>函数是一种很好用的函数，它能够对后面的<code>list</code>中的每一个部分都应用括号中的函数，这样就不用用循环一个一个取<code>rest</code>遍历了。另外，由于Scheme语言可以用<code>Pair</code>进行重写，所以取<code>first</code>和<code>rest</code>操作是非常普遍的，需要对<code>Pair</code>类的操作比较熟悉（<code>map()</code>函数就是<code>Pair</code>类中的一个功能函数），还是和链表<code>Linkedlist</code>很像的。</p>
+<p>我主要在EC Problem上遇到了麻烦。就是对于<code>scheme_eval</code>函数进行优化的问题。这个问题的思路在课程中也写得比较明白，首先先写一个<code>optimize_tail_calls</code>函数，这个函数当表达式不是原子表达式，有嵌套，且处在一个尾部语境里的时候，会返回一个<code>Unevaluated</code>实例，其实就是一个封装，表示暂时不对其进行计算。因为在递归的时候，每次<code>return</code>都要重新开一个新环境递归调用原函数，当递归深度很大的时候就会报错。而这样进行<code>Thunk</code>封装后，每次只要是在<code>return</code>之前进行的<code>scheme_eval</code>求值操作，都不会真正进行求值，二是封装起来，等表达式可以直接计算（到达递归最深处）后再返回，返回的过程中一层层解封知道变成一个具体的值。用<code>optimize_tail_calls</code>封装优化原来的<code>scheme_eval</code>函数之后，还需要修改在尾部语境应用<code>scheme_eval</code>函数的地方，在变量中设置<code>tail = True</code>，以表示该次引用在尾部语境。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">optimize_tail_calls</span>(<span class="params">unoptimized_scheme_eval</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return a properly tail recursive version of an eval function.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">optimized_eval</span>(<span class="params">expr, env, tail = <span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;Evaluate Scheme expression EXPR in Frame ENV. If TAIL,</span></span><br><span class="line"><span class="string">        return an Unevaluated containing an expression for further evaluation.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> tail <span class="keyword">and</span> <span class="keyword">not</span> scheme_symbolp(expr) <span class="keyword">and</span> <span class="keyword">not</span> self_evaluating(expr):</span><br><span class="line">            <span class="keyword">return</span> Unevaluated(expr, env)</span><br><span class="line"></span><br><span class="line">        result = Unevaluated(expr, env)</span><br><span class="line">        <span class="comment"># BEGIN OPTIONAL PROBLEM 1</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">isinstance</span>(result, Unevaluated):</span><br><span class="line">            expr, env = result.expr, result.env</span><br><span class="line">            result = unoptimized_scheme_eval(expr, env)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">        <span class="comment"># END OPTIONAL PROBLEM 1</span></span><br><span class="line">    <span class="keyword">return</span> optimized_eval</span><br></pre></td></tr></table></figure>
+<p>浏览一下文件夹里的文件，调用<code>scheme_eval</code>函数的只有两个：<code>scheme_eval_apply.py</code>和<code>scheme_forms.py</code>，因此只需要关注这两个文件中是否有尾部调用。</p>
+<h2 id="卡点1"><a href="#卡点1" class="headerlink" title="卡点1"></a>卡点1</h2><p>首先看<code>scheme_eval_apply.py</code>。由于已经使用了<code>scheme_eval = optimize_tail_calls(scheme_eval)</code>对<code>scheme_eval</code>函数自更新，因此原来的<code>scheme_eval</code>函数不需要做改动，也不需要增加一个变量。递归部分并不在<code>return</code>的前一步，因此函数本身不需要任何修改。再看<code>scheme_apply</code>函数，没有调用<code>scheme_eval</code>函数，但调用了<code>eval_all</code>函数，因此再看一下<code>eval_all</code>函数。其中有两次对<code>scheme_eval</code>函数的调用，循环里的调用显然不是尾部语境，最后<code>return</code>的部分属于尾部语境，新增一个<code>True</code>变量进行尾部封装。注意，<b>不需要对<code>scheme_apply</code>或<code>eval_all</code>本身添加尾部参数</b>，因为函数内部已经包含了尾部调用。</p>
+<h2 id="卡点2"><a href="#卡点2" class="headerlink" title="卡点2"></a>卡点2</h2><p>对于<code>scheme_forms.py</code>中的函数，应用和上述同样的思路，在<code>return</code>前一步调用<code>scheme_eval</code>函数的增加尾部变量并设定为<code>True</code>值。按理说这样就没问题了，不过我还在<code>do_and_form</code>和<code>do_or_form</code>这里卡了一下。一开始我的初始代码中有这样的一条判定：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> is_scheme_true(val):</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<p>后来发现这其实就是把<code>python</code>和<code>Scheme</code>里的<code>True</code>给混淆了，事实上<code>Scheme</code>里不是<code>False</code>的值都是<code>True</code>，这一点和<code>Python</code>里大不相同。</p>
+<p><code>scheme_forms.py</code>中的函数同样不需要添加一个<code>tail</code>变量，因为尾部元素在函数中调用<code>scheme_eval</code>时就已经传进去过了。对于其中没有调用<code>scheme_eval</code>的函数，更不需要考虑尾部封装的问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>后续还有一个EC Problem，是用<code>scheme</code>语言将<code>let</code>语句转化为等价的<code>lambda</code>语句，难度不高，只是比较繁琐，尤其是多重括号的组合，<code>cadr</code>、<code>cddr</code>、<code>cons</code>等操作的熟练运用。往往遇到这种比较绕的题目，推荐在平板上画出逻辑图，或者用样例分析一下应该怎么弄就可以了。</p>
+<p>总体而言这份project还是挺有训练价值的，尤其是EC Problem部分，正如课程网页上所写的，完成EC Problem需要把整个项目的各个部分以及相应函数的作用和意义了解得十分透彻，只有很清晰地了解原理以及实现方法，才能有解题思路。EC Problem的debug加在一起也花了我一天的时间，一开始还不太懂<code>Trampolining</code>，看介绍文档也只是留下一个印象，真正理解这个过程是在反复的debug过程中完成的，在真正理解之后，tests自然就会all passed！</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nju-kevin.github.io/2025/07/07/phd-11/" data-id="cmesjrovx00g0r0x4colf2oj0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NJU-Kevin"
+        },
+        "headline": "Scheme项目专题记录",
+        "image": "https://nju-kevin.github.iohttps://www.topcfd.cn/wp-content/uploads/2022/10/7e49293bfc41fb2.jpg",
+        "keywords": "",
+        "genre": "PhD",
+        "datePublished": "2025-07-07",
+        "dateCreated": "2025-07-07",
+        "dateModified": "2025-07-07",
+        "url": "https://nju-kevin.github.io/2025/07/07/phd-11/",
+        "description": "
+这几天一直在写cs61a课程的Scheme项目，主要内容是用python语言实现一个Scheme解释器。这个项目的难点在于需要理解Scheme语言的语法和语义，并用python的数据结构来模拟Scheme的环境和求值过程。课程网站上拆分成了16个问题以及两个选做的EC问题。Frame和Procedure是两个重要的类，分别用于表示Scheme的环境和过程。每个问题都需要实现特定的功能，比如变量绑",
+        "wordCount": 287
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2025/08/10/phd-12/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            CS188 回顾
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2025/07/01/phd-10/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">cs61A：Tree与Link</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/08/10/phd-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://inst.eecs.berkeley.edu/~cs188/fa23/assets/images/logo.png)" alt="CS188 回顾" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/08/10/phd-12/" class="title">CS188 回顾</a></p>
+                            <p class="item-date"><time datetime="2025-08-10T13:02:14.000Z" itemprop="datePublished">2025-08-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/07/phd-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.topcfd.cn/wp-content/uploads/2022/10/7e49293bfc41fb2.jpg)" alt="Scheme项目专题记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/07/07/phd-11/" class="title">Scheme项目专题记录</a></p>
+                            <p class="item-date"><time datetime="2025-07-07T10:27:01.000Z" itemprop="datePublished">2025-07-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/01/phd-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images8.alphacoders.com/115/thumb-1920-1156488.png)" alt="cs61A：Tree与Link" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/07/01/phd-10/" class="title">cs61A：Tree与Link</a></p>
+                            <p class="item-date"><time datetime="2025-07-01T09:36:34.000Z" itemprop="datePublished">2025-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/phd-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://img-blog.csdnimg.cn/img_convert/946a7f3de55ef13d7b0f839bdc443d58.png)" alt="Ants项目专题记录" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PhD/">PhD</a></p>
+                            <p class="item-title"><a href="/2025/06/27/phd-9/" class="title">Ants项目专题记录</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T14:19:45.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/27/life-245/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/06/27/life-245/" class="title">本科毕业回忆</a></p>
+                            <p class="item-date"><time datetime="2025-06-27T13:50:01.000Z" itemprop="datePublished">2025-06-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 NJU-Kevin</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://nju-kevin.github.io/2025/07/07/phd-11/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
