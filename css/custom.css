@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'FZQiti';
+    src: url('/fonts/FZQTJW.TTF') format('truetype');
+    font-display: swap;  /* 优化加载体验 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 应用到全局 */
+body {
+    font-family: 'FZQiti', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif !important;
+}
+
+/* 如果你也想让代码块用启体（可选） */
+/* #article-container pre, #article-container code {
+    font-family: 'FZQiti', 'Fira Code', monospace !important;
+} */
+
+/* 设置代码块字体为 Consolas */
+#article-container pre,
+#article-container code,
+#article-container pre code,
+.highlight,
+.highlight pre,
+.highlight code {
+    font-family: Consolas, 'Courier New', monospace !important;
+}
+
+/* 可选：调整代码字体大小（如果觉得太大或太小） */
+#article-container pre,
+#article-container code,
+.highlight pre {
+    font-size: 16px; /* 根据喜好调整 */
+}
+
+/* 文章标题也用启体（可选） */
+.post-title {
+    font-family: 'FZQiti', serif !important;
+}
+
+body {
+    font-size: 20px;  /* 正文大小，可按需调整 */
+}
+
+.post-title {
+    font-size: 28px;  /* 文章标题大小 */
+}
+
+.post-content p {
+    font-size: 24px;
+    line-height: 1.7; /* 可调整行高，提升阅读体验 */
+}
+
+#site-title {
+    font-size: 32px;  /* 站点标题大小 */
+}
+
+/* 文章页主体区域 */
+.post-block {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(2px);
+}
+
+/* 侧边栏卡片 */
+.card-widget {
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* 首页文章卡片 */
+.recent-post-item {
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* 如果文章页内容还有独立背景，继续覆盖 */
+.layout_post > #post {
+    background: rgba(255, 255, 255, 0.85) !important; /* 或 rgba(...) */
+}
+
+/* 一些主题可能用到的其他容器 */
+#content-inner, .layout {
+    background: transparent !important;
+}
+
+.post-content,
+.article-container,
+#post .post-content {
+    background: transparent !important;
+}
+
+.layout > div:first-child:not(.nc) {
+    background: rgba(255, 255, 255, 0.85) !important;
+}

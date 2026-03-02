@@ -1,904 +1,290 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-
-    
-
-    
-    <title>Kevin&#39;s World</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Kevin's World - Analysis is beautiful!</title><meta name="author" content="NJU-Kevin"><meta name="copyright" content="NJU-Kevin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Kevin&#39;s World">
 <meta property="og:url" content="https://nju-kevin.github.io/page/17/index.html">
 <meta property="og:site_name" content="Kevin&#39;s World">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://nju-kevin.github.io/img/butterfly-icon.png">
 <meta property="article:author" content="NJU-Kevin">
 <meta name="twitter:card" content="summary">
-    
+<meta name="twitter:image" content="https://nju-kevin.github.io/img/butterfly-icon.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://nju-kevin.github.io/page/17/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
-    
-        <link rel="alternate" href="/" title="Kevin&#39;s World" type="application/atom+xml" />
-    
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
 
-    
-        <link rel="icon" href="/css/images/bitbug_favicon.ico.jpg#%20path%20to%20favicon" />
-    
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-
-    
-<link rel="stylesheet" href="/libs/titillium-web/styles.css">
-
-    
-<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
-
-    
-    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
-<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
     
-    
-        
-<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-
-    
-    
-    
-    
-
-
-<!-- hexo injector head_end start -->
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Kevin\'s World',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Home</a>
-                                </li>
-                            
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Contest/">Contest</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Lesson/">Lesson</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Paper/">Paper</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PhD/">PhD</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Rudin/">Rudin</a></li></ul>
-                                
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
+</script><link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div class="bg-animation" id="web_bg" style="background-image: url(/images/hp.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">325</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Life/"><i class="fa-fw fas fa-leaf"></i><span> Life</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Paper/"><i class="fa-fw fas fa-file"></i><span> Paper</span></a></div><div class="menus_item"><a class="site-page" href="/categories/PhD/"><i class="fa-fw fas fa-graduation-cap"></i><span> PhD</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Lesson/"><i class="fa-fw fas fa-book-open"></i><span> Lesson</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Math/"><i class="fa-fw fas fa-calculator"></i><span> Math</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Contest/"><i class="fa-fw fas fa-trophy"></i><span> Contest</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/hp.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Kevin's World</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Life/"><i class="fa-fw fas fa-leaf"></i><span> Life</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Paper/"><i class="fa-fw fas fa-file"></i><span> Paper</span></a></div><div class="menus_item"><a class="site-page" href="/categories/PhD/"><i class="fa-fw fas fa-graduation-cap"></i><span> PhD</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Lesson/"><i class="fa-fw fas fa-book-open"></i><span> Lesson</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Math/"><i class="fa-fw fas fa-calculator"></i><span> Math</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Contest/"><i class="fa-fw fas fa-trophy"></i><span> Contest</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Kevin's World</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/15/life-155/" title="近一周学习记录">近一周学习记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-15T13:57:55.000Z" title="Created 2023-12-15 21:57:55">2023-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> 最近几天由于电脑不随身带，加上事情比较多，也比较忙，能空出来写日记的时间比较少。因此我打算在这篇文章中把近一周的学习情况做一个统一的概述。 本学期周三周四周五是比较空的，自习时间大多用来写作业等，周三做实变函数和拓扑学作业，周四做应用随机过程和偏微分方程作业，其余时间在解决一些剩余问题，例如课程中遇到的问题，或者做课后习题的过程中遇到的问题，亦或是同学问的问题等等。思考这些问题的时候，我都把我的思路在稿纸上演算，而不是随手拿一张纸，算完后就丢弃，这是为了防止今后忘记了当时的思路，而又无从查阅的情况。平时的深度学习我也习惯在稿纸上进行，基本上就是定理+证明的模式，十分简约，另一方面，由于各门学科的笔记本很多，不可能每天都全部带上，因此思考下一天带哪些笔记本甚至成为了一个令人头大的事情。而记录在稿纸上则完美地解决了这个问题，稿纸比草稿纸要正式，却又没有笔记本那样正式，而且稿纸上记录的内容可以很广，看到了某个定理就可以当场记下来。笔记本由于体系的统一性不太方便东一条西一条地写，经过最近一段时间的试验，发现这样的方式还是挺不错的。 近一周我的学习兴趣主要是随机分析和泛函分析。随机分析虽...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/12/life-156/" title="条件期望再探">条件期望再探</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-12T14:09:00.000Z" title="Created 2023-12-12 22:09:00">2023-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> ﻿ ﻿ ﻿今天一整天都在纠缠条件期望，症结在于应用随机过程讲义上的一个步骤，对于条件期望使用了Vitali收敛定理，但条件期望本身就是随机变量，不管用什么收敛定理，只能得到积分收敛，得不到随机变量列的收敛性。之前有印象条件期望就是对于条件概率的积分，但如果细想觉得不太清楚，于是在网上搜索了各种资料，都没有明确说条件期望是对于条件概率积分的说法。而我又问了这门课的助教，助教给的回复是条件期望是可测函数对条件概率做的期望（也就是积分），奇怪的是，网上几乎没有这样的表述，这让我很是困惑。 ﻿ ﻿上完课后，晚上回图书馆又把Durret的PTE好好翻了翻，发现对于条件概率而言，如果条件的部分是一个sigma代数，那么这个条件概率的定义实际上是一个条件期望，也就是说，条件概率如果进行拓展，可以是一个随机变量。但这只在sigma代数是由可数个元素生成的情况下。于是我对于一般的sigma代数，也尝试去“定义”关于这个sigma代数的条件概率测度，并用测度的定义验证了的确是一个概率测度，只不过这个概率测度在非平凡的情况下取值其实是随机变量，因此可以看成是一个拓展的概率测度。不过由于是有限测度，实...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/10/life-154/" title="周末学习记录（五）">周末学习记录（五）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-10T13:06:54.000Z" title="Created 2023-12-10 21:06:54">2023-12-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> 这周的作业比较多，而且难度都比较大，周六花了一天的时间完成各门学科的作业，现在愈发觉得作业中有大乾坤。例如实变函数的作业，许多题目都十分有价值，而且吕老师也善于从实变函数往更高阶的分析课程作引申，例如上课讲了调和分析中半线性算子的插值定理，作业中有涉及到所谓的弱收敛，做作业的过程中我也是顺便将泛函中的$Eberlein-Smulyan$定理回味了一遍。作业中的是一个简单的例子，而上述定理则告诉我们有界数列能否有某种意义下的收敛子列。在欧式空间中，数学分析的知识就告诉我们，有界数列必有收敛子列，即所谓的$Heine-Borel$定理，实际上这与空间的某种性质有关系，而进入泛函中的空间，例如考虑无穷维空间上的单位球面，它是有界的，但不是紧集，这是因为我们可以找到一个数列没有收敛子列。因此“有界数列必有收敛子列”这个性质并不是任何时候都成立的，在无限维空间中尤其不对。不过上述定理则告诉我们，如果空间自反，有界数列都有弱收敛子列。在写到这题的时候就让我想起来了这则定理，当时在作报告的时候对这条定理是一种理解，如今又有另一种看法，我也相信其中的深意还有很多，还需我慢慢琢磨。 做完作业后的...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/10/rudin-7/" title="Probability Theory">Probability Theory</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-10T11:20:09.000Z" title="Created 2023-12-10 19:20:09">2023-12-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Rudin/">Rudin</a></span></div><div class="content"> 前言这一系列旨在阐述我对于几门分析学基础学科的学习体验与认知，主要通过阅读的书籍按时间顺序更新。在这一系列中，涉及到的定理与命题都会完整提到，而其证明过程不会事无巨细地写出，一些比较关键的定理证明也仅写出核心思路。除了命题本身及其相关内容，学科的研究目的和研究思路也会有所涉及，这样能够对于学科的脉络有一个更清楚的掌握，在许多时候更能做到“知其然而知其所以然”。此外，我个人在学习过程中的一些思考，对于学科的理解和体悟也会在文章中加以阐述。需要说明的是，这并不是一份学习讲义，更不是教科书性质的介绍文章，相比而言，本系列更像是一种学习经历的记录，里面也会回顾不同时间学习而产生的思考，而我又不希望本系列停留于空谈，没有具体的例子，定理，重要的性质等具体内容，因此从这个意义上来说本系列更像是读书笔记。事实上，写这些数学文章，最重要的就是个人的思考与体悟，如果全是长篇大论的数学证明，那和抄了一本教科书有什么分别？另一方面，如果只有个人的思考，而没有具体的数学论证，许多时候只能说一些空话，读后收获亦不大，今后自己回顾也只能泛泛而谈，也不知道当初说的大道理在数学中有什么体现。因此，将二者结合是...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/06/life-153/" title="周一漫谈">周一漫谈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-06T14:50:15.000Z" title="Created 2023-12-06 22:50:15">2023-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> ﻿今天可谓是强度拉满的一天。实变函数，拓扑学和应用随机过程都介绍了十分有趣的知识，比之前有些周无聊的课程好多了。具体而言，实变函数介绍了$L^p$空间中的$Minkowski$不等式以及一个与对偶空间相关的范数刻画，吕老师还简要提及了一下$L^p$空间的自反性，这部分在泛函中是很重要的例子，在实变函数中很难展开，因为如果要展开绝非三言两语能够讲清楚的。只能说里面有非常丰富的理论。 拓扑学讲了流形与闭曲面，许多东西都比较难想象，例如莫比乌斯带或者克莱因瓶等，孙永忠老师竟然也来听课了（可能是由于教务处对于老师上课的考察要求），以及竟然我院副院长，著名物理化学家董昊先生也来参与评课。由于下课后我还有应用随机过程，和孙老师课后匆匆打了个招呼就告辞了，许久不见，孙老师竟然还能认得出我，依稀记得上学期上分析选讲课程的时候，老师教会了我不少东西，帮助我在分析方向更进一步，内心也是十分感激。 应用随机过程今天正式开始介绍$Ito$随机积分，这部分我需要认真学习，因为暂时打算作为今后的研究方向，感觉这部分内容的画风以及建立理论的一整套体系我都挺能够接受的，至少很感兴趣，兴趣就是最好的老师。事实上...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/03/life-152/" title="周末学习记录（四）">周末学习记录（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-03T13:56:49.000Z" title="Created 2023-12-03 21:56:49">2023-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> 这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。 周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几个关于一致可积的经典结论（$Vitali$收敛定理等）。后来又把$PDE$的调和方程引入部分，从散度定理出发一步步推到$Green$公式与调和函数的$Green$表示，推完之后觉得里面还是有不少细节、不少内容的，如果仅仅是老师讲一遍，跟着现有的思路抄一遍，有些地方还真不一定能走过去，而自己独立走一遍才知道哪里可能会有一下子想不到的坑存在。推完这些之后已经到了晚上，后来晚上就对$PTE$上鞅论部分继续进行学习，关于$Doob$的有界停时定理，极大不等式等。现在发现，许多高等概率论中的内容都可以用鞅的理论解决，这两者相辅相成。实际上，把鞅和$Markov$链学扎实后，随机过程里许多东西其实就...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/30/life-151/" title="十一月总结">十一月总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-30T13:10:22.000Z" title="Created 2023-11-30 21:10:22">2023-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Life/">Life</a></span></div><div class="content"> ﻿ ﻿ ﻿今天参加了南京大学学生年度人物展评，作为学生代表现场观摩并投票，看到了南京大学不少优秀学子。参评的同学在不同的方面都有自己的亮点，通过观摩我也是意识到评价一个人有许多不同的尺度，而并不是只有学习是唯一的评价标准。在理科，工科方面，各位优秀的同学都有许多共同点，不仅课内学习成绩优秀，课外的科研论文，竞赛，学术会议等多方面都取得了一定的成绩和进展，实是令人惊叹。 ﻿ 每个人的发光都是平日里无数次默默沉淀与积累换来的，作为学习数学这一基础学科的我，更是需要不断积累，不断磨练。所谓荣誉称号，奖学金等等都只是附带品，能评上则最好，未能评上也没有什么所谓，我更需要在意的是自己的水平是否达到了。记得我在知乎上曾回答过一个问题，问问题的同学说竞赛成绩什么时候出来，感觉自己很焦虑。我当时就回答说，与其焦虑自己的竞赛成绩和名次，不如思考一下自己的实力是否达标了，实力到了，该是你的都是你的，实力没到，就算拿了个奖，那也是“德不配位”，只是运气因素，无法长久。所以其实我现在做的就是不断提升自己的实力，让自己的实力能配得上自己想要拿到的荣誉，我认为这才是现阶段最重要的事情。 十一月干了许多事情...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/27/lesson-7/" title="大三上期中考试总结">大三上期中考试总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-27T13:55:55.000Z" title="Created 2023-11-27 21:55:55">2023-11-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lesson/">Lesson</a></span></div><div class="content"> 到今天为止，期中考试的成绩都已经公布，现将分数罗列如下：  数理统计 79 偏微分方程 82 实变函数 86 应用随机过程 100 拓扑学 92  CMC 省一  关于总结的事宜，我在之前的日记里已经说了很多了，这里简单重申一下经验与教训。对于我个人而言，此次期中考试更多的是教训。由于心里有种莫名其妙的“优越感”，导致这几门分析学的期中考试没有完全重视。实变函数考试证明跳步骤导致被扣分；偏微分方程没复习作业（作业印象不深）导致考试考到作业类似题只能靠临场发挥硬做；拓扑学最后一道题思维不缜密，熟练度不够；数理统计学的不扎实，许多细节都被扣了分，计算还出现了失误。 其实能够看出，我在期中考试的竞技状态不是很好，连最低级的计算都能出现失误，可见还是内心不知道谁给我的“优越感”作祟（大概率是自己给自己的）。人最难做到的就是顺境时不自满，逆境时不自卑，这几天这两条在我身上都有反应。因此，首先就是要摆正心态，不能自己给自己所谓的“优越感”，在数学面前，在数学研究面前，我永远是一个求学者。其次，学习知识不能过于功利化，仅为了考试而学习会忘记学习的初衷。这几天许多事情我都从以后数学科研会用到，...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/16/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#content-inner">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/#content-inner">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/#content-inner">41</a><a class="extend next" rel="next" href="/page/18/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">NJU-Kevin</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">325</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/17/life-267/" title="三亚数学论坛（三）">三亚数学论坛（三）</a><time datetime="2026-01-17T14:11:21.000Z" title="Created 2026-01-17 22:11:21">2026-01-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/12/life-266/" title="三亚数学论坛（二）">三亚数学论坛（二）</a><time datetime="2026-01-12T12:03:52.000Z" title="Created 2026-01-12 20:03:52">2026-01-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/11/life-265/" title="三亚数学论坛（一）">三亚数学论坛（一）</a><time datetime="2026-01-11T11:13:43.000Z" title="Created 2026-01-11 19:13:43">2026-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/14/life-264/" title="初雪初愈">初雪初愈</a><time datetime="2025-12-14T14:35:29.000Z" title="Created 2025-12-14 22:35:29">2025-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/10/life-263/" title="LLM初探">LLM初探</a><time datetime="2025-12-10T13:33:07.000Z" title="Created 2025-12-10 21:33:07">2025-12-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Contest/"><span class="card-category-list-name">Contest</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lesson/"><span class="card-category-list-name">Lesson</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Life/"><span class="card-category-list-name">Life</span><span class="card-category-list-count">261</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Math/"><span class="card-category-list-name">Math</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Paper/"><span class="card-category-list-name">Paper</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PhD/"><span class="card-category-list-name">PhD</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Rudin/"><span class="card-category-list-name">Rudin</span><span class="card-category-list-count">7</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      <a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a>
     </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <em class="page-title-link" data-url="home">Home</em>
-    </h1>
-</div>
-
-                        <div class="main-body-content">
-                            
-
-    
-    
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2023" class="archive-year"><i class="icon fa fa-calendar-o"></i>2023</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/15/life-155/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images7.alphacoders.com/134/1343531.png)" alt="近一周学习记录" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/15/life-155/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-12-15T13:57:55.000Z" itemprop="datePublished">2023-12-15</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/15/life-155/">近一周学习记录</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-最近几天由于电脑不随身带，加上事情比较多，也比较忙，能空出来写日记的时间比较少。因此我打算在这篇文章中把近一周的学习情况做一个统一的概述。
-本学期周三周四周五是比较空的，自习时间大多用来写作业等，周三做实变函数和拓扑学作业，周四做应用随机过程和偏微分方程作业，其余时间在解决一些剩余问题，例如课程中遇到的问题，或者做课后习题的过程中遇到的问题，亦或是同学问的问题等等。思考这些问题的时候，我都把我的
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/12/life-156/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images3.alphacoders.com/132/1325254.png)" alt="条件期望再探" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/12/life-156/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-12-12T14:09:00.000Z" itemprop="datePublished">2023-12-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/12/life-156/">条件期望再探</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-﻿
-﻿
-﻿今天一整天都在纠缠条件期望，症结在于应用随机过程讲义上的一个步骤，对于条件期望使用了Vitali收敛定理，但条件期望本身就是随机变量，不管用什么收敛定理，只能得到积分收敛，得不到随机变量列的收敛性。之前有印象条件期望就是对于条件概率的积分，但如果细想觉得不太清楚，于是在网上搜索了各种资料，都没有明确说条件期望是对于条件概率积分的说法。而我又问了这门课的助教，助教给的回复是条件期望是可测
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/10/life-154/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images.alphacoders.com/133/1338593.png)" alt="周末学习记录（五）" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/10/life-154/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-12-10T13:06:54.000Z" itemprop="datePublished">2023-12-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/10/life-154/">周末学习记录（五）</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-这周的作业比较多，而且难度都比较大，周六花了一天的时间完成各门学科的作业，现在愈发觉得作业中有大乾坤。例如实变函数的作业，许多题目都十分有价值，而且吕老师也善于从实变函数往更高阶的分析课程作引申，例如上课讲了调和分析中半线性算子的插值定理，作业中有涉及到所谓的弱收敛，做作业的过程中我也是顺便将泛函中的$Eberlein-Smulyan$定理回味了一遍。作业中的是一个简单的例子，而上述定理则告诉我
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/10/rudin-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://readintrobooks.com/wp-content/uploads/2016/10/Probability-Theory-199x300.jpg)" alt="Probability Theory" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/10/rudin-7/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Rudin/">Rudin</a>
-            </div>
-            <div class="date"><time datetime="2023-12-10T11:20:09.000Z" itemprop="datePublished">2023-12-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/10/rudin-7/">Probability Theory</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-前言这一系列旨在阐述我对于几门分析学基础学科的学习体验与认知，主要通过阅读的书籍按时间顺序更新。在这一系列中，涉及到的定理与命题都会完整提到，而其证明过程不会事无巨细地写出，一些比较关键的定理证明也仅写出核心思路。除了命题本身及其相关内容，学科的研究目的和研究思路也会有所涉及，这样能够对于学科的脉络有一个更清楚的掌握，在许多时候更能做到“知其然而知其所以然”。此外，我个人在学习过程中的一些思考，
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/06/life-153/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images8.alphacoders.com/134/1342341.png)" alt="周一漫谈" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/06/life-153/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-12-06T14:50:15.000Z" itemprop="datePublished">2023-12-06</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/06/life-153/">周一漫谈</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-﻿今天可谓是强度拉满的一天。实变函数，拓扑学和应用随机过程都介绍了十分有趣的知识，比之前有些周无聊的课程好多了。具体而言，实变函数介绍了$L^p$空间中的$Minkowski$不等式以及一个与对偶空间相关的范数刻画，吕老师还简要提及了一下$L^p$空间的自反性，这部分在泛函中是很重要的例子，在实变函数中很难展开，因为如果要展开绝非三言两语能够讲清楚的。只能说里面有非常丰富的理论。
-拓扑学讲了流形
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/12/03/life-152/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images.alphacoders.com/134/1341845.jpeg)" alt="周末学习记录（四）" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/12/03/life-152/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-12-03T13:56:49.000Z" itemprop="datePublished">2023-12-03</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/12/03/life-152/">周末学习记录（四）</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-这周末就这样悄无声息地过去了，现在仔细一回想发现做了不少事情，也是更加地体会到亲自动笔演算带来的收获。
-周六主要复习随机过程，把近期上课的内容自己推了一遍，又结合$PTE$对照学习了一遍，算是把鞅的收敛理论给弄明白了，包括闭鞅的性质，一致可积性等。其中一致可积性的部分由于实变函数课程也没有涉及到，而我上一次见到是在$Rudin$的课后习题方面，因此我顺带又将相应的实分析部分复习了一下，主要就是几
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/11/30/life-151/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images.alphacoders.com/133/1337544.png)" alt="十一月总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/11/30/life-151/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Life/">Life</a>
-            </div>
-            <div class="date"><time datetime="2023-11-30T13:10:22.000Z" itemprop="datePublished">2023-11-30</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/11/30/life-151/">十一月总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-﻿
-﻿
-﻿今天参加了南京大学学生年度人物展评，作为学生代表现场观摩并投票，看到了南京大学不少优秀学子。参评的同学在不同的方面都有自己的亮点，通过观摩我也是意识到评价一个人有许多不同的尺度，而并不是只有学习是唯一的评价标准。在理科，工科方面，各位优秀的同学都有许多共同点，不仅课内学习成绩优秀，课外的科研论文，竞赛，学术会议等多方面都取得了一定的成绩和进展，实是令人惊叹。
-﻿
-每个人的发光都是平日里
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2023/11/27/lesson-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://images7.alphacoders.com/133/1339107.png)" alt="大三上期中考试总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://nju-kevin.github.io/2023/11/27/lesson-7/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Lesson/">Lesson</a>
-            </div>
-            <div class="date"><time datetime="2023-11-27T13:55:55.000Z" itemprop="datePublished">2023-11-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2023/11/27/lesson-7/">大三上期中考试总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-到今天为止，期中考试的成绩都已经公布，现将分数罗列如下：
-
-数理统计 79
-偏微分方程 82
-实变函数 86
-应用随机过程 100
-拓扑学 92 
-CMC 省一
-
-关于总结的事宜，我在之前的日记里已经说了很多了，这里简单重申一下经验与教训。对于我个人而言，此次期中考试更多的是教训。由于心里有种莫名其妙的“优越感”，导致这几门分析学的期中考试没有完全重视。实变函数考试证明跳步骤导致被扣分；偏微分方
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 17 of 41</span>
-        <a class="extend prev" rel="prev" href="/page/16/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/18/">&raquo;</a>
-    </nav>
-
-
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="twitter" href="http://yau-contest.com" target="_blank" rel="noopener">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="http://www.cmathc.cn" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
-    
-    <div class="widgets-container">
-        
-            
-                
-
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2026/01/17/life-267/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://tsimf.tsinghua.edu.cn/__local/0/4B/02/113A38970BE51EE9DA08D38CFDA_EB1DE3B7_1103516.jpg)" alt="三亚数学论坛（三）" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2026/01/17/life-267/" class="title">三亚数学论坛（三）</a></p>
-                            <p class="item-date"><time datetime="2026-01-17T14:11:21.000Z" itemprop="datePublished">2026-01-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2026/01/12/life-266/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://n.sinaimg.cn/sinacn/w1600h1144/20180209/c4f1-fyrkuxs7528060.jpg)" alt="三亚数学论坛（二）" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2026/01/12/life-266/" class="title">三亚数学论坛（二）</a></p>
-                            <p class="item-date"><time datetime="2026-01-12T12:03:52.000Z" itemprop="datePublished">2026-01-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2026/01/11/life-265/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://www.tsinghua.edu.cn/__local/0/84/A9/D64B148419079E81997BD3611F7_AC0FB7F0_B170E.png)" alt="三亚数学论坛（一）" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2026/01/11/life-265/" class="title">三亚数学论坛（一）</a></p>
-                            <p class="item-date"><time datetime="2026-01-11T11:13:43.000Z" itemprop="datePublished">2026-01-11</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/12/14/life-264/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://x0.ifengimg.com/ucms/2022_08/3593BD21D8B27FCAA6C8123C1791E682187708B9_size197_w1440_h1080.jpg)" alt="初雪初愈" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/12/14/life-264/" class="title">初雪初愈</a></p>
-                            <p class="item-date"><time datetime="2025-12-14T14:35:29.000Z" itemprop="datePublished">2025-12-14</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/12/10/life-263/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://img-blog.csdnimg.cn/img_convert/6ec21b26a90ea3751b87f85318f370d6.png)" alt="LLM初探" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
-                            <p class="item-title"><a href="/2025/12/10/life-263/" class="title">LLM初探</a></p>
-                            <p class="item-date"><time datetime="2025-12-10T13:33:07.000Z" itemprop="datePublished">2025-12-10</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Contest/">Contest</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lesson/">Lesson</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">261</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Paper/">Paper</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PhD/">PhD</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rudin/">Rudin</a><span class="category-list-count">7</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">6</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-
-            
-                
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-            
-        
-    </div>
-</aside>
-
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2026 NJU-Kevin</p>
-                
-                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
-                
-            </div>
-            <div class="footer-plugins">
-              
-    
-
-
-            </div>
-        </div>
-    </div>
-</footer>
-
-    </div>
-    
-    
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-
-
-
-
-
-    
-        
-<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-share.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-video.min.js"></script>
-
-    
-    
-        
-<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-
-    
-    
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-        </script>
-        
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
-
-    
-
-    
-    
-    
-
-
-
-<!-- Custom Scripts -->
-
-<script src="/js/main.js"></script>
-
-
-</body>
-</html>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              January 2026
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              December 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              October 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              September 2025
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              August 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              July 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              June 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              April 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">325</div></div><div class="webinfo-item"><div class="item-name">Total Word Count :</div><div class="item-count">245.1k</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-02T04:39:53.626Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By NJU-Kevin</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Welcome to my blog.","欢迎来到我的博客","The beauty of math, the power of AI.","Exploring the infinite wonders of math & AI.","天地有正气，杂然赋流形"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Welcome to my blog.","欢迎来到我的博客","The beauty of math, the power of AI.","Exploring the infinite wonders of math & AI.","天地有正气，杂然赋流形"])
+}
+typedJSFn.run(subtitleType)</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
