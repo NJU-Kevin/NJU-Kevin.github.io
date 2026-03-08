@@ -4,6 +4,63 @@
   
     
     <entry>
+      <title>cs61C学习记录</title>
+      <link href="/2026/03/08/phd-15/"/>
+      <url>/2026/03/08/phd-15/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇文章中，我打算对于我学习的CS61C课程我知识点进行一个介绍和记录。这门课程我没有像之前的CS61A和CS61B一样完整学习，大约学到期中的进度，后面或许没有时间事无巨细地完成了，但我也打算和CS162的学习方式类似，掌握该门课的核心内容和知识，理解计算机系统是如何构建的，我认为这方面的知识还是非常重要的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CS162学习记录</title>
+      <link href="/2026/03/08/phd-14/"/>
+      <url>/2026/03/08/phd-14/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇文章新开一个坑，主要打算记录学习CS162过程中的一些想法和知识点。由于时间关系，可能没办法正经当作一门课来学习，因此我计划的方式是学习pdf课件从而能够对于操作系统有一个比较大体的了解，毕竟我认为这也是计算机专业的核心课程，了解操作系统也是核心素养之一。在有时间对OS进行学习的时候我都会对所学在本文中进行记录，以方便日后查阅。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PhD </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OpenClaw初探</title>
+      <link href="/2026/03/08/life-268/"/>
+      <url>/2026/03/08/life-268/</url>
+      
+        <content type="html"><![CDATA[<p>最近OpenClaw很火，其实应该火了有一段时间了，而我为何突发奇想开始关注这个，还是源于这周末和同学们出去吃了一次饭，然后吃饭的时候聊到这个被成为“龙虾”的agent，于是后来我回来之后也自己倒腾了一会，也是成功配置上openclaw，养上了“龙虾”。</p><p>大模型agent其实很久之前就有了，所谓agent就是可以完成人类能够完成任务的，并且可以给人类反馈的模型，有一个主动交互性在里面。平常的大模型只能和人聊天，但除了给出文本型的信息之外，它不能干任何别的事情，不能帮人类干任何事情。而agent则具备一定这样的能力，例如可以帮我们创建文件夹、管理文件、运行程序并动态调试等等，前提是我们把相关的权限开放给agent。而这个openclaw则相当于是可以接管整个电脑的一种agent，它可以帮我们管理硬盘，整理文件，如果授权了一些网站的API，它还可以帮助我们登陆网站在相应的网站上执行操作，例如github上的操作，或者谷歌邮箱，又或者帮我们查看天气、交易市场上的股价分析，等等。</p><p>总之，我目前的感受是openclaw如果后续进一步发展，完全可以帮我们进一步省去创建邮件、创建文档、新建文件夹等最基础的事情，相当于是进一步接管我们的工作，这样以后想要干一件什么事情，不需要实际上到那个网站上去，或者实际上点击鼠标，在键盘上输入，只需要通过聊天框告诉这个“龙虾”，想要干什么，它就会帮我们干相应的事情。</p><p>那么如果想要提高“龙虾”干事情的效率和准确度，一个是相关的网页要授权给他，很多网站都需要登录，而我们也需要给它一个我们个人的token令牌，这样它拿着这个令牌就可以登录我们的账号，不用输入账号、密码等等；第二个是这个“龙虾”配置的大模型一定要足够强。因为本质上“龙虾”的内核还是各种市面上的大模型，比如我安装的是免费版本的大模型，那么它的能力就肯定比目前市面上最顶尖的大模型要弱很多。</p><p>由于我今天配置“龙虾”的目的并不是想要让它接管我的电脑、工作和学习，我只是想要看一下到底是个怎么回事，因此我在每一个环节都使用了免费的版本，包括大模型API我也是调用的免费的API，上下文长度有限制，而且一天也不能聊很多条内容。但是通过此次安装，我对于agent确实又有了更多的体会。其实本质上来说我们还是在和大模型聊天，只不过这个agent具备了和别的大模型聊天并且操作的能力，这样原本我们想要完成一件事情，是先问AI，然后AI告诉我们指令如何操作，我们再实际操作，中途可能还有问题，还要把问题反馈给AI，然后AI再给出相应的调整。这个过程的效率确实不如openclaw，因为“龙虾”相当于是能够实时地反馈给它调用的大模型，让大模型实时给出反馈，从而节省了我们自己把反馈发给大模型，然后再自己操作的一个过程。</p><p>以我今天上午安装openclaw为例，我用的教程是deepseek从网上搜索得到的，很多时候需要在终端里运行一些命令，而每条命令运行的文件夹有可能是不一样的，但往往deepseek不会那么详细地告诉我哪条命令在哪个环境下执行。由于我选择的是在wsl虚拟机上安装，而我之前已经安装过了一个linux系统，这次只需要按照教程执行即可。这个过程中也出现过执行的命令没有在正确的文件夹下执行的情况，因此每当有bug，我都要把运行日志和输出复制给deepseek，然后deepseek再相应地给出方案。而每次给出的方案并不一定都有效，我可能还得结合网上我自己搜索到别人的教程进一步调试。最终得到的“龙虾”的聊天框是一个运行在本地的网页，但一开始我发现这个“龙虾”什么都干不了，后来我才发现还需要调整“龙虾”的配置，要把一些工具还有技能都安装上，再配置好大模型的API接口，这样才能使用。</p><p>由此可见，如果是人和大模型交互，中间的bug和调试阶段，大模型无法实时地看到，都需要我们人来反馈给大模型。而大模型agent的好处就是，这中间的反馈过程不需要我们人来做了，大模型自己可以读取文件，它自己可以看到文件信息，它也可以自己运行起来，跑一段代码，如果代码报错，它也能收到实时的反馈，这比遇到报错然后复制错误信息再问大模型要效率高不少。</p><p>不过目前这项技术也还在发展，把电脑完全信任地交给大模型还是需要非常谨慎的。网上把openclaw吹的特别高，其实本质上还是因为调用的大模型厉害，倘若使用ChatGPT的最高档位的模型，配上Openclaw“龙虾”，其效果的确还是非常炸裂的。之前C同学就分享过一个网上的案例，如果把代码完全交给一个代码agent去调试，看起来我们人轻松了，因为不仅如今不用写代码了，安装环境包括运行代码调试debug都不需要我们做了，agent都会做，这个时候如果agent自己也遇到了怎么调都调不好的情况，agent也会“发疯”，具体表现为：1. agent直接把环境里的安装依赖包全部删掉自己重新写，然而代码跑不通肯定不会是因为包的问题，这就好像楼房造不起来怪砖头有问题，然后agent自己手搓砖头。2. agent写作弊代码蒙混过关。例如，本来这个代码到某一部很关键的地方跑不通，跑不通数据就算不出来，agent调了半天也调不好，干脆把有问题的地方删了，然后最终的结果伪造一个，直接让程序指定输出一个结果。如果人不自己看代码，看着结果甚至会以为是成功了的表现，然而实际上是被agent欺骗了。</p><p>这就引出我想要表达的观点。我一直以来对于AI大模型都采取的是拥抱但不完全信任的态度。拥抱是因为目前的时代，时代的洪流无法抵挡，日后大模型的应用肯定是会越来越广的，不会用AI、或者不会用大模型，势必会被淘汰。但我也不会什么都放手交给AI，虽然这样的确省事情，例如每个月花个几百块钱订阅一个好一点的大模型，所有的作业以及任务都可以让“龙虾”完成，从而解放自己，但是我一直感觉如果一个东西，尤其是作业，或者说上课的讲义，大模型完成只需要几分钟的时间，但是这样自己并没有获得提高。相当于大模型预先就给出了一份答案，就算把答案抄一遍，对我自己的效果甚至还不如自己做一遍，做不出来再去问大模型要来得强，包括写代码也是如此。因此，我认为，在大模型时代，还是要以自己为主，任何事情和任务，首先自己做，大模型只是帮我们兜底的，而不是替代我们做，否则随着大模型的发展，现在完全靠大模型不学习的人，终有一天会被大模型取代。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Algebra</title>
       <link href="/2026/03/06/math-16/"/>
       <url>/2026/03/06/math-16/</url>
@@ -682,11 +739,11 @@
     
     
     <entry>
-      <title>cs61A：conda配置pycharm项目环境</title>
-      <link href="/2025/06/06/phd-6/"/>
-      <url>/2025/06/06/phd-6/</url>
+      <title>cs61A：shell和vim入门</title>
+      <link href="/2025/06/06/phd-7/"/>
+      <url>/2025/06/06/phd-7/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://avatarfiles.alphacoders.com/374/374741.png" alt=""></p><p>最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大致已经搞明白了，于是为了防止以后忘记之后的繁复查教程，特此记录一下。</p><h1 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h1><p>python项目的虚拟环境是一个独立的python运行环境，它可以包含特定版本的python解释器和一组独立的第三方库。pycharm可以通过配置项目的虚拟环境来管理项目所需的依赖。因此，一般在写项目的时候，最好每个项目创建一个专属于该项目的虚拟环境，因为不同项目所需要的python版本和第三方库都不一样，为了避免繁复的报错，每个项目都创建一个独立的虚拟环境是最好的选择。这里就遇到了第一个问题，我想要把虚拟环境建在项目目录下而非C盘的.conda目录下，以下为指定位置创建虚拟环境的powershell命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--prefix</span>=D:\test\env\env_name python=<span class="number">3.10</span></span><br></pre></td></tr></table></figure><p>上述命令建立了D盘test项目中env文件夹中的名为env_name的虚拟环境，并指定了python版本为3.10。注意这里的<code>--prefix</code>参数是用来指定虚拟环境的路径的。但这样也有一个问题，那就是该虚拟环境的名字默认为上述的D:\test\env\env_name，而pycharm在配置项目时需要的是一个简短的名字，所以可以继续使用以下命令</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config <span class="literal">--append</span> envs_dirs D:\test\env</span><br></pre></td></tr></table></figure><p>将虚拟环境的上级目录添加到conda的环境目录中，此时该虚拟环境的名字自动变为env_name。</p><p>创建好虚拟环境后可以用<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--envs</span></span><br></pre></td></tr></table></figure><br>查看当前所有的虚拟环境，确认env_name已经创建成功。</p><p>如果要在当前虚拟环境中安装第三方包，则应先激活该虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br></pre></td></tr></table></figure><br>激活后就可以使用pip或conda命令来安装所需的第三方库。结束后可以使用以下命令来退出虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></p><p>此外，有的时候想要改变虚拟环境的文件夹位置，一般采取的方法是先在目标文件夹创建一个新的虚拟环境，然后将原先的虚拟环境克隆到新的虚拟环境中，最后删除原先的虚拟环境。虚拟环境的克隆可以使用以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--name</span> new_env_name <span class="literal">--clone</span> old_env_name</span><br></pre></td></tr></table></figure><br>然后删除原来的虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove <span class="literal">--name</span> old_env_name <span class="literal">--all</span></span><br></pre></td></tr></table></figure></p><h1 id="pycharm项目解释器"><a href="#pycharm项目解释器" class="headerlink" title="pycharm项目解释器"></a>pycharm项目解释器</h1><p>一般在配置项目解释器前首先创建好虚拟环境（用上述的powershell命令），然后便可使用该虚拟环境创建相应的项目解释器。这里我也遇到了不少问题，目前可行的方法是在项目解释器的设置里选择创建新的解释器，选择本地解释器，选择现有的环境（因为虚拟环境已经创建好了）。由于我下载的是conda，因此选择conda环境，环境路径这里很关键，我之前选择的是虚拟环境里的python.exe文件，结果发现pycharm无法识别，后来发现应该选择anaconda根目录下的condabin文件夹中的conda.exe文件，然后选择该项目的虚拟环境（注意不要选择anaconda的base环境），这样创建便成功了。后续的安装包都可以在powershell激活虚拟环境后使用pip或conda命令来安装，或者在pycharm的终端里使用相同的命令来安装。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://avatarfiles.alphacoders.com/374/thumb-1920-374742.png" alt=""></p><p>今天在CS自学指南上看到MIT的一门CS入门课程，名字很有意思，讲述的是学校CS课程所missing的东西，也就是说这些内容老师上课并不会教授，后面的CS课中老师所默认同学掌握的东西，主要是一些比较基本的东西。暂且不论其内容，就从这门课的开设初衷来看，不得不佩服美国的教学理念和模式，的确是有值得我们学习的地方的。在国内往往不会有一门类似衔接的课程，大部分时候遇到老师默认同学会然而实际上不会的东西，都是通过自己查资料或者自学的，这对于自学能力强的同学倒没什么，但对于那些学习吃力又不懒得去查找相关资料补课的同学就显得十分不友好。说回本课程，我看了下目录，基本上十个小时的课时，讲了不少计算机上的实用工具和环境，这些我都没有系统学过，虽然之前调试conda环境其实也经常在用，但很多时候并不知道这些命令在干什么，遇到问题在网上CSDN或者用AI搜索一下命令，所以脑子里一直都不是特别清楚一些事情，而这门课对于我这个对CS基本上不懂的小白来说就很有用。</p><p>第一讲和第二讲是讲的powershell命令，虽然是基于linux系统的，但有不少命令windows下也可以用。我也是通过这个课才知道其实所谓的bash就是一种shell命令，windows电脑自带的cmd和powershell、anaconda的cmd和powershell prompt也是shell命令。shell命令输入在终端里，而shell的功能就是用命令行（可以理解成代码）来直接操作计算机，进行各种操作，比如创建文件夹、删除文件、安装软件等等。shell命令的好处是可以通过脚本来批量执行命令，节省时间和精力，这样就不需要每次都用鼠标一个个点了，比如创建文件夹就不需要右键点击再选择创建文件夹了，这个如果只需要创建一个文件夹优势还不明显，尤其是在需要创建很多文件夹并且是一个套一个的情况下，用shell命令只需要一行，而手动用鼠标点击需要先创建一个再打开，继续创建，如此循环，效率没有直接用命令行高。</p><p>另外好像许多学计算机写代码的同学都有这样的一个习惯，那就是<b>尽可能地少用鼠标，尽量用键盘操作</b>，这也是shell经常被使用的原因之一，不过在实际写代码的过程中不可能一直在终端里写，往往是在编程语言自带的环境或者是IDE里写代码，除了一些IDE里的快捷键，编程人员还有一种方式，那就是使用vim编辑器，或者将vim扩展安装到vscode等环境中。vim最开始是linux系统下的文本编辑器，其特点非常突出，那就是这种编辑方式几乎不需要使用鼠标，甚至键盘的上下左右键都很少使用，这是因为对于一些高阶的编程人员，他们更想要手一直保持在字母键盘区而不是经常需要移动到箭头或者数字键盘区，因此vim编辑器的光标移动、输入文本、删除文本、复制黏贴等操作全部用键盘上的字母键完成，甚至连保存文件、退出都可以使用键盘，这样不再需要鼠标点右上方的退出键。不过作为初学者，我并没有学得很精通，今天也是大致做了一个了解，在了解了vim的操作方式后，我开始尝试用vim编辑器写代码或者是文本，例如这篇markdown文档从创建到内容编写全程都是用的vscode中的vim扩展来完成的，没有用过鼠标，刚开始确实还不太习惯，有些时候想要达成一项动作脑子里还需要反应一下，不过我觉得vim还是挺有意思的，虽然现在许多人都认为这是过时的，但或许以后在需要编程一些大项目的时候，vim会有其独特的优势。</p>]]></content>
       
       
       <categories>
@@ -701,11 +758,11 @@
     
     
     <entry>
-      <title>cs61A：shell和vim入门</title>
-      <link href="/2025/06/06/phd-7/"/>
-      <url>/2025/06/06/phd-7/</url>
+      <title>cs61A：conda配置pycharm项目环境</title>
+      <link href="/2025/06/06/phd-6/"/>
+      <url>/2025/06/06/phd-6/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://avatarfiles.alphacoders.com/374/thumb-1920-374742.png" alt=""></p><p>今天在CS自学指南上看到MIT的一门CS入门课程，名字很有意思，讲述的是学校CS课程所missing的东西，也就是说这些内容老师上课并不会教授，后面的CS课中老师所默认同学掌握的东西，主要是一些比较基本的东西。暂且不论其内容，就从这门课的开设初衷来看，不得不佩服美国的教学理念和模式，的确是有值得我们学习的地方的。在国内往往不会有一门类似衔接的课程，大部分时候遇到老师默认同学会然而实际上不会的东西，都是通过自己查资料或者自学的，这对于自学能力强的同学倒没什么，但对于那些学习吃力又不懒得去查找相关资料补课的同学就显得十分不友好。说回本课程，我看了下目录，基本上十个小时的课时，讲了不少计算机上的实用工具和环境，这些我都没有系统学过，虽然之前调试conda环境其实也经常在用，但很多时候并不知道这些命令在干什么，遇到问题在网上CSDN或者用AI搜索一下命令，所以脑子里一直都不是特别清楚一些事情，而这门课对于我这个对CS基本上不懂的小白来说就很有用。</p><p>第一讲和第二讲是讲的powershell命令，虽然是基于linux系统的，但有不少命令windows下也可以用。我也是通过这个课才知道其实所谓的bash就是一种shell命令，windows电脑自带的cmd和powershell、anaconda的cmd和powershell prompt也是shell命令。shell命令输入在终端里，而shell的功能就是用命令行（可以理解成代码）来直接操作计算机，进行各种操作，比如创建文件夹、删除文件、安装软件等等。shell命令的好处是可以通过脚本来批量执行命令，节省时间和精力，这样就不需要每次都用鼠标一个个点了，比如创建文件夹就不需要右键点击再选择创建文件夹了，这个如果只需要创建一个文件夹优势还不明显，尤其是在需要创建很多文件夹并且是一个套一个的情况下，用shell命令只需要一行，而手动用鼠标点击需要先创建一个再打开，继续创建，如此循环，效率没有直接用命令行高。</p><p>另外好像许多学计算机写代码的同学都有这样的一个习惯，那就是<b>尽可能地少用鼠标，尽量用键盘操作</b>，这也是shell经常被使用的原因之一，不过在实际写代码的过程中不可能一直在终端里写，往往是在编程语言自带的环境或者是IDE里写代码，除了一些IDE里的快捷键，编程人员还有一种方式，那就是使用vim编辑器，或者将vim扩展安装到vscode等环境中。vim最开始是linux系统下的文本编辑器，其特点非常突出，那就是这种编辑方式几乎不需要使用鼠标，甚至键盘的上下左右键都很少使用，这是因为对于一些高阶的编程人员，他们更想要手一直保持在字母键盘区而不是经常需要移动到箭头或者数字键盘区，因此vim编辑器的光标移动、输入文本、删除文本、复制黏贴等操作全部用键盘上的字母键完成，甚至连保存文件、退出都可以使用键盘，这样不再需要鼠标点右上方的退出键。不过作为初学者，我并没有学得很精通，今天也是大致做了一个了解，在了解了vim的操作方式后，我开始尝试用vim编辑器写代码或者是文本，例如这篇markdown文档从创建到内容编写全程都是用的vscode中的vim扩展来完成的，没有用过鼠标，刚开始确实还不太习惯，有些时候想要达成一项动作脑子里还需要反应一下，不过我觉得vim还是挺有意思的，虽然现在许多人都认为这是过时的，但或许以后在需要编程一些大项目的时候，vim会有其独特的优势。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://avatarfiles.alphacoders.com/374/374741.png" alt=""></p><p>最近在使用pycharm调试python项目的环境时遇到了不少问题，大部分问题其实都在去年七月学习《动手学深度学习》的时候遇到过，当时在各种网站上搜了各种教程，捣鼓了半天终于把配置项目和python解释器的问题弄明白。后来中间隔了几个月没再继续学习python，最近在调pycharm环境的时候又遇到了之前类似的问题，然而我脑中已经没有任何印象是怎么调的了，于是又经过了网上各种教程的翻找，到目前大致已经搞明白了，于是为了防止以后忘记之后的繁复查教程，特此记录一下。</p><h1 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h1><p>python项目的虚拟环境是一个独立的python运行环境，它可以包含特定版本的python解释器和一组独立的第三方库。pycharm可以通过配置项目的虚拟环境来管理项目所需的依赖。因此，一般在写项目的时候，最好每个项目创建一个专属于该项目的虚拟环境，因为不同项目所需要的python版本和第三方库都不一样，为了避免繁复的报错，每个项目都创建一个独立的虚拟环境是最好的选择。这里就遇到了第一个问题，我想要把虚拟环境建在项目目录下而非C盘的.conda目录下，以下为指定位置创建虚拟环境的powershell命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--prefix</span>=D:\test\env\env_name python=<span class="number">3.10</span></span><br></pre></td></tr></table></figure><p>上述命令建立了D盘test项目中env文件夹中的名为env_name的虚拟环境，并指定了python版本为3.10。注意这里的<code>--prefix</code>参数是用来指定虚拟环境的路径的。但这样也有一个问题，那就是该虚拟环境的名字默认为上述的D:\test\env\env_name，而pycharm在配置项目时需要的是一个简短的名字，所以可以继续使用以下命令</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config <span class="literal">--append</span> envs_dirs D:\test\env</span><br></pre></td></tr></table></figure><p>将虚拟环境的上级目录添加到conda的环境目录中，此时该虚拟环境的名字自动变为env_name。</p><p>创建好虚拟环境后可以用<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--envs</span></span><br></pre></td></tr></table></figure><br>查看当前所有的虚拟环境，确认env_name已经创建成功。</p><p>如果要在当前虚拟环境中安装第三方包，则应先激活该虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br></pre></td></tr></table></figure><br>激活后就可以使用pip或conda命令来安装所需的第三方库。结束后可以使用以下命令来退出虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></p><p>此外，有的时候想要改变虚拟环境的文件夹位置，一般采取的方法是先在目标文件夹创建一个新的虚拟环境，然后将原先的虚拟环境克隆到新的虚拟环境中，最后删除原先的虚拟环境。虚拟环境的克隆可以使用以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--name</span> new_env_name <span class="literal">--clone</span> old_env_name</span><br></pre></td></tr></table></figure><br>然后删除原来的虚拟环境：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove <span class="literal">--name</span> old_env_name <span class="literal">--all</span></span><br></pre></td></tr></table></figure></p><h1 id="pycharm项目解释器"><a href="#pycharm项目解释器" class="headerlink" title="pycharm项目解释器"></a>pycharm项目解释器</h1><p>一般在配置项目解释器前首先创建好虚拟环境（用上述的powershell命令），然后便可使用该虚拟环境创建相应的项目解释器。这里我也遇到了不少问题，目前可行的方法是在项目解释器的设置里选择创建新的解释器，选择本地解释器，选择现有的环境（因为虚拟环境已经创建好了）。由于我下载的是conda，因此选择conda环境，环境路径这里很关键，我之前选择的是虚拟环境里的python.exe文件，结果发现pycharm无法识别，后来发现应该选择anaconda根目录下的condabin文件夹中的conda.exe文件，然后选择该项目的虚拟环境（注意不要选择anaconda的base环境），这样创建便成功了。后续的安装包都可以在powershell激活虚拟环境后使用pip或conda命令来安装，或者在pycharm的终端里使用相同的命令来安装。</p>]]></content>
       
       
       <categories>
