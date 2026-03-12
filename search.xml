@@ -20,11 +20,7 @@
       
         <tags>
             
-            <tag> 课程 </tag>
-            
-            <tag> 知识点 </tag>
-            
-            <tag> 核心内容 </tag>
+            <tag> CS61C </tag>
             
         </tags>
       
@@ -49,11 +45,7 @@
       
         <tags>
             
-            <tag> 知识点 </tag>
-            
-            <tag> 计算机专业 </tag>
-            
-            <tag> 记录 </tag>
+            <tag> CS162 </tag>
             
         </tags>
       
@@ -78,11 +70,11 @@
       
         <tags>
             
-            <tag> 模型 </tag>
+            <tag> 经历 </tag>
+            
+            <tag> Agent </tag>
             
             <tag> 龙虾 </tag>
-            
-            <tag> 代码 </tag>
             
         </tags>
       
@@ -107,11 +99,9 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 实分析 </tag>
+            <tag> 代数 </tag>
             
         </tags>
       
@@ -136,11 +126,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 笔记 </tag>
             
             <tag> 流形 </tag>
-            
-            <tag> 欧氏 </tag>
             
         </tags>
       
@@ -165,11 +153,9 @@
       
         <tags>
             
-            <tag> 变量 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 效应 </tag>
-            
-            <tag> 接受者 </tag>
+            <tag> 因果推断 </tag>
             
         </tags>
       
@@ -194,11 +180,9 @@
       
         <tags>
             
-            <tag> 策略 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 动作 </tag>
-            
-            <tag> 奖励 </tag>
+            <tag> 强化学习 </tag>
             
         </tags>
       
@@ -211,7 +195,7 @@
       <link href="/2026/03/04/lesson-10/"/>
       <url>/2026/03/04/lesson-10/</url>
       
-        <content type="html"><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>这个学期学习Tadahisa Funaki老师的课，因此本篇文章将作为该课程的学习记录，主要将上课的一些核心知识点以及我的理解加以叙述，而具体的细节部分则参见课程PPT，不再赘述。与以往按照每周时间进行记录不同，本文将按照知识点条目的方式进行介绍，这样纵观更体系化，也便于期末和后续的回顾和复习。</p><hr><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="Glauber动力学-amp-Kawasaki动力学"><a href="#Glauber动力学-amp-Kawasaki动力学" class="headerlink" title="Glauber动力学 &amp; Kawasaki动力学"></a>Glauber动力学 &amp; Kawasaki动力学</h3><p>考虑物理里研究铁磁性和温度关系的Ising模型，在$\mathbb{Z}^d$上的点，每个点都有一个自旋，要么向上要么向下，微观状态的构型则是将这所有点的自旋状态组合在一起。具体而言，考虑状态空间$\mathcal { X } = \{ \pm 1 \} ^ { \mathbb { Z } ^ { d } }$，赋予离散概率测度：</p><script type="math/tex; mode=display">\mu ( d \eta ) \propto e ^ { - \beta \mathcal { H } ( \eta ) } \prod _ { x \in \mathbb { Z } ^ { d } } d \eta _ { x }</script><p>其中$\eta = \left( \eta _ { x } \right) \in \mathcal { X } , \ \beta = \frac { 1 } { k T } &gt; 0, \ d \eta _ { x } = \big ( \delta _ { 1 } + \delta _ { - 1 } \big ) \big ( d \eta _ { x } \big )$</p><p>进而$\eta ( t ) = \{ \eta _ { x } ( t ) \} _ { x \in \mathbb { Z } ^ { d } }$便是状态空间$\mathcal{X}$上的Markov过程。Ising模型也可以这样看：视作随机游走，$\eta_x(t)=+1$ iff $x$处存在一个粒子；$\eta_x(t)=-1$ iff $x$处没有粒子。</p><p><strong>Kawasaki动力学</strong>：粒子的总数不变。</p><p><strong>Glauber动力学</strong>：粒子的数量可以变化，可以出现新的粒子也可以消失。</p><p>上面所述的Ising模型是一种微观模型，但当粒子数趋于无穷大时，随机密度场将会演化为一个确定的流体力学方程（非线性PDE）。通过拉长空间（微观下粒子是离散的，宏观下更关注粒子的连续坐标位置）和时间（微观下的粒子跳动速度极快，时间尺度也要拉长进行观察），每个非常小的宏观区域里，粒子都达到了局部平衡状态，而这个局部平衡状态只和某些特定的参数有关，而这些参数正好由非线性PDE或者SDE表现出来。</p><hr><h2 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h2><h3 id="连续鞅"><a href="#连续鞅" class="headerlink" title="连续鞅"></a>连续鞅</h3><p>基本定义与离散鞅类似，概率空间上配备一个$\sigma$滤子，满足右连续性质：</p><script type="math/tex; mode=display">\mathcal{F}_t=\textstyle \mathcal { F } _ { t + } : = \bigcap _ { \varepsilon > 0 } \mathcal { F } _ { t + \varepsilon }</script><h3 id="text-C-adl-ag-鞅"><a href="#text-C-adl-ag-鞅" class="headerlink" title="$\text{C`adl`ag}$鞅"></a>$\text{C`adl`ag}$鞅</h3><p><strong>$\text{C`adl`ag}$</strong>过程（$\text{continue\  `a\ droite\ limites\ `a\ gauche}$）：$t \in [ 0 , \infty ) \mapsto X _ { t } ( \omega ) \in \mathbb { R }$ 右连续且左极限存在，对$\forall \omega\in\Omega$。以下出现的随机过程$(X_t)_{t\geq 0}$都是$\text{C`adl`ag}$的。</p><p>与随机过程中类似定义停时和触及时间：</p><script type="math/tex; mode=display">\sigma _ { A } ( \omega ) : = \mathsf { i n f } \{ t > 0 ; X _ { t } ( \omega ) \in A \}</script><p>以及停时对应的$\sigma$-代数：</p><script type="math/tex; mode=display">\begin{array} { r } { \mathcal { F } _ { \sigma } \underset { \mathsf { d e f } } { = } \left\{ A \in \mathcal { F } ; \, A \cap \{ \sigma \leq t \} \in \mathcal { F } _ { t } \mathrm { ~ f o r ~ } \forall { t } \geq 0 \right\} } \end{array}</script><blockquote><p>Doob-Meyer Decomposition: $X_t$ $\text{C`adl`ag}$下鞅submartingale，且满足Doob局部一致可积条件：<br>$\forall T&gt;0$, $\{ X _ { \tau } \} _ { \tau \in S _ { T } }$一致可积，其中$S _ { T } = \{ \tau : { \mathsf { Markov \ times \ s . t . } } \ \tau \leq T \ { \mathsf { a . s . } } \}$，则</p><script type="math/tex; mode=display">X _ { t } = M _ { t } + A _ { t } , t \ge 0</script><p>其中$M_t$为$C`adl`ag$鞅，$A_t$为可预测递增过程（$\mathcal{F}_{t-}$适应的），$A_0=0$ a.s.</p></blockquote><p>考虑</p><script type="math/tex; mode=display">\begin{array} { r l } & { \mathcal { M } ^ { 2 } : = \{ M = ( M _ { t } ) _ { t \ge 0 } ; \ L ^ { 2 } \mathrm { - i n t e g r a b l e ~ \text{C\`adl\`ag} } } \\ & { \qquad \qquad ( \mathcal { F } _ { t } ) \mathrm { - m a r t i n g a l e s ~ s . t . ~ } M _ { 0 } = 0 \; \; a . s . \} , } \\ & { \mathcal { M } _ { T } ^ { 2 } : = \{ M = ( M _ { t } ) _ { t \in [ 0 , T ] } ; \ L ^ { 2 } \mathrm { - i n t e g r a b l e ~ \text{C\`adl\`ag} } } \\ & { \qquad \qquad ( \mathcal { F } _ { t } ) \mathrm { - m a r t i n g a }  e s ~ s . t . ~  M _ { 0 } = 0 \; \; a . s . \} , \ T > 0 } \end{array}</script><p>对于$\mathcal{M}^2$中的鞅$(M_t)$，$M_t^2$可以应用Doob-Meyer分解定理，使得$M_t^2-A_t$为鞅，定义二阶变差（quadratic variation）</p><script type="math/tex; mode=display">\langle M \rangle _ { t }:= A_t</script><p>此外，定义</p><script type="math/tex; mode=display">[ M ] _ { t } : = \langle M ^ { c } \rangle _ { t } + \sum _ { s \leq t } ( \Delta M _ { s } ) ^ { 2 }</script><p>其中$M^c$为$M$的连续部分。则$M_t^2-[M]_t$也为鞅，且</p><script type="math/tex; mode=display">[ M ] _ { t } = \operatorname* { l i m } _ { | \Delta | \rightarrow 0 } \sum _ { i = 1 } ^ { n } ( M _ { t _ { i } } - M _ { t _ { i - 1 } } ) ^ { 2 } \quad { \mathrm { i n ~ } } L ^ { 1 } ( \Omega )</script><p>很自然的一个问题是，$\langle M\rangle_t$与$[M]_t$是否相等？答案是$M$连续的时候相等，但如果$M$带跳，则二者可以相差很大，比如Poisson过程就是这样的例子。事实上，由于跳跃是随机的，也是不可预测的，因此$\langle M\rangle_t$是基于过于的一种预测，而$[M]_t$则为实际上的路径。</p><p>由此可以定义交叉变差：</p><script type="math/tex; mode=display">\begin{array} { l } { \langle M , N \rangle _ { t } : = \displaystyle \frac { 1 } { 4 } \big ( \langle M + N \rangle _ { t } - \langle M - N \rangle _ { t } \big ) , } \\ { [ M , N ] _ { t } : = \displaystyle \frac { 1 } { 4 } \big ( [ M + N ] _ { t } - [ M - N ] _ { t } \big ) } \\ { = \displaystyle \operatorname* { l i m } _ { |\Delta|\to 0 } \sum _ { i = 1 } ^ { n } \bigl ( M _ { t _ { i } } - M _ { t _ { i - 1 } } \bigr ) \bigl ( N _ { t _ { i } } - N _ { t _ { i - 1 } } \bigr ) \quad \mathrm { i n ~ p r o b } } \end{array}</script><p>与连续鞅中的Doob不等式类似，带跳过程也有相应的极大不等式：</p><blockquote><p>Burkholder-Davis-Gundy’s inequality:</p><script type="math/tex; mode=display">c _ { p } E \left[ [ M ] _ { T } ^ { \frac { p } { 2 } } \right] \leq E \left[ \operatorname* { s u p } _ { 0 \leq t \leq T } | M _ { t } | ^ { p } \right] \leq C _ { p } E \left[ [ M ] _ { T } ^ { \frac { p } { 2 } } \right]</script></blockquote><h3 id="text-L-39-evy-过程"><a href="#text-L-39-evy-过程" class="headerlink" title="$\text{L\&#39;evy}$过程"></a>$\text{L\&#39;evy}$过程</h3><p>$\text{L\&#39;evy}$过程是一种依概率右连续，且有平稳独立增量的$C`adl`ag$过程：</p><script type="math/tex; mode=display">P ( | X _ { t + h } - X _ { t } | \geq \varepsilon ) \underset { h \to 0 } { \to } 0 ,  \forall  { \varepsilon } > 0 , t \geq 0</script><p>而Poisson过程就是取值在$\mathbb{Z}_+$，且满足</p><script type="math/tex; mode=display">P ( N _ { t } = \ell ) = e ^ { - \lambda t } \frac { ( \lambda t ) ^ { \ell } } { \ell ! }</script><p>的一种$\text{L\&#39;evy}$过程。</p><p>由此引出一个自然的问题：一个$\text{L\&#39;evy}$过程什么时候是Poisson过程？这其实涉及到对于Poisson过程的一个性质刻画：</p><blockquote><p>$N$为取值在$\mathbb{Z}_+$的$\text{L\&#39;evy}$过程，那么$N$为Poisson过程 iff 样本路径$t \mapsto N _ { t } ( \omega )$为不减的以$1$为跳跃的阶梯函数，且$P ( N \equiv 0 ) &lt; 1$。</p></blockquote><p>也可以通过指数分布构造Poisson过程：$X_1, X_2,\cdots$为i.i.d.指数分布$X _ { n } \ { \overset { \mathsf { l a w } } { = } } \ \mathsf { e x p } ( \lambda )$，如下定义：</p><script type="math/tex; mode=display">\begin{array} { l } { \tau _ { n } = X _ { 1 } + \cdot \cdot \cdot + X _ { n } } \\ { N _ { t } = \sharp \{ n ; \tau _ { n } \in [ 0 , t ] \} } \end{array}</script><p>得到的$N$为Poisson过程。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>这个学期学习Tadahisa Funaki老师的课，因此本篇文章将作为该课程的学习记录，主要将上课的一些核心知识点以及我的理解加以叙述，而具体的细节部分则参见课程PPT，不再赘述。与以往按照每周时间进行记录不同，本文将按照知识点条目的方式进行介绍，这样纵观更体系化，也便于期末和后续的回顾和复习。</p><hr><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="Glauber动力学-amp-Kawasaki动力学"><a href="#Glauber动力学-amp-Kawasaki动力学" class="headerlink" title="Glauber动力学 &amp; Kawasaki动力学"></a>Glauber动力学 &amp; Kawasaki动力学</h3><p>考虑物理里研究铁磁性和温度关系的Ising模型，在$\mathbb{Z}^d$上的点，每个点都有一个自旋，要么向上要么向下，微观状态的构型则是将这所有点的自旋状态组合在一起。具体而言，考虑状态空间$\mathcal { X } = \{ \pm 1 \} ^ { \mathbb { Z } ^ { d } }$，赋予离散概率测度：</p><script type="math/tex; mode=display">\mu ( d \eta ) \propto e ^ { - \beta \mathcal { H } ( \eta ) } \prod _ { x \in \mathbb { Z } ^ { d } } d \eta _ { x }</script><p>其中$\eta = \left( \eta _ { x } \right) \in \mathcal { X } , \ \beta = \frac { 1 } { k T } &gt; 0, \ d \eta _ { x } = \big ( \delta _ { 1 } + \delta _ { - 1 } \big ) \big ( d \eta _ { x } \big )$</p><p>进而$\eta ( t ) = \{ \eta _ { x } ( t ) \} _ { x \in \mathbb { Z } ^ { d } }$便是状态空间$\mathcal{X}$上的Markov过程。Ising模型也可以这样看：视作随机游走，$\eta_x(t)=+1$ iff $x$处存在一个粒子；$\eta_x(t)=-1$ iff $x$处没有粒子。</p><p><strong>Kawasaki动力学</strong>：粒子的总数不变。</p><p><strong>Glauber动力学</strong>：粒子的数量可以变化，可以出现新的粒子也可以消失。</p><p>上面所述的Ising模型是一种微观模型，但当粒子数趋于无穷大时，随机密度场将会演化为一个确定的流体力学方程（非线性PDE）。通过拉长空间（微观下粒子是离散的，宏观下更关注粒子的连续坐标位置）和时间（微观下的粒子跳动速度极快，时间尺度也要拉长进行观察），每个非常小的宏观区域里，粒子都达到了局部平衡状态，而这个局部平衡状态只和某些特定的参数有关，而这些参数正好由非线性PDE或者SDE表现出来。</p><hr><h2 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h2><h3 id="连续鞅"><a href="#连续鞅" class="headerlink" title="连续鞅"></a>连续鞅</h3><p>基本定义与离散鞅类似，概率空间上配备一个$\sigma$滤子，满足右连续性质：</p><script type="math/tex; mode=display">\mathcal{F}_t=\textstyle \mathcal { F } _ { t + } : = \bigcap _ { \varepsilon > 0 } \mathcal { F } _ { t + \varepsilon }</script><h3 id="C-a-dl-a-g-鞅"><a href="#C-a-dl-a-g-鞅" class="headerlink" title="${C`{a}dl`{a}g}$鞅"></a>${C`{a}dl`{a}g}$鞅</h3><p><strong>$\text{C`adl`ag}$</strong>过程（$\text{continue\  `a\ droite\ limites\ `a\ gauche}$）：$t \in [ 0 , \infty ) \mapsto X _ { t } ( \omega ) \in \mathbb { R }$ 右连续且左极限存在，对$\forall \omega\in\Omega$。以下出现的随机过程$(X_t)_{t\geq 0}$都是$\text{C`adl`ag}$的。</p><p>与随机过程中类似定义停时和触及时间：</p><script type="math/tex; mode=display">\sigma _ { A } ( \omega ) : = \mathsf { i n f } \{ t > 0 ; X _ { t } ( \omega ) \in A \}</script><p>以及停时对应的$\sigma$-代数：</p><script type="math/tex; mode=display">\begin{array} { r } { \mathcal { F } _ { \sigma } \underset { \mathsf { d e f } } { = } \left\{ A \in \mathcal { F } ; \, A \cap \{ \sigma \leq t \} \in \mathcal { F } _ { t } \mathrm { ~ f o r ~ } \forall { t } \geq 0 \right\} } \end{array}</script><blockquote><p>Doob-Meyer Decomposition: $X_t$ $\text{C`adl`ag}$下鞅submartingale，且满足Doob局部一致可积条件：<br>$\forall T&gt;0$, $\{ X _ { \tau } \} _ { \tau \in S _ { T } }$一致可积，其中$S _ { T } = \{ \tau : { \mathsf { Markov \ times \ s . t . } } \ \tau \leq T \ { \mathsf { a . s . } } \}$，则</p><script type="math/tex; mode=display">X _ { t } = M _ { t } + A _ { t } , t \ge 0</script><p>其中$M_t$为$C`adl`ag$鞅，$A_t$为可预测递增过程（$\mathcal{F}_{t-}$适应的），$A_0=0$ a.s.</p></blockquote><p>考虑</p><script type="math/tex; mode=display">\begin{array} { r l } & { \mathcal { M } ^ { 2 } : = \{ M = ( M _ { t } ) _ { t \ge 0 } ; \ L ^ { 2 } \mathrm { - i n t e g r a b l e ~ \text{C\`adl\`ag} } } \\ & { \qquad \qquad ( \mathcal { F } _ { t } ) \mathrm { - m a r t i n g a l e s ~ s . t . ~ } M _ { 0 } = 0 \; \; a . s . \} , } \\ & { \mathcal { M } _ { T } ^ { 2 } : = \{ M = ( M _ { t } ) _ { t \in [ 0 , T ] } ; \ L ^ { 2 } \mathrm { - i n t e g r a b l e ~ \text{C\`adl\`ag} } } \\ & { \qquad \qquad ( \mathcal { F } _ { t } ) \mathrm { - m a r t i n g a }  e s ~ s . t . ~  M _ { 0 } = 0 \; \; a . s . \} , \ T > 0 } \end{array}</script><p>对于$\mathcal{M}^2$中的鞅$(M_t)$，$M_t^2$可以应用Doob-Meyer分解定理，使得$M_t^2-A_t$为鞅，定义二阶变差（quadratic variation）</p><script type="math/tex; mode=display">\langle M \rangle _ { t }:= A_t</script><p>此外，定义</p><script type="math/tex; mode=display">[ M ] _ { t } : = \langle M ^ { c } \rangle _ { t } + \sum _ { s \leq t } ( \Delta M _ { s } ) ^ { 2 }</script><p>其中$M^c$为$M$的连续部分。则$M_t^2-[M]_t$也为鞅，且</p><script type="math/tex; mode=display">[ M ] _ { t } = \operatorname* { l i m } _ { | \Delta | \rightarrow 0 } \sum _ { i = 1 } ^ { n } ( M _ { t _ { i } } - M _ { t _ { i - 1 } } ) ^ { 2 } \quad { \mathrm { i n ~ } } L ^ { 1 } ( \Omega )</script><p>很自然的一个问题是，$\langle M\rangle_t$与$[M]_t$是否相等？答案是$M$连续的时候相等，但如果$M$带跳，则二者可以相差很大，比如Poisson过程就是这样的例子：记Poisson补偿过程为</p><script type="math/tex; mode=display">\tilde { N } _ { t } : = N _ { t } - \lambda t</script><p>由于</p><script type="math/tex; mode=display">\begin{array} { r } { E [ \tilde { N } _ { t } ^ { 2 } | \mathcal { F } _ { s } ^ { N } ] = E [ ( \tilde { N } _ { t } - \tilde { N } _ { s } ) ^ { 2 } + 2 \tilde { N } _ { t } \tilde { N } _ { s } - \tilde { N } _ { s } ^ { 2 } | \mathcal { F } _ { s } ^ { N } ] = \lambda ( t - s ) + \tilde { N } _ { s } ^ { 2 } } \end{array}</script><p>因此$\langle \tilde { N } \rangle _ { t } = \lambda t$，</p><script type="math/tex; mode=display">[ \tilde { N } ] _ { t } = \langle \tilde { N } ^ { c } \rangle _ { t } + \sum _ { s \leq t } ( \Delta \tilde { N } _ { s } ) ^ { 2 } = 0 + N _ { t } = N _ { t }</script><p>从而$[ \tilde { N } ] _ { t } = N _ { t }$，可见这两个二阶变差不一定相等。</p><p>事实上，由于跳跃是随机的，也是不可预测的，因此$\langle M\rangle_t$是基于过于的一种预测，而$[M]_t$则为实际上的路径。</p><p>由此可以定义交叉变差：</p><script type="math/tex; mode=display">\begin{array} { l } { \langle M , N \rangle _ { t } : = \displaystyle \frac { 1 } { 4 } \big ( \langle M + N \rangle _ { t } - \langle M - N \rangle _ { t } \big ) , } \\ { [ M , N ] _ { t } : = \displaystyle \frac { 1 } { 4 } \big ( [ M + N ] _ { t } - [ M - N ] _ { t } \big ) } \\ { = \displaystyle \operatorname* { l i m } _ { |\Delta|\to 0 } \sum _ { i = 1 } ^ { n } \bigl ( M _ { t _ { i } } - M _ { t _ { i - 1 } } \bigr ) \bigl ( N _ { t _ { i } } - N _ { t _ { i - 1 } } \bigr ) \quad \mathrm { i n ~ p r o b } } \end{array}</script><p>与连续鞅中的Doob不等式类似，带跳过程也有相应的极大不等式：</p><blockquote><p>Burkholder-Davis-Gundy’s inequality:</p><script type="math/tex; mode=display">c _ { p } E \left[ [ M ] _ { T } ^ { \frac { p } { 2 } } \right] \leq E \left[ \operatorname* { s u p } _ { 0 \leq t \leq T } | M _ { t } | ^ { p } \right] \leq C _ { p } E \left[ [ M ] _ { T } ^ { \frac { p } { 2 } } \right]</script></blockquote><h3 id="text-L-39-evy-过程"><a href="#text-L-39-evy-过程" class="headerlink" title="$\text{L\&#39;evy}$过程"></a>$\text{L\&#39;evy}$过程</h3><p>$\text{L\&#39;evy}$过程是一种依概率右连续，且有平稳独立增量的$C`adl`ag$过程：</p><script type="math/tex; mode=display">P ( | X _ { t + h } - X _ { t } | \geq \varepsilon ) \underset { h \to 0 } { \to } 0 ,  \forall  { \varepsilon } > 0 , t \geq 0</script><p>而Poisson过程就是取值在$\mathbb{Z}_+$，且满足</p><script type="math/tex; mode=display">P ( N _ { t } = \ell ) = e ^ { - \lambda t } \frac { ( \lambda t ) ^ { \ell } } { \ell ! }</script><p>的一种$\text{L\&#39;evy}$过程。</p><p>由此引出一个自然的问题：一个$\text{L\&#39;evy}$过程什么时候是Poisson过程？这其实涉及到对于Poisson过程的一个性质刻画：</p><blockquote><p>$N$为取值在$\mathbb{Z}_+$的$\text{L\&#39;evy}$过程，那么$N$为Poisson过程 iff 样本路径$t \mapsto N _ { t } ( \omega )$为不减的以$1$为跳跃的阶梯函数，且$P ( N \equiv 0 ) &lt; 1$。</p></blockquote><p>也可以通过指数分布构造Poisson过程：$X_1, X_2,\cdots$为i.i.d.指数分布$X _ { n } \ { \overset { \mathsf { l a w } } { = } } \ \mathsf { e x p } ( \lambda )$，如下定义：</p><script type="math/tex; mode=display">\begin{array} { l } { \tau _ { n } = X _ { 1 } + \cdot \cdot \cdot + X _ { n } } \\ { N _ { t } = \sharp \{ n ; \tau _ { n } \in [ 0 , t ] \} } \end{array}</script><p>得到的$N$为Poisson过程。</p><h3 id="Poisson随机测度"><a href="#Poisson随机测度" class="headerlink" title="Poisson随机测度"></a>Poisson随机测度</h3><p>这部分有些绕，我学的时候花了不少功夫才弄明白。</p><p>考虑$(S,\mathcal{S})$为一个可测空间，定义</p><script type="math/tex; mode=display">{ \mathcal { M } } ( S ) : = \left\{ \mathbb { Z } _ { + } \cup \{ \infty \} { \mathrm { - v a l u e d ~ m e a s u r e s ~ o n ~ } } ( S , S ) \right\}</script><p>为可测空间上取值为正整数（包含无穷远点）的测度的集合。定义$\mathcal{M}(S)$上的$\sigma$代数：</p><script type="math/tex; mode=display">\mathcal{B} ( S ) : = \sigma \{ \mu \mapsto\mu ( B ) ; B \in \mathcal{S}, \mu\in\mathcal{M}(S)\}</script><p>上述式子的含义是，$\mathcal{B}(S)$是$\mu\mapsto\mu(B)$所生成的$\sigma$代数（类比概率空间上随机变量生成的$\sigma$代数），因此也可以写成下列形式：</p><script type="math/tex; mode=display">\mathcal{B} ( S ) : = \{ \mu\in\mathcal{M}(S): \mu ( B )\in A , B \in \mathcal{S}, A\in\mathcal{A}\}</script><p>其中$\mathcal{A}$为$\mathbb{Z}_+\cup\{\infty\}$上的$\sigma$代数。</p><p>在构造了测度空间以及测度空间上的$\sigma$代数后，考虑随机测度$\mu:\Omega\mapsto\mathcal{M}(S)$(<strong>与上面的$\mu$不同！</strong>)，也即$\mu$把每一个样本点都映成一个测度，定义$\mu(B)$为一个$(\Omega,\mathcal{F},\mathbb{P})$上的随机变量：</p><script type="math/tex; mode=display">\mu(B)(\omega):=\mu(\omega)(B), \quad \forall B\in \mathcal{S}</script><p>于是$\mu(B)$为一个取值为$\mathbb{Z}_+\cup\{\infty\}$的随机变量。</p><blockquote><p>Poisson随机测度：<br>取值在$\mathcal{M}(S)$中的随机测度$\mu$被称为Poisson随机测度，若</p><ol><li>$\forall B\in\mathcal{S}$，<script type="math/tex; mode=display">\mu ( B ) \ { \stackrel { \mathsf { l a w } } { = } } \ \mathsf { P o i s s o n } ( \lambda ( B ) )</script>其中<script type="math/tex; mode=display">\lambda ( B ) = E [ \mu ( B ) ]</script>$\lambda$称为强度测度，</li><li>$\forall B_1,\cdots,B_n\in\mathcal{S}$ 两两不交，$\{\mu(B_i)\}_{i=1}^n$独立。</li></ol></blockquote><p>\<br>对于时间轴上的Poisson随机测度，也即我们取$S=[0,\infty)$，</p><script type="math/tex; mode=display">\mu \, \left( \, = \mu ( d t ; \omega ) \right) : = d N _ { t } = \sum _ { n = 1 } ^ { \infty } \delta _ { \tau _ { n } } ( d t )</script><p>强度为$E [ \mu ] = \lambda d t$。</p><p>\<br>对于时间+空间上的Poisson随机测度$N _ { p } ( d t d x )$，取定义域为$(0,\infty)\times S$，强度为${  { n } _ { p } ( d t d x ) = d t \ { n } ( d x ) } $。</p><p>定义</p><script type="math/tex; mode=display">D _ { p } : = \{ t : N _ { p } ( \{ t \} \times S ) \ge 1 \: (  { a c t u a l l y } \: = 1 \ \ a . s . ) \}</script><p>需要注意的是，这里的$t$并不是固定时刻，而是随机变量，随即时刻，因为对于每个固定的时刻$t_0$， $\{t_0\}\times S$上的强度为$0$， $N_p$几乎必然不会在$t_0$时刻跳动，但是实际上的确会在随机的时刻跳动，上述的$D_p$就是代表着这些跳动的随即时刻。</p><blockquote><p>Comment: 有一个很形象的比喻，对于Poisson分布和Poisson过程，一般都是定义在时间轴上，因此时间轴上有比较好的直观，但是如果对于一般的空间$S$，时间轴的直观就消失了，这个时候可以理解成一个区域$B$内发生某个事件的个数。如果区域$B$的强度为$0$，那么对于每个固定的$B$，发生事件的个数都几乎必然是$0$，但是在$B$中发生事件的确是有可能的，例如随机向$B$这个区域里撒点，就算$B$只是一个点，但仍然有可能撒一个点正好到$B$那里，但不可能撒超过一个点在$B$里，因为$B$的强度为$0$。</p></blockquote><p>Poisson点过程即为$p : D _ { p } \rightarrow S$，将随机时间$t$映到$N_p(\{t\}\times \cdot)$的支集里。类似之前的定义：</p><script type="math/tex; mode=display">N _ { p } ( t , U ) : = N _ { p } ( ( 0 , t ] \times U ) \ \forall \ U \in \mathcal { S }</script><script type="math/tex; mode=display">\hat { N } _ { p } ( t , U ) : = n _ { p } ( ( 0 , t ] \times U ) = t \, n ( U ) \, \left( = E [ N _ { p } ( ( 0 , t ] \times U ) ] \right)</script><script type="math/tex; mode=display">\tilde { N } _ { p } ( t , U ) : = N _ { p } ( t , U ) - \hat { N } _ { p } ( t , U )</script><script type="math/tex; mode=display">\langle \tilde { N } _ { p } ( \cdot , U _ { 1 } ) , \tilde { N } _ { p } ( \cdot , U _ { 2 } ) \rangle ( t ) = \hat { N } _ { p } ( t , U _ { 1 } \cap U _ { 2 } ) = t \, n ( U _ { 1 } \cap U _ { 2 } )</script><p>关于滤子$\mathcal { F } _ { t } \equiv \mathcal { F } _ { t } ^ { N } : = \sigma \{ N _ { p } ( s , U ) ; 0 \le s \le t , U \in S \}$，$\tilde { N } _ { p } ( t , U )$为鞅。</p><h3 id="Ito-公式"><a href="#Ito-公式" class="headerlink" title="Ito 公式"></a>Ito 公式</h3><p>为了简便，只考虑$n ( S ) &lt; \infty$的情形。令可预测函数</p><script type="math/tex; mode=display">a = a ( t , y , \omega ) : [ 0 , \infty ) \times S \times \Omega \rightarrow \mathbb { R }</script><p>以及</p><script type="math/tex; mode=display">X ( t ) = X ( 0 ) + \int _ { ( 0 , t ] \times S } a ( s , y ) N _ { p } ( d s d y ) \in \mathbb { R }</script><p>从而对于$f:\mathbb{R}\to\mathbb{R}$，有Ito公式：</p><script type="math/tex; mode=display">\begin{array} { r } { f ( X ( t ) ) \! - \! f ( X ( 0 ) ) = \displaystyle \int _ { ( 0 , t ] \times S } \left\{ f ( X ( s - ) \! + \! a ( s , y ) ) \! - \! f ( X ( s - ) ) \right\} N _ { p } ( d s d y ) } \end{array}</script><p>对于其证明，只需要注意到</p><script type="math/tex; mode=display">N _ { p } ( d s d y ) = \sum _ { i = 1 } ^ { \infty } \delta _ { ( s _ { i } , y _ { i } ) }</script><p>即可。</p><p>考虑更一般的$X = ( X ^ { i } ( t ) ) _ { i = 1 } ^ { d }$满足</p><script type="math/tex; mode=display">X ^ { i } ( t ) = X ^ { i } ( 0 ) + \int _ { ( 0 , t ] \times S } a ^ { i } ( s , y ) N _ { p } ( d s d y ) + A ^ { i } ( t )</script><p>其中$A^i(t,\omega)$为$\mathcal{F}_t^N$适应的连续随机过程，且关于$t$的变差几乎必然有限，则对于$f:\mathbb{R}^d\to\mathbb{R}$，有如下的Ito公式：</p><script type="math/tex; mode=display">\begin{aligned}  f ( X ( t ) ) - f ( X ( 0 ) ) &= \sum _ { i = 1 } ^ { d } \int _ { 0 } ^ { t } \frac { \partial f } { \partial x _ { i } } ( X ( s ) ) d A ^ { i } ( s )  \\   &+ \int _ { ( 0 , t ] \times S } \Big \{ f ( X ( s - ) + a ( s , y ) ) - f ( X ( s - ) ) \Big \} N _ { p } ( d s d y )  \end{aligned}</script><p>进一步地，若$A^i(t)=0$，</p><script type="math/tex; mode=display">L _ { t , \omega } f ( x ) = \int _ { S } \Big \{ f ( x + a ( t , y , \omega ) ) - f ( x ) \Big \} n ( d y ) , \quad x \in \mathbb { R } ^ { d } , \ t \geq 0</script><p>则</p><script type="math/tex; mode=display">f ( X ( t ) ) - f ( X ( 0 ) ) - \int _ { 0 } ^ { t } L _ { s , \omega } f ( X ( s ) ) d s</script><p>是一个鞅。</p><h3 id="鞅问题"><a href="#鞅问题" class="headerlink" title="鞅问题"></a>鞅问题</h3><p>鞅问题的基本设定有如下几点，首先需要一个度量空间$E$，然后有一个作用在$E\to\mathbb{R}$函数的线性算子$L$，还要有一个取值在$E$中的道路空间${ \sf C } = C ( [ 0 , \infty ) , E )$或者${\sf D} = D ( [ 0 , \infty ) , E ) = \{ E { \mathrm { - } } { \mathrm { v a l u e d ~ c `a d }  \mathrm { `a g ~ f u n c t i o n s } } \}$，称为Skorohod空间，$X _ { t } ( w ) : = w _ { t }\in {\sf C \ or \ D}$，在上面定义相应的滤子$\sigma$代数。</p><p>取值为$E$的一个随机过程称为Markov过程，若</p><script type="math/tex; mode=display">P ( X _ { t + s } \in A | \mathcal { F } _ { t } ^ { X } ) = P ( X _ { t + s } \in A | \sigma \{ X _ { t } \} ) \ \mathsf { a . s . } \ \omega</script><p>对$\forall A\in\mathcal{B}(E)$， $t,s\geq 0$，以及</p><script type="math/tex; mode=display">\mathcal { F } _ { t } ^ { X } = \sigma \{ X _ { s } ; s \leq t \}</script><p>成立。以上为Markov过程的一般化定义，这门课程中选择的是${\sf D}$或者${\sf C}$上的Markov过程，为一族概率测度$\{ P _ { x } \} _ { x \in E }$，满足</p><ol><li><script type="math/tex; mode=display">P _ { x } ( X _ { 0 } = x ) = 1 , \; ^ { \forall } x \in E</script></li><li><script type="math/tex; mode=display">x \in E \mapsto P _ { x } ( A ) \in [ 0 , 1 ]</script><p>对$\forall A\in\mathcal{F}$可测。</p></li><li><script type="math/tex; mode=display">P _ { x } ( X _ { t + \cdot } \in A | \mathcal { F } _ { t } ) ( w ) = P _ { X _ { t } ( w ) } ( A )</script></li></ol><p>以上是对于Markov过程的一个分布意义下的定义。Markov过程被称为是Feller的若$\forall t\geq 0, \ \forall f\in C_b(E)$， $E _ { x } [ f ( X _ { t } ) ]$关于$x$是连续的。</p><p>下面正式定义鞅问题：一个$({\sf C},\mathcal{F})$或者$({\sf D},\mathcal{F})$上的概率测度$\mathbb{P}$称为$x\in E$处$L$-鞅问题的一个解，若</p><script type="math/tex; mode=display">f ( X _ { t } ) - f ( x ) - \int _ { 0 } ^ { t } L f ( X _ { s } ) d s</script><p>对$\forall f\in\mathcal{D}(L)$都是$\mathbb{P}$下的$\mathcal{F}_t$鞅。</p><p>对于上述的定义，有一个具体的例子，这个就是我在本科的时候学过的SDE中的例子，布朗运动的Ito积分。相比于这里，布朗运动不带跳，是一种连续的运动。考虑$E=\mathbb{R}^d$以及布朗运动的随机微分方程：</p><script type="math/tex; mode=display">d X _ { t } = \alpha ( X _ { t } ) d B _ { t } + b ( X _ { t } ) d t</script><p>上述SDE的生成元为：</p><script type="math/tex; mode=display">\begin{array} { r } { L f ( x ) = \frac { 1 } { 2 } \displaystyle \sum _ { i , j = 1 } ^ { d } a _ { i j } ( x ) \frac { \partial ^ { 2 } f } { \partial x _ { i } \partial x _ { j } } + \displaystyle \sum _ { i = 1 } ^ { d } b _ { i } ( x ) \frac { \partial f } { \partial x _ { i } } , \quad \mathcal { D } ( L ) = C _ { b } ^ { 2 } ( \mathbb { R } ^ { d } ) } \end{array}</script><p>其中$a ( x ) = \alpha ( x ) \alpha ^ { * } ( x )$。由Dynkin公式，有如下关系：</p><script type="math/tex; mode=display">f ( X _ { t } ) = f ( X _ { 0 } ) + \int _ { 0 } ^ { t } L f ( X _ { s } ) d s + M _ { t } ( f )</script><p>其中$M_t(f)$为鞅。</p>]]></content>
       
       
       <categories>
@@ -223,11 +207,9 @@
       
         <tags>
             
-            <tag> 粒子 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 定义 </tag>
-            
-            <tag> 微观 </tag>
+            <tag> SDE </tag>
             
         </tags>
       
@@ -252,11 +234,9 @@
       
         <tags>
             
-            <tag> 编码 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 复杂度 </tag>
-            
-            <tag> 图灵机 </tag>
+            <tag> 统计学习 </tag>
             
         </tags>
       
@@ -281,7 +261,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 经历 </tag>
             
             <tag> 论坛 </tag>
             
@@ -310,11 +290,11 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 流形 </tag>
             
-            <tag> 黎曼 </tag>
+            <tag> 论坛 </tag>
             
-            <tag> 工作 </tag>
+            <tag> 三亚 </tag>
             
         </tags>
       
@@ -341,9 +321,7 @@
             
             <tag> 论坛 </tag>
             
-            <tag> 海南 </tag>
-            
-            <tag> 度假村 </tag>
+            <tag> 三亚 </tag>
             
         </tags>
       
@@ -368,11 +346,7 @@
       
         <tags>
             
-            <tag> 医生 </tag>
-            
-            <tag> 校医院 </tag>
-            
-            <tag> 酸痛 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -397,11 +371,9 @@
       
         <tags>
             
-            <tag> 医生 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 老外 </tag>
-            
-            <tag> 流程 </tag>
+            <tag> LLM </tag>
             
         </tags>
       
@@ -426,11 +398,11 @@
       
         <tags>
             
-            <tag> 拍子 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 发球 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 武功 </tag>
+            <tag> 体育 </tag>
             
         </tags>
       
@@ -455,9 +427,9 @@
       
         <tags>
             
-            <tag> 人生 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 温度 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -482,11 +454,9 @@
       
         <tags>
             
-            <tag> 马斯克 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 佛经 </tag>
-            
-            <tag> 世界 </tag>
+            <tag> 佛学 </tag>
             
         </tags>
       
@@ -511,11 +481,11 @@
       
         <tags>
             
-            <tag> 动作 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 烤肉 </tag>
+            <tag> 体育 </tag>
             
-            <tag> 生菜 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -540,11 +510,9 @@
       
         <tags>
             
-            <tag> 烤肉 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 扁豆 </tag>
-            
-            <tag> 北京 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -569,11 +537,11 @@
       
         <tags>
             
-            <tag> 老馆 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 披萨 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 插座 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -598,11 +566,7 @@
       
         <tags>
             
-            <tag> 图书馆 </tag>
-            
-            <tag> 座位 </tag>
-            
-            <tag> 北馆 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -627,11 +591,9 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 老师 </tag>
-            
-            <tag> 学堂 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -656,11 +618,11 @@
       
         <tags>
             
-            <tag> 程序 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 姚先生 </tag>
+            <tag> 代码 </tag>
             
-            <tag> 敬佩 </tag>
+            <tag> CS61C </tag>
             
         </tags>
       
@@ -685,11 +647,11 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 插件 </tag>
+            <tag> 代码 </tag>
             
-            <tag> 网页 </tag>
+            <tag> CS61C </tag>
             
         </tags>
       
@@ -714,11 +676,7 @@
       
         <tags>
             
-            <tag> 九坤 </tag>
-            
-            <tag> 硬件 </tag>
-            
-            <tag> 交易 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -743,11 +701,11 @@
       
         <tags>
             
-            <tag> 学长 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 工业界 </tag>
+            <tag> 讲座 </tag>
             
-            <tag> 灭火器 </tag>
+            <tag> CS61C </tag>
             
         </tags>
       
@@ -772,11 +730,9 @@
       
         <tags>
             
-            <tag> 阶段 </tag>
+            <tag> 讲座 </tag>
             
-            <tag> 黄教授 </tag>
-            
-            <tag> 大哥 </tag>
+            <tag> 聚餐 </tag>
             
         </tags>
       
@@ -801,11 +757,9 @@
       
         <tags>
             
-            <tag> 电脑 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 显示屏 </tag>
-            
-            <tag> 导师 </tag>
+            <tag> 讲座 </tag>
             
         </tags>
       
@@ -830,11 +784,9 @@
       
         <tags>
             
-            <tag> 食堂 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 紫荆 </tag>
-            
-            <tag> 参观 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -859,11 +811,7 @@
       
         <tags>
             
-            <tag> 同学 </tag>
-            
-            <tag> 开学典礼 </tag>
-            
-            <tag> 什刹海 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -888,11 +836,7 @@
       
         <tags>
             
-            <tag> 宿舍 </tag>
-            
-            <tag> 行李 </tag>
-            
-            <tag> 丁香 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -917,11 +861,9 @@
       
         <tags>
             
-            <tag> 潮汕 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 牛肉 </tag>
-            
-            <tag> 奥体中心 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -946,11 +888,7 @@
       
         <tags>
             
-            <tag> 课程 </tag>
-            
-            <tag> 代码 </tag>
-            
-            <tag> 编程 </tag>
+            <tag> CS188 </tag>
             
         </tags>
       
@@ -975,11 +913,11 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> Scheme </tag>
             
-            <tag> 调用 </tag>
+            <tag> 编程 </tag>
             
-            <tag> 尾部 </tag>
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -1004,11 +942,11 @@
       
         <tags>
             
-            <tag> 列表 </tag>
+            <tag> CS61A </tag>
             
-            <tag> 拷贝 </tag>
+            <tag> 树 </tag>
             
-            <tag> 元素 </tag>
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -1033,11 +971,11 @@
       
         <tags>
             
-            <tag> 实例 </tag>
+            <tag> CS61A </tag>
             
-            <tag> 子类 </tag>
+            <tag> 编程 </tag>
             
-            <tag> 父类 </tag>
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -1056,11 +994,11 @@
       
         <tags>
             
-            <tag> 南大 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 老师 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 毕业典礼 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -1085,11 +1023,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> CS61A </tag>
             
-            <tag> 调用 </tag>
-            
-            <tag> 名称 </tag>
+            <tag> 编程 </tag>
             
         </tags>
       
@@ -1114,11 +1050,9 @@
       
         <tags>
             
-            <tag> 支部 </tag>
+            <tag> 生活 </tag>
             
             <tag> 书法 </tag>
-            
-            <tag> 大会 </tag>
             
         </tags>
       
@@ -1143,11 +1077,11 @@
       
         <tags>
             
-            <tag> 虚拟环境 </tag>
-            
-            <tag> 解释器 </tag>
+            <tag> CS61A </tag>
             
             <tag> 项目 </tag>
+            
+            <tag> 虚拟环境 </tag>
             
         </tags>
       
@@ -1172,11 +1106,9 @@
       
         <tags>
             
-            <tag> 鼠标 </tag>
+            <tag> CS61A </tag>
             
-            <tag> 命令 </tag>
-            
-            <tag> 文件夹 </tag>
+            <tag> vim </tag>
             
         </tags>
       
@@ -1201,11 +1133,7 @@
       
         <tags>
             
-            <tag> 蒜蓉 </tag>
-            
-            <tag> 味道 </tag>
-            
-            <tag> 毕业 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -1230,11 +1158,7 @@
       
         <tags>
             
-            <tag> 南大 </tag>
-            
-            <tag> 校友 </tag>
-            
-            <tag> 宜兴 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -1261,9 +1185,9 @@
             
             <tag> 测度 </tag>
             
-            <tag> 传输 </tag>
+            <tag> 科研 </tag>
             
-            <tag> 经验 </tag>
+            <tag> 组会 </tag>
             
         </tags>
       
@@ -1288,11 +1212,11 @@
       
         <tags>
             
+            <tag> 科研 </tag>
+            
             <tag> 论文 </tag>
             
-            <tag> 导师 </tag>
-            
-            <tag> 科技园 </tag>
+            <tag> 组会 </tag>
             
         </tags>
       
@@ -1315,6 +1239,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 科研 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1336,11 +1266,11 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 测度 </tag>
             
-            <tag> 无界 </tag>
-            
-            <tag> 有界 </tag>
+            <tag> 科研 </tag>
             
         </tags>
       
@@ -1365,11 +1295,9 @@
       
         <tags>
             
-            <tag> 模型 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 单调 </tag>
-            
-            <tag> 分母 </tag>
+            <tag> 科研 </tag>
             
         </tags>
       
@@ -1394,11 +1322,7 @@
       
         <tags>
             
-            <tag> 模型 </tag>
-            
-            <tag> 开题 </tag>
-            
-            <tag> 单调 </tag>
+            <tag> 科研 </tag>
             
         </tags>
       
@@ -1421,6 +1345,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 科研 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1442,11 +1372,11 @@
       
         <tags>
             
-            <tag> 失利 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 人生 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 转折点 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1471,11 +1401,11 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 测度 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 样本 </tag>
+            <tag> 科研 </tag>
             
         </tags>
       
@@ -1500,11 +1430,13 @@
       
         <tags>
             
-            <tag> 学生 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 大学 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 教育 </tag>
+            <tag> 论坛 </tag>
+            
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -1529,11 +1461,13 @@
       
         <tags>
             
-            <tag> 人工智能 </tag>
+            <tag> 思考 </tag>
+            
+            <tag> 经历 </tag>
+            
+            <tag> 论坛 </tag>
             
             <tag> 香港 </tag>
-            
-            <tag> 海鲜 </tag>
             
         </tags>
       
@@ -1558,11 +1492,11 @@
       
         <tags>
             
-            <tag> 校长 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 交流 </tag>
+            <tag> 论坛 </tag>
             
-            <tag> 会议 </tag>
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -1587,11 +1521,9 @@
       
         <tags>
             
-            <tag> 学院 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 荣誉 </tag>
-            
-            <tag> 学生 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -1616,11 +1548,9 @@
       
         <tags>
             
-            <tag> 变量 </tag>
+            <tag> 因果推断 </tag>
             
-            <tag> 试验 </tag>
-            
-            <tag> 等式 </tag>
+            <tag> 科研 </tag>
             
         </tags>
       
@@ -1645,11 +1575,7 @@
       
         <tags>
             
-            <tag> 民主党 </tag>
-            
-            <tag> 共和党 </tag>
-            
-            <tag> 美国 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -1674,11 +1600,7 @@
       
         <tags>
             
-            <tag> 科研 </tag>
-            
-            <tag> 院友 </tag>
-            
-            <tag> 报告厅 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -1703,11 +1625,9 @@
       
         <tags>
             
-            <tag> 代数和 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 老师 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -1732,11 +1652,11 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 学院 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 陶行知 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -1761,11 +1681,9 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 同学 </tag>
-            
-            <tag> 工业界 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -1790,11 +1708,11 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 老师 </tag>
+            <tag> chat </tag>
             
-            <tag> 夏令营 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1819,11 +1737,9 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 老师 </tag>
-            
-            <tag> 邮件 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1848,11 +1764,9 @@
       
         <tags>
             
-            <tag> 老师 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 论文 </tag>
-            
-            <tag> 学院 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1877,11 +1791,9 @@
       
         <tags>
             
-            <tag> 老师 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 茶园 </tag>
-            
-            <tag> 夏令营 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1906,11 +1818,9 @@
       
         <tags>
             
-            <tag> 茶园 </tag>
+            <tag> chat </tag>
             
-            <tag> 夏令营 </tag>
-            
-            <tag> 学院 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1935,11 +1845,11 @@
       
         <tags>
             
-            <tag> 老师 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 联系 </tag>
+            <tag> chat </tag>
             
-            <tag> 清华 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1964,11 +1874,7 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 内心 </tag>
-            
-            <tag> 中科院 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -1993,11 +1899,9 @@
       
         <tags>
             
-            <tag> 学长 </tag>
+            <tag> chat </tag>
             
-            <tag> 学姐 </tag>
-            
-            <tag> 叉院 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2022,11 +1926,7 @@
       
         <tags>
             
-            <tag> 数院 </tag>
-            
             <tag> 保研 </tag>
-            
-            <tag> 院系 </tag>
             
         </tags>
       
@@ -2050,10 +1950,6 @@
       
       
         <tags>
-            
-            <tag> 老师 </tag>
-            
-            <tag> 推荐信 </tag>
             
             <tag> 保研 </tag>
             
@@ -2080,11 +1976,9 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> chat </tag>
             
-            <tag> 学长 </tag>
-            
-            <tag> 数院 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2109,11 +2003,11 @@
       
         <tags>
             
-            <tag> 蠡园 </tag>
+            <tag> 旅游 </tag>
             
-            <tag> 游船 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 鼋头渚 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -2138,11 +2032,9 @@
       
         <tags>
             
-            <tag> 小笼包 </tag>
+            <tag> 旅游 </tag>
             
-            <tag> 南禅寺 </tag>
-            
-            <tag> 书院 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -2167,11 +2059,7 @@
       
         <tags>
             
-            <tag> 书屋 </tag>
-            
-            <tag> 桦墅 </tag>
-            
-            <tag> 村庄 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -2196,11 +2084,7 @@
       
         <tags>
             
-            <tag> 党员 </tag>
-            
-            <tag> 入党 </tag>
-            
-            <tag> 大学生 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -2225,11 +2109,7 @@
       
         <tags>
             
-            <tag> 同学 </tag>
-            
-            <tag> 定理 </tag>
-            
-            <tag> 匡院 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -2254,11 +2134,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 考试 </tag>
             
-            <tag> 知识点 </tag>
-            
-            <tag> 习题集 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -2283,11 +2161,11 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 笔试 </tag>
+            <tag> 考试 </tag>
             
-            <tag> 求真 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2314,9 +2192,7 @@
             
             <tag> 考试 </tag>
             
-            <tag> 老师 </tag>
-            
-            <tag> 感觉 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2341,11 +2217,9 @@
       
         <tags>
             
-            <tag> 学会 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 命运 </tag>
-            
-            <tag> 女朋友 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -2370,11 +2244,9 @@
       
         <tags>
             
-            <tag> 学校 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 社会 </tag>
-            
-            <tag> 评奖 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -2399,11 +2271,7 @@
       
         <tags>
             
-            <tag> 梯度 </tag>
-            
-            <tag> 论文 </tag>
-            
-            <tag> 因果关系 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2428,11 +2296,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 安静 </tag>
-            
-            <tag> 线性方程组 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -2457,11 +2321,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 数院 </tag>
-            
-            <tag> 评估 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -2486,11 +2346,9 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 测度 </tag>
-            
-            <tag> 概率论 </tag>
-            
-            <tag> 布朗运动 </tag>
             
         </tags>
       
@@ -2515,11 +2373,7 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
-            
-            <tag> 拓扑 </tag>
-            
-            <tag> 定理 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -2546,9 +2400,7 @@
             
             <tag> 习题 </tag>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 曲率 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -2573,11 +2425,9 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 泛函分析 </tag>
             
             <tag> 流形 </tag>
-            
-            <tag> 噪声 </tag>
             
         </tags>
       
@@ -2602,11 +2452,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 测度 </tag>
-            
-            <tag> 正则 </tag>
+            <tag> SDE </tag>
             
         </tags>
       
@@ -2631,11 +2477,9 @@
       
         <tags>
             
-            <tag> 老师 </tag>
+            <tag> 保研 </tag>
             
-            <tag> 数院 </tag>
-            
-            <tag> 清北 </tag>
+            <tag> 高金 </tag>
             
         </tags>
       
@@ -2662,9 +2506,7 @@
             
             <tag> 图书馆 </tag>
             
-            <tag> 期刊 </tag>
-            
-            <tag> 手稿 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2689,11 +2531,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 保研 </tag>
             
-            <tag> 题是 </tag>
-            
-            <tag> 协方差 </tag>
+            <tag> 高金 </tag>
             
         </tags>
       
@@ -2718,11 +2558,9 @@
       
         <tags>
             
-            <tag> 学姐 </tag>
+            <tag> 保研 </tag>
             
-            <tag> 全场 </tag>
-            
-            <tag> 校友 </tag>
+            <tag> 高金 </tag>
             
         </tags>
       
@@ -2747,11 +2585,11 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 定理 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 博弈论 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -2776,11 +2614,7 @@
       
         <tags>
             
-            <tag> 特征函数 </tag>
-            
-            <tag> 阶矩 </tag>
-            
-            <tag> 序列 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2799,11 +2633,9 @@
       
         <tags>
             
-            <tag> 方程 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 习题 </tag>
-            
-            <tag> 有界 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2828,11 +2660,7 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
-            
-            <tag> 概率论 </tag>
-            
-            <tag> 基础知识 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2857,11 +2685,11 @@
       
         <tags>
             
-            <tag> 流形 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 直观 </tag>
+            <tag> chat </tag>
             
-            <tag> 环境 </tag>
+            <tag> 美食 </tag>
             
         </tags>
       
@@ -2886,11 +2714,11 @@
       
         <tags>
             
-            <tag> 老师 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 感觉 </tag>
+            <tag> SDE </tag>
             
-            <tag> 深奥 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -2915,11 +2743,7 @@
       
         <tags>
             
-            <tag> 测度 </tag>
-            
-            <tag> 字母 </tag>
-            
-            <tag> 单词 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2944,11 +2768,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 例子 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -2973,11 +2795,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 曲率 </tag>
-            
-            <tag> 彭家贵 </tag>
+            <tag> 微分几何 </tag>
             
         </tags>
       
@@ -3002,11 +2822,7 @@
       
         <tags>
             
-            <tag> 老师 </tag>
-            
-            <tag> 推荐信 </tag>
-            
-            <tag> 陈述 </tag>
+            <tag> 保研 </tag>
             
         </tags>
       
@@ -3031,9 +2847,7 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
-            <tag> 线性 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -3058,11 +2872,9 @@
       
         <tags>
             
-            <tag> 矩阵 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 流形 </tag>
-            
-            <tag> 漏洞 </tag>
+            <tag> 微分几何 </tag>
             
         </tags>
       
@@ -3087,11 +2899,7 @@
       
         <tags>
             
-            <tag> 丁剑 </tag>
-            
-            <tag> 起点 </tag>
-            
-            <tag> 落点 </tag>
+            <tag> 丘赛 </tag>
             
         </tags>
       
@@ -3116,11 +2924,9 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 概率 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 函数 </tag>
             
         </tags>
       
@@ -3145,11 +2951,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 题目 </tag>
-            
-            <tag> 难题 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -3174,11 +2976,9 @@
       
         <tags>
             
-            <tag> 朱元璋 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 明孝陵 </tag>
-            
-            <tag> 风水学 </tag>
+            <tag> 旅游 </tag>
             
         </tags>
       
@@ -3203,11 +3003,9 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 步骤 </tag>
-            
-            <tag> 语言 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -3232,11 +3030,11 @@
       
         <tags>
             
-            <tag> 公式 </tag>
+            <tag> 思考 </tag>
             
             <tag> 流形 </tag>
             
-            <tag> 专业课 </tag>
+            <tag> 微分几何 </tag>
             
         </tags>
       
@@ -3261,11 +3059,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 矩阵 </tag>
-            
-            <tag> 流形 </tag>
+            <tag> SDE </tag>
             
         </tags>
       
@@ -3290,11 +3086,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 老师 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -3319,11 +3113,9 @@
       
         <tags>
             
+            <tag> 生活 </tag>
+            
             <tag> 习题 </tag>
-            
-            <tag> 实验室 </tag>
-            
-            <tag> 仪器 </tag>
             
         </tags>
       
@@ -3348,11 +3140,11 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 习题 </tag>
             
-            <tag> 定义 </tag>
-            
-            <tag> 例子 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -3377,11 +3169,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 一代人 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -3408,9 +3198,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 朋友圈 </tag>
-            
-            <tag> 生成元 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -3435,11 +3223,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 好书 </tag>
-            
-            <tag> 火候 </tag>
+            <tag> 微分几何 </tag>
             
         </tags>
       
@@ -3466,9 +3250,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 老师 </tag>
+            <tag> SDE </tag>
             
         </tags>
       
@@ -3493,11 +3275,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 学期 </tag>
-            
-            <tag> 正文 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -3522,11 +3300,7 @@
       
         <tags>
             
-            <tag> 寒假 </tag>
-            
-            <tag> 教材 </tag>
-            
-            <tag> 正文 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -3551,11 +3325,7 @@
       
         <tags>
             
-            <tag> 试卷 </tag>
-            
-            <tag> 习题 </tag>
-            
-            <tag> 题目 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -3580,11 +3350,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 考试 </tag>
             
-            <tag> 周民强 </tag>
-            
-            <tag> 有界 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -3609,11 +3377,11 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
             <tag> 考试 </tag>
             
-            <tag> 思路 </tag>
+            <tag> PDE </tag>
+            
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -3638,11 +3406,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 考试 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 讲义 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -3667,11 +3433,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 考试 </tag>
             
             <tag> 数理统计 </tag>
-            
-            <tag> 假设检验 </tag>
             
         </tags>
       
@@ -3696,11 +3460,7 @@
       
         <tags>
             
-            <tag> 试卷 </tag>
-            
-            <tag> 习题 </tag>
-            
-            <tag> 书后 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -3725,11 +3485,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 定理 </tag>
-            
-            <tag> 连通性 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -3754,11 +3510,7 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 竞技状态 </tag>
-            
-            <tag> 官话 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -3783,11 +3535,7 @@
       
         <tags>
             
-            <tag> 冰袋 </tag>
-            
-            <tag> 脖子 </tag>
-            
-            <tag> 冰箱 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -3812,11 +3560,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 实分析 </tag>
-            
-            <tag> 概率论 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -3843,10 +3587,6 @@
             
             <tag> 图书馆 </tag>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 老师上课 </tag>
-            
         </tags>
       
     </entry>
@@ -3870,11 +3610,9 @@
       
         <tags>
             
+            <tag> chat </tag>
+            
             <tag> 数理统计 </tag>
-            
-            <tag> 外校 </tag>
-            
-            <tag> 直观 </tag>
             
         </tags>
       
@@ -3899,11 +3637,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 饺子 </tag>
-            
-            <tag> 课堂 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -3928,11 +3662,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 考试 </tag>
-            
-            <tag> 课程 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -3957,11 +3687,7 @@
       
         <tags>
             
-            <tag> 作业 </tag>
-            
-            <tag> 笔记本 </tag>
-            
-            <tag> 稿纸 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -3986,11 +3712,9 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 测度 </tag>
-            
-            <tag> 概率论 </tag>
-            
-            <tag> 原点 </tag>
             
         </tags>
       
@@ -4015,11 +3739,9 @@
       
         <tags>
             
-            <tag> 作业 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 子列 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -4044,11 +3766,11 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 概率 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 概率论 </tag>
             
         </tags>
       
@@ -4073,11 +3795,7 @@
       
         <tags>
             
-            <tag> 函数 </tag>
-            
-            <tag> 变量 </tag>
-            
-            <tag> 老师 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -4102,11 +3820,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 实分析 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 思路 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -4131,11 +3847,9 @@
       
         <tags>
             
-            <tag> 实力 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 弯路 </tag>
-            
-            <tag> 竞赛 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -4160,11 +3874,9 @@
       
         <tags>
             
-            <tag> 作业 </tag>
+            <tag> 总结 </tag>
             
             <tag> 考试 </tag>
-            
-            <tag> 心态 </tag>
             
         </tags>
       
@@ -4177,7 +3889,7 @@
       <link href="/2023/11/26/math-13/"/>
       <url>/2023/11/26/math-13/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://ebus.ams.org/ProductImages/gsm-19-r-e-cov-1.jpg" alt=""></p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这一系列旨在阐述我对于几门分析学基础学科的学习体验与认知，主要通过阅读的书籍按时间顺序更新。在这一系列中，涉及到的定理与命题都会完整提到，而其证明过程不会事无巨细地写出，一些比较关键的定理证明也仅写出核心思路。除了命题本身及其相关内容，学科的研究目的和研究思路也会有所涉及，这样能够对于学科的脉络有一个更清楚的掌握，在许多时候更能做到“知其然而知其所以然”。此外，我个人在学习过程中的一些思考，对于学科的理解和体悟也会在文章中加以阐述。需要说明的是，这并不是一份学习讲义，更不是教科书性质的介绍文章，相比而言，本系列更像是一种学习经历的记录，里面也会回顾不同时间学习而产生的思考，而我又不希望本系列停留于空谈，没有具体的例子，定理，重要的性质等具体内容，因此从这个意义上来说本系列更像是读书笔记。事实上，写这些数学文章，最重要的就是个人的思考与体悟，如果全是长篇大论的数学证明，那和抄了一本教科书有什么分别？另一方面，如果只有个人的思考，而没有具体的数学论证，许多时候只能说一些空话，读后收获亦不大，今后自己回顾也只能泛泛而谈，也不知道当初说的大道理在数学中有什么体现。因此，将二者结合是我努力做到的事情，至于能否达到预期的效果，这暂时不是需要考虑的事情。</p><h1 id="O-总览"><a href="#O-总览" class="headerlink" title="O 总览"></a>O 总览</h1>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://ebus.ams.org/ProductImages/gsm-19-r-e-cov-1.jpg" alt=""></p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这一系列旨在阐述我对于偏微分方程的学习体验与认知，主要通过阅读的书籍按时间顺序更新。在这一系列中，涉及到的定理与命题都会完整提到，而其证明过程不会事无巨细地写出，一些比较关键的定理证明也仅写出核心思路。除了命题本身及其相关内容，学科的研究目的和研究思路也会有所涉及，这样能够对于学科的脉络有一个更清楚的掌握，在许多时候更能做到“知其然而知其所以然”。此外，我个人在学习过程中的一些思考，对于学科的理解和体悟也会在文章中加以阐述。需要说明的是，这并不是一份学习讲义，更不是教科书性质的介绍文章，相比而言，本系列更像是一种学习经历的记录，里面也会回顾不同时间学习而产生的思考，而我又不希望本系列停留于空谈，没有具体的例子，定理，重要的性质等具体内容，因此从这个意义上来说本系列更像是读书笔记。事实上，写这些数学文章，最重要的就是个人的思考与体悟，如果全是长篇大论的数学证明，那和抄了一本教科书有什么分别？另一方面，如果只有个人的思考，而没有具体的数学论证，许多时候只能说一些空话，读后收获亦不大，今后自己回顾也只能泛泛而谈，也不知道当初说的大道理在数学中有什么体现。因此，将二者结合是我努力做到的事情，至于能否达到预期的效果，这暂时不是需要考虑的事情。</p><h1 id="O-总览"><a href="#O-总览" class="headerlink" title="O 总览"></a>O 总览</h1>]]></content>
       
       
       <categories>
@@ -4189,11 +3901,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 体悟 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -4218,11 +3928,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
             <tag> 实分析 </tag>
             
-            <tag> 体悟 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -4249,9 +3957,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 证明 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -4276,11 +3982,9 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 报告 </tag>
+            <tag> 讲座 </tag>
             
         </tags>
       
@@ -4305,11 +4009,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 感觉 </tag>
-            
-            <tag> 小平邦彦 </tag>
+            <tag> 读书 </tag>
             
         </tags>
       
@@ -4336,10 +4038,6 @@
             
             <tag> 考试 </tag>
             
-            <tag> 竞技状态 </tag>
-            
-            <tag> 自律 </tag>
-            
         </tags>
       
     </entry>
@@ -4363,11 +4061,9 @@
       
         <tags>
             
-            <tag> 跑步 </tag>
+            <tag> PDE </tag>
             
-            <tag> 腿酸 </tag>
-            
-            <tag> 一学 </tag>
+            <tag> 体育 </tag>
             
         </tags>
       
@@ -4392,11 +4088,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 讲义 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -4421,11 +4115,7 @@
       
         <tags>
             
-            <tag> 考试 </tag>
-            
-            <tag> 失利 </tag>
-            
-            <tag> 感觉 </tag>
+            <tag> 数理统计 </tag>
             
         </tags>
       
@@ -4450,11 +4140,9 @@
       
         <tags>
             
+            <tag> 考试 </tag>
+            
             <tag> 数理统计 </tag>
-            
-            <tag> 动笔 </tag>
-            
-            <tag> 草稿纸 </tag>
             
         </tags>
       
@@ -4479,11 +4167,7 @@
       
         <tags>
             
-            <tag> 动笔 </tag>
-            
-            <tag> 实力 </tag>
-            
-            <tag> 熟练度 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -4507,10 +4191,6 @@
       
       
         <tags>
-            
-            <tag> 试卷 </tag>
-            
-            <tag> 题目 </tag>
             
             <tag> 考试 </tag>
             
@@ -4537,11 +4217,9 @@
       
         <tags>
             
+            <tag> 泛函分析 </tag>
+            
             <tag> 考试 </tag>
-            
-            <tag> 整本书 </tag>
-            
-            <tag> 大局观 </tag>
             
         </tags>
       
@@ -4568,9 +4246,7 @@
             
             <tag> 考试 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 实分析 </tag>
+            <tag> 随机过程 </tag>
             
         </tags>
       
@@ -4595,11 +4271,9 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 题目 </tag>
-            
-            <tag> 切入点 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -4624,11 +4298,7 @@
       
         <tags>
             
-            <tag> 函数 </tag>
-            
-            <tag> 蓝本 </tag>
-            
-            <tag> 笔记 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -4653,9 +4323,9 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 体会 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -4680,11 +4350,9 @@
       
         <tags>
             
-            <tag> 定义 </tag>
+            <tag> PDE </tag>
             
-            <tag> 知识点 </tag>
-            
-            <tag> 纯数学 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -4709,11 +4377,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 数理统计 </tag>
-            
-            <tag> 姜礼尚 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -4738,11 +4402,9 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
             <tag> 考试 </tag>
-            
-            <tag> 概率论 </tag>
-            
-            <tag> 一定量 </tag>
             
         </tags>
       
@@ -4767,11 +4429,7 @@
       
         <tags>
             
-            <tag> 作业 </tag>
-            
-            <tag> 明白 </tag>
-            
-            <tag> 周民强 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -4796,11 +4454,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 定义 </tag>
-            
-            <tag> 概率论 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -4827,9 +4481,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 课程 </tag>
-            
-            <tag> 顶尖 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -4856,9 +4508,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 无界 </tag>
-            
-            <tag> 自伴 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -4885,9 +4535,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 无界 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -4912,11 +4560,7 @@
       
         <tags>
             
-            <tag> 作者 </tag>
-            
-            <tag> 书屋 </tag>
-            
-            <tag> 农家 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -4941,11 +4585,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 边界 </tag>
-            
-            <tag> 磨光 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -4970,11 +4612,7 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
-            <tag> 同学 </tag>
-            
-            <tag> 做题 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -4999,11 +4637,7 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
-            <tag> 公式 </tag>
-            
-            <tag> 边界条件 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -5028,9 +4662,7 @@
       
         <tags>
             
-            <tag> 学长 </tag>
-            
-            <tag> 本科生 </tag>
+            <tag> 讲座 </tag>
             
             <tag> 论坛 </tag>
             
@@ -5057,11 +4689,7 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
-            
-            <tag> 方向 </tag>
-            
-            <tag> 学期结束 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -5088,10 +4716,6 @@
             
             <tag> 测度 </tag>
             
-            <tag> 定义 </tag>
-            
-            <tag> 导数 </tag>
-            
         </tags>
       
     </entry>
@@ -5115,11 +4739,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 老师 </tag>
-            
-            <tag> 评价 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -5144,11 +4766,9 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 科研 </tag>
-            
-            <tag> 本科生 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -5173,11 +4793,9 @@
       
         <tags>
             
-            <tag> 方向 </tag>
+            <tag> chat </tag>
             
             <tag> 数理统计 </tag>
-            
-            <tag> 课程 </tag>
             
         </tags>
       
@@ -5202,11 +4820,9 @@
       
         <tags>
             
+            <tag> 图书馆 </tag>
+            
             <tag> 泛函分析 </tag>
-            
-            <tag> 习题 </tag>
-            
-            <tag> 书本 </tag>
             
         </tags>
       
@@ -5231,11 +4847,7 @@
       
         <tags>
             
-            <tag> 匡院 </tag>
-            
-            <tag> 秦理真 </tag>
-            
-            <tag> 方向 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -5260,11 +4872,9 @@
       
         <tags>
             
-            <tag> 作业 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 题目 </tag>
-            
-            <tag> 思路 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -5289,11 +4899,7 @@
       
         <tags>
             
-            <tag> 老师 </tag>
-            
-            <tag> 学长 </tag>
-            
-            <tag> 数学系 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -5318,11 +4924,9 @@
       
         <tags>
             
-            <tag> 线性 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 测度 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5347,11 +4951,7 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
             <tag> 泛函分析 </tag>
-            
-            <tag> 拓扑 </tag>
             
         </tags>
       
@@ -5378,9 +4978,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 维空间 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5407,10 +5005,6 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 流形 </tag>
-            
         </tags>
       
     </entry>
@@ -5434,11 +5028,9 @@
       
         <tags>
             
+            <tag> chat </tag>
+            
             <tag> 测度 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 老师 </tag>
             
         </tags>
       
@@ -5463,11 +5055,11 @@
       
         <tags>
             
-            <tag> 世间 </tag>
+            <tag> 总结 </tag>
             
-            <tag> 内心 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 经历 </tag>
+            <tag> 佛学 </tag>
             
         </tags>
       
@@ -5492,11 +5084,7 @@
       
         <tags>
             
-            <tag> 建模 </tag>
-            
-            <tag> 数据 </tag>
-            
-            <tag> 表格 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -5521,11 +5109,7 @@
       
         <tags>
             
-            <tag> 测度 </tag>
-            
-            <tag> 实分析 </tag>
-            
-            <tag> 学期 </tag>
+            <tag> 图书馆 </tag>
             
         </tags>
       
@@ -5550,11 +5134,9 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 深度学习 </tag>
-            
-            <tag> 学期 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -5579,11 +5161,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 飞鸟 </tag>
-            
-            <tag> 青蛙 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -5608,11 +5188,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 建模 </tag>
-            
-            <tag> 深度学习 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -5639,6 +5215,8 @@
             
             <tag> 泛函分析 </tag>
             
+            <tag> 笔记 </tag>
+            
         </tags>
       
     </entry>
@@ -5662,11 +5240,7 @@
       
         <tags>
             
-            <tag> 书屋 </tag>
-            
-            <tag> 溧水 </tag>
-            
-            <tag> 村子 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -5691,11 +5265,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 可分性 </tag>
-            
-            <tag> 发邮件 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -5720,11 +5292,9 @@
       
         <tags>
             
-            <tag> 可分性 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 道题 </tag>
-            
-            <tag> 作者 </tag>
+            <tag> 习题 </tag>
             
         </tags>
       
@@ -5751,9 +5321,7 @@
             
             <tag> 泛函分析 </tag>
             
-            <tag> 证明 </tag>
-            
-            <tag> 径向 </tag>
+            <tag> 习题 </tag>
             
         </tags>
       
@@ -5778,11 +5346,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 方程 </tag>
-            
-            <tag> 题目 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -5807,11 +5373,7 @@
       
         <tags>
             
-            <tag> 函数 </tag>
-            
-            <tag> 定义 </tag>
-            
-            <tag> 格林 </tag>
+            <tag> PDE </tag>
             
         </tags>
       
@@ -5836,11 +5398,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 公理 </tag>
+            <tag> 讲座 </tag>
             
         </tags>
       
@@ -5865,11 +5423,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 建模 </tag>
-            
-            <tag> 阶段 </tag>
+            <tag> 讲座 </tag>
             
         </tags>
       
@@ -5894,11 +5448,7 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
-            <tag> 线性 </tag>
-            
-            <tag> 刻画 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -5923,11 +5473,9 @@
       
         <tags>
             
-            <tag> 华为 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 算法 </tag>
-            
-            <tag> 园区 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -5952,11 +5500,7 @@
       
         <tags>
             
-            <tag> 任务 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 做题 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -5981,11 +5525,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
             <tag> 考试 </tag>
             
-            <tag> 廖良文 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -6010,11 +5552,7 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
             <tag> 考试 </tag>
-            
-            <tag> 证明 </tag>
             
         </tags>
       
@@ -6039,11 +5577,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 证明题 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -6068,11 +5604,9 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 入门 </tag>
-            
-            <tag> 抄书 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -6097,11 +5631,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 概率论 </tag>
-            
-            <tag> 考场 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -6128,10 +5658,6 @@
             
             <tag> 考试 </tag>
             
-            <tag> 离散数学 </tag>
-            
-            <tag> 讲义 </tag>
-            
         </tags>
       
     </entry>
@@ -6157,9 +5683,7 @@
             
             <tag> 考试 </tag>
             
-            <tag> 离散数学 </tag>
-            
-            <tag> 廖良文 </tag>
+            <tag> 流形 </tag>
             
         </tags>
       
@@ -6184,11 +5708,11 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 学校 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 学生 </tag>
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -6213,11 +5737,11 @@
       
         <tags>
             
-            <tag> 科研 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 实验室 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 香港科技大学 </tag>
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -6242,11 +5766,11 @@
       
         <tags>
             
-            <tag> 学长 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 金融 </tag>
+            <tag> chat </tag>
             
-            <tag> 绩点 </tag>
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -6271,11 +5795,9 @@
       
         <tags>
             
-            <tag> 书院 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 参观 </tag>
-            
-            <tag> 伍宜孙 </tag>
+            <tag> 香港 </tag>
             
         </tags>
       
@@ -6300,11 +5822,9 @@
       
         <tags>
             
-            <tag> 解题 </tag>
+            <tag> 经历 </tag>
             
             <tag> 香港 </tag>
-            
-            <tag> 名著 </tag>
             
         </tags>
       
@@ -6329,11 +5849,7 @@
       
         <tags>
             
-            <tag> 作业 </tag>
-            
-            <tag> 香港 </tag>
-            
-            <tag> 电子产品 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -6358,11 +5874,7 @@
       
         <tags>
             
-            <tag> 期末考试 </tag>
-            
-            <tag> 任务 </tag>
-            
-            <tag> 离散数学 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -6389,9 +5901,7 @@
             
             <tag> 广州 </tag>
             
-            <tag> 早茶 </tag>
-            
-            <tag> 机场 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -6416,11 +5926,11 @@
       
         <tags>
             
-            <tag> 矩阵 </tag>
-            
-            <tag> 大题 </tag>
-            
             <tag> 考试 </tag>
+            
+            <tag> 广州 </tag>
+            
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -6445,11 +5955,11 @@
       
         <tags>
             
-            <tag> 坐飞机 </tag>
-            
-            <tag> 同学 </tag>
-            
             <tag> 广州 </tag>
+            
+            <tag> 经历 </tag>
+            
+            <tag> 旅游 </tag>
             
         </tags>
       
@@ -6474,11 +5984,7 @@
       
         <tags>
             
-            <tag> 丘赛 </tag>
-            
-            <tag> 解题技巧 </tag>
-            
-            <tag> 框架 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -6503,11 +6009,9 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
+            <tag> 思考 </tag>
             
             <tag> 流形 </tag>
-            
-            <tag> 竞赛 </tag>
             
         </tags>
       
@@ -6532,11 +6036,7 @@
       
         <tags>
             
-            <tag> 作业 </tag>
-            
-            <tag> 习题 </tag>
-            
-            <tag> 期末考试 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -6561,11 +6061,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 拓扑 </tag>
-            
-            <tag> 矩阵 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -6590,11 +6088,9 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 题目 </tag>
-            
-            <tag> 南大 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -6619,11 +6115,9 @@
       
         <tags>
             
-            <tag> 考点 </tag>
-            
-            <tag> 习题 </tag>
-            
             <tag> 图书馆 </tag>
+            
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -6648,11 +6142,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 收敛性 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -6677,11 +6169,7 @@
       
         <tags>
             
-            <tag> 同学 </tag>
-            
-            <tag> 课程 </tag>
-            
-            <tag> 科研 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -6706,11 +6194,7 @@
       
         <tags>
             
-            <tag> 作业 </tag>
-            
-            <tag> 考点 </tag>
-            
-            <tag> 试卷 </tag>
+            <tag> 图书馆 </tag>
             
         </tags>
       
@@ -6739,8 +6223,6 @@
             
             <tag> 考试 </tag>
             
-            <tag> 定理 </tag>
-            
         </tags>
       
     </entry>
@@ -6766,9 +6248,7 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 泛函分析 </tag>
-            
-            <tag> 方程 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -6793,11 +6273,9 @@
       
         <tags>
             
+            <tag> 丘赛 </tag>
+            
             <tag> 考试 </tag>
-            
-            <tag> 心态 </tag>
-            
-            <tag> 考场 </tag>
             
         </tags>
       
@@ -6824,10 +6302,6 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 做题 </tag>
-            
-            <tag> 长大 </tag>
-            
         </tags>
       
     </entry>
@@ -6853,10 +6327,6 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 笔记本 </tag>
-            
-            <tag> 实分析 </tag>
-            
         </tags>
       
     </entry>
@@ -6880,11 +6350,7 @@
       
         <tags>
             
-            <tag> 拍子 </tag>
-            
-            <tag> 发球 </tag>
-            
-            <tag> 水平 </tag>
+            <tag> 体育 </tag>
             
         </tags>
       
@@ -6911,7 +6377,9 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 定理 </tag>
+            <tag> 调和分析 </tag>
+            
+            <tag> ODE </tag>
             
         </tags>
       
@@ -6936,11 +6404,11 @@
       
         <tags>
             
-            <tag> 解题 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 命题 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 代数和 </tag>
+            <tag> Fourier </tag>
             
         </tags>
       
@@ -6965,11 +6433,9 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
+            <tag> 概率 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 电灯泡 </tag>
             
         </tags>
       
@@ -6994,11 +6460,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 共形 </tag>
-            
-            <tag> 区域 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -7023,11 +6487,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 技巧性 </tag>
-            
-            <tag> 证明 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -7052,11 +6514,11 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 测度 </tag>
+            <tag> 实分析 </tag>
             
-            <tag> 函数 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -7081,11 +6543,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 丘赛 </tag>
             
-            <tag> 笔记本 </tag>
-            
-            <tag> 思想 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -7110,11 +6570,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
             <tag> 丘赛 </tag>
             
-            <tag> 线性 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -7139,11 +6597,7 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
-            <tag> 竞赛 </tag>
-            
-            <tag> 学业 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -7168,11 +6622,7 @@
       
         <tags>
             
-            <tag> 调休 </tag>
-            
-            <tag> 连贯性 </tag>
-            
-            <tag> 出去玩 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -7199,9 +6649,7 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 习题 </tag>
-            
-            <tag> 概率论 </tag>
+            <tag> 概率 </tag>
             
         </tags>
       
@@ -7226,11 +6674,7 @@
       
         <tags>
             
-            <tag> 学期 </tag>
-            
-            <tag> 竞赛 </tag>
-            
-            <tag> 规划 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -7255,11 +6699,7 @@
       
         <tags>
             
-            <tag> 子列 </tag>
-            
-            <tag> 工具 </tag>
-            
-            <tag> 收敛性 </tag>
+            <tag> 经历 </tag>
             
         </tags>
       
@@ -7283,10 +6723,6 @@
       
       
         <tags>
-            
-            <tag> 拓扑 </tag>
-            
-            <tag> 方向 </tag>
             
             <tag> 同调代数 </tag>
             
@@ -7313,11 +6749,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 扫地 </tag>
-            
-            <tag> 智慧 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -7342,11 +6774,7 @@
       
         <tags>
             
-            <tag> 离散数学 </tag>
-            
-            <tag> 阶段 </tag>
-            
-            <tag> 水平 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -7371,11 +6799,7 @@
       
         <tags>
             
-            <tag> 试卷 </tag>
-            
-            <tag> 老师 </tag>
-            
-            <tag> 考完试 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -7400,9 +6824,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 概率论 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -7427,11 +6851,9 @@
       
         <tags>
             
-            <tag> 离散数学 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 孙智伟 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -7456,11 +6878,9 @@
       
         <tags>
             
-            <tag> 球队 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 拜仁 </tag>
-            
-            <tag> 关键词 </tag>
+            <tag> 体育 </tag>
             
         </tags>
       
@@ -7485,11 +6905,9 @@
       
         <tags>
             
-            <tag> 考试 </tag>
+            <tag> 图书馆 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 心态 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -7514,11 +6932,7 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
-            <tag> 竞赛 </tag>
-            
-            <tag> 阿赛 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -7543,11 +6957,9 @@
       
         <tags>
             
-            <tag> 大题 </tag>
+            <tag> 考试 </tag>
             
-            <tag> 竞赛 </tag>
-            
-            <tag> 决赛 </tag>
+            <tag> 阿赛 </tag>
             
         </tags>
       
@@ -7572,9 +6984,7 @@
       
         <tags>
             
-            <tag> 矩阵 </tag>
-            
-            <tag> 选择题 </tag>
+            <tag> 考试 </tag>
             
             <tag> 阿赛 </tag>
             
@@ -7601,11 +7011,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 子列 </tag>
-            
-            <tag> 通项 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -7632,10 +7040,6 @@
             
             <tag> 丘赛 </tag>
             
-            <tag> 习题 </tag>
-            
-            <tag> 定理 </tag>
-            
         </tags>
       
     </entry>
@@ -7659,11 +7063,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
             <tag> 生活 </tag>
-            
-            <tag> 事事 </tag>
             
         </tags>
       
@@ -7688,11 +7088,9 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 大数 </tag>
-            
-            <tag> 定律 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -7717,11 +7115,11 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 实分析 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 老师 </tag>
+            <tag> 趣事 </tag>
             
         </tags>
       
@@ -7746,11 +7144,9 @@
       
         <tags>
             
-            <tag> 同学 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 区域 </tag>
-            
-            <tag> 球面 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -7775,11 +7171,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 函数 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -7804,11 +7198,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 思考 </tag>
             
             <tag> 流形 </tag>
-            
-            <tag> 球面 </tag>
             
         </tags>
       
@@ -7833,11 +7225,9 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 学长 </tag>
-            
-            <tag> 教材 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -7862,11 +7252,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 全纯 </tag>
-            
-            <tag> 教材 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -7891,11 +7279,11 @@
       
         <tags>
             
-            <tag> 导师 </tag>
+            <tag> 经历 </tag>
             
-            <tag> 杂事 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 用心 </tag>
+            <tag> 体育 </tag>
             
         </tags>
       
@@ -7920,11 +7308,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 同学 </tag>
-            
-            <tag> 实分析 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -7949,11 +7333,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 竞赛 </tag>
-            
-            <tag> 答案 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -7978,11 +7360,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 正文 </tag>
-            
-            <tag> 计划 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -8007,9 +7385,7 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
-            <tag> 交流 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -8034,11 +7410,9 @@
       
         <tags>
             
-            <tag> 全纯 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 调和函数 </tag>
-            
-            <tag> 虚部 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -8063,11 +7437,9 @@
       
         <tags>
             
-            <tag> 游戏 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 卡片 </tag>
-            
-            <tag> 大数 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -8092,11 +7464,11 @@
       
         <tags>
             
+            <tag> 概率 </tag>
+            
+            <tag> 笔记 </tag>
+            
             <tag> 测度 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 概率论 </tag>
             
         </tags>
       
@@ -8125,8 +7497,6 @@
             
             <tag> 测度 </tag>
             
-            <tag> 正文 </tag>
-            
         </tags>
       
     </entry>
@@ -8152,9 +7522,7 @@
             
             <tag> 测度 </tag>
             
-            <tag> 基础知识 </tag>
-            
-            <tag> 学的 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -8179,11 +7547,7 @@
       
         <tags>
             
-            <tag> 电驴 </tag>
-            
-            <tag> 节奏 </tag>
-            
-            <tag> 自行车 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -8208,11 +7572,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 道题 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -8237,11 +7597,7 @@
       
         <tags>
             
-            <tag> 题目 </tag>
-            
-            <tag> 定理 </tag>
-            
-            <tag> 苗栋 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -8266,11 +7622,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 老师 </tag>
-            
-            <tag> 电脑 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -8295,11 +7649,7 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
-            
-            <tag> 课程 </tag>
-            
-            <tag> 样样 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -8318,11 +7668,11 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 思考 </tag>
+            
+            <tag> 实分析 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 定义 </tag>
             
         </tags>
       
@@ -8341,11 +7691,7 @@
       
         <tags>
             
-            <tag> 泛函分析 </tag>
-            
-            <tag> 定理 </tag>
-            
-            <tag> 证明 </tag>
+            <tag> 实分析 </tag>
             
         </tags>
       
@@ -8370,11 +7716,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 证明 </tag>
-            
-            <tag> 教材 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -8399,11 +7741,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 张老师 </tag>
-            
-            <tag> 张高飞 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -8428,11 +7768,7 @@
       
         <tags>
             
-            <tag> 老师 </tag>
-            
-            <tag> 功底 </tag>
-            
-            <tag> 五月份 </tag>
+            <tag> 讨论班 </tag>
             
         </tags>
       
@@ -8457,11 +7793,7 @@
       
         <tags>
             
-            <tag> 科目 </tag>
-            
-            <tag> 竞赛 </tag>
-            
-            <tag> 课外 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -8486,11 +7818,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 实分析 </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 例子 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -8515,11 +7845,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 学期 </tag>
-            
-            <tag> 苗栋 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -8544,11 +7870,9 @@
       
         <tags>
             
-            <tag> 报告 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 费曼 </tag>
-            
-            <tag> 奇点 </tag>
+            <tag> 复分析 </tag>
             
         </tags>
       
@@ -8573,11 +7897,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 校区 </tag>
-            
-            <tag> 鼓楼 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -8602,11 +7922,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 实分析 </tag>
-            
-            <tag> 观点 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -8631,11 +7947,9 @@
       
         <tags>
             
-            <tag> 作业 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 孙智伟 </tag>
-            
-            <tag> 事件 </tag>
+            <tag> 趣事 </tag>
             
         </tags>
       
@@ -8660,11 +7974,11 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 实分析 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 函数 </tag>
             
         </tags>
       
@@ -8689,11 +8003,7 @@
       
         <tags>
             
-            <tag> 课程 </tag>
-            
-            <tag> 成绩 </tag>
-            
-            <tag> 降维 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -8718,11 +8028,7 @@
       
         <tags>
             
-            <tag> 测度 </tag>
-            
-            <tag> 函数 </tag>
-            
-            <tag> 定义 </tag>
+            <tag> 调和分析 </tag>
             
         </tags>
       
@@ -8747,11 +8053,9 @@
       
         <tags>
             
-            <tag> 习题 </tag>
+            <tag> 生活 </tag>
             
-            <tag> 南大 </tag>
-            
-            <tag> 校园 </tag>
+            <tag> chat </tag>
             
         </tags>
       
@@ -8776,11 +8080,7 @@
       
         <tags>
             
-            <tag> 社交 </tag>
-            
-            <tag> 专业课 </tag>
-            
-            <tag> 价值观 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -8805,11 +8105,9 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> Fourier </tag>
             
-            <tag> 卷积 </tag>
-            
-            <tag> 鼓包 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -8834,11 +8132,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 讲义 </tag>
-            
-            <tag> 丘班 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -8863,11 +8159,9 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 定义 </tag>
-            
-            <tag> 运算 </tag>
+            <tag> 流形 </tag>
             
         </tags>
       
@@ -8892,11 +8186,7 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
-            <tag> 做题 </tag>
-            
-            <tag> 根系 </tag>
+            <tag> 泛函分析 </tag>
             
         </tags>
       
@@ -8921,11 +8211,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 科目 </tag>
-            
-            <tag> 参考书 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -8950,11 +8236,7 @@
       
         <tags>
             
-            <tag> 定理 </tag>
-            
-            <tag> 理想 </tag>
-            
-            <tag> 整环 </tag>
+            <tag> 抽象代数 </tag>
             
         </tags>
       
@@ -8979,11 +8261,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 复分析 </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 全纯 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -9008,9 +8288,9 @@
       
         <tags>
             
-            <tag> 概率论 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 公式 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -9034,10 +8314,6 @@
       
       
         <tags>
-            
-            <tag> 作业 </tag>
-            
-            <tag> 题目 </tag>
             
             <tag> 考试 </tag>
             
@@ -9064,11 +8340,11 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> 实分析 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> 测度 </tag>
-            
-            <tag> 证明 </tag>
             
         </tags>
       
@@ -9093,11 +8369,9 @@
       
         <tags>
             
-            <tag> 题目 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 定理 </tag>
-            
-            <tag> 学期 </tag>
+            <tag> 习题 </tag>
             
         </tags>
       
@@ -9122,11 +8396,9 @@
       
         <tags>
             
-            <tag> 定理 </tag>
+            <tag> Fourier </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 苗栋 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -9151,11 +8423,11 @@
       
         <tags>
             
-            <tag> 函数 </tag>
+            <tag> 笔记 </tag>
             
             <tag> 数据库 </tag>
             
-            <tag> C++ </tag>
+            <tag> 代码 </tag>
             
         </tags>
       
@@ -9180,11 +8452,9 @@
       
         <tags>
             
-            <tag> 方程 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 考完试 </tag>
+            <tag> 考试 </tag>
             
         </tags>
       
@@ -9209,11 +8479,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
+            <tag> 思考 </tag>
             
-            <tag> 定义 </tag>
-            
-            <tag> 测度论 </tag>
+            <tag> Fourier </tag>
             
         </tags>
       
@@ -9238,11 +8506,9 @@
       
         <tags>
             
-            <tag> 方程 </tag>
+            <tag> ODE </tag>
             
-            <tag> 记笔记 </tag>
-            
-            <tag> 程伟 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -9267,11 +8533,9 @@
       
         <tags>
             
-            <tag> 方程 </tag>
+            <tag> Fourier </tag>
             
-            <tag> 函数 </tag>
-            
-            <tag> 级数 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -9296,11 +8560,11 @@
       
         <tags>
             
-            <tag> 学期 </tag>
+            <tag> 泛函分析 </tag>
             
-            <tag> 课程 </tag>
+            <tag> 概率 </tag>
             
-            <tag> 记笔记 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -9325,11 +8589,7 @@
       
         <tags>
             
-            <tag> 学期 </tag>
-            
-            <tag> 课程 </tag>
-            
-            <tag> 网站 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -9354,11 +8614,7 @@
       
         <tags>
             
-            <tag> 实分析 </tag>
-            
-            <tag> 基础课 </tag>
-            
-            <tag> 大学物理 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -9381,6 +8637,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 习题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -9402,11 +8664,7 @@
       
         <tags>
             
-            <tag> 习题 </tag>
-            
-            <tag> 拓扑 </tag>
-            
-            <tag> 方向 </tag>
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -9431,11 +8689,11 @@
       
         <tags>
             
-            <tag> 拓扑 </tag>
+            <tag> 实分析 </tag>
             
-            <tag> 证明 </tag>
+            <tag> 笔记 </tag>
             
-            <tag> 道题 </tag>
+            <tag> 习题 </tag>
             
         </tags>
       
@@ -9458,6 +8716,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 习题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -9477,6 +8741,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Fourier </tag>
+            
+            <tag> 习题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -9495,6 +8767,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Fourier </tag>
+            
+            <tag> 习题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -9517,11 +8797,7 @@
       
         <tags>
             
-            <tag> 上联 </tag>
-            
-            <tag> 下联 </tag>
-            
-            <tag> 伟业 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -9543,6 +8819,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 实分析 </tag>
+            
+            <tag> 习题 </tag>
+            
+        </tags>
       
     </entry>
     
