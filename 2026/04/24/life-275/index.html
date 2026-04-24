@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DRL作业debug | Kevin's World</title><meta name="author" content="NJU-Kevin"><meta name="copyright" content="NJU-Kevin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="最近在做DRL课程的编程作业，遇到了一个非常顽固的问题，那就是对于test_main.py，我的代码能够通过所有测试，但是真正运行起来python main.py的时候，却一直显示我的action的输入类型和LunarLander-v2的输入类型不一致，导致实验一直跑不起来。 之前我的思路，包括AI的思路都是从我代码的输入端口上面进行各种类型限制，然而没有一种方法是行得通的，且不论我的代码跑出来的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DRL作业debug">
+<meta property="og:url" content="https://nju-kevin.github.io/2026/04/24/life-275/index.html">
+<meta property="og:site_name" content="Kevin&#39;s World">
+<meta property="og:description" content="最近在做DRL课程的编程作业，遇到了一个非常顽固的问题，那就是对于test_main.py，我的代码能够通过所有测试，但是真正运行起来python main.py的时候，却一直显示我的action的输入类型和LunarLander-v2的输入类型不一致，导致实验一直跑不起来。 之前我的思路，包括AI的思路都是从我代码的输入端口上面进行各种类型限制，然而没有一种方法是行得通的，且不论我的代码跑出来的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://nju-kevin.github.io/images/tailong.jpg">
+<meta property="article:published_time" content="2026-04-24T13:52:30.000Z">
+<meta property="article:modified_time" content="2026-04-24T14:30:08.422Z">
+<meta property="article:author" content="NJU-Kevin">
+<meta property="article:tag" content="代码">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nju-kevin.github.io/images/tailong.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DRL作业debug",
+  "url": "https://nju-kevin.github.io/2026/04/24/life-275/",
+  "image": "https://nju-kevin.github.io/images/tailong.jpg",
+  "datePublished": "2026-04-24T13:52:30.000Z",
+  "dateModified": "2026-04-24T14:30:08.422Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "NJU-Kevin",
+      "url": "https://nju-kevin.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/butterfly-icon.png"><link rel="canonical" href="https://nju-kevin.github.io/2026/04/24/life-275/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DRL作业debug',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div class="bg-animation" id="web_bg" style="background-image: url(/images/bg.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/tailong.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">341</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Life/"><i class="fa-fw fas fa-leaf"></i><span> Life</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Paper/"><i class="fa-fw fas fa-file"></i><span> Paper</span></a></div><div class="menus_item"><a class="site-page" href="/categories/PhD/"><i class="fa-fw fas fa-graduation-cap"></i><span> PhD</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Lesson/"><i class="fa-fw fas fa-book-open"></i><span> Lesson</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Math/"><i class="fa-fw fas fa-calculator"></i><span> Math</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Contest/"><i class="fa-fw fas fa-trophy"></i><span> Contest</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/beach.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Kevin's World</span></a><a class="nav-page-title" href="/"><span class="site-name">DRL作业debug</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Life/"><i class="fa-fw fas fa-leaf"></i><span> Life</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Paper/"><i class="fa-fw fas fa-file"></i><span> Paper</span></a></div><div class="menus_item"><a class="site-page" href="/categories/PhD/"><i class="fa-fw fas fa-graduation-cap"></i><span> PhD</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Lesson/"><i class="fa-fw fas fa-book-open"></i><span> Lesson</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Math/"><i class="fa-fw fas fa-calculator"></i><span> Math</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Contest/"><i class="fa-fw fas fa-trophy"></i><span> Contest</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">DRL作业debug</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-24T13:52:30.000Z" title="Created 2026-04-24 21:52:30">2026-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-24T14:30:08.422Z" title="Updated 2026-04-24 22:30:08">2026-04-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">539</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>1mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>最近在做DRL课程的编程作业，遇到了一个非常顽固的问题，那就是对于<code>test_main.py</code>，我的代码能够通过所有测试，但是真正运行起来<code>python main.py</code>的时候，却一直显示我的<code>action</code>的输入类型和<code>LunarLander-v2</code>的输入类型不一致，导致实验一直跑不起来。</p>
+<p>之前我的思路，包括AI的思路都是从我代码的输入端口上面进行各种类型限制，然而没有一种方法是行得通的，且不论我的代码跑出来的结果是否合理，实验一直都跑不起来，着实很是令我头大。算上今天，我卡在这个bug上面大约有四五天了，却一直没啥进展。今天还是同样的问题，但我这次追根溯源，直接到python安装包里的源码里面找，我仔细看了一下源码里报错所在位置的函数，发现里面对于<code>action</code>并没有进行转成普通<code>float</code>类型的操作，这导致与别的包进行协作的时候，另外一些功能只能处理<code>float</code>类型的<code>action</code>而不是<code>np.array</code>类型的<code>action</code>。于是我大胆在源码里加了一行转换<code>action</code>类型的语句，重新运行之后，竟然能开始跑了！这真是令人心情愉悦。原本对于这个问题我都已经有一些不知所措了，因为基本上所有应该考虑的地方我感觉都考虑到了，然而还是没什么用，直到我大胆对源码进行了一个小改动，才发现其实不能对于安装的包有绝对的信任，<code>python</code>包也都是人写的，难免会有一些小的问题，不过在这个例子下，更多应该是实验环境和课程代码的兼容问题。</p>
+<p>经此一役，我对于debug又有了一些新的认知，也感受到了有些事情只有自己真正深入进去探索，才能把事情做好，AI只能进行一个参考和辅助，而不能全部依赖。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://nju-kevin.github.io">NJU-Kevin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://nju-kevin.github.io/2026/04/24/life-275/">https://nju-kevin.github.io/2026/04/24/life-275/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81/">代码</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post-share"><div class="social-share" data-image="/images/tailong.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/22/life-274/" title="开球网初体验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">开球网初体验</div></div><div class="info-2"><div class="info-item-1">今天饶有兴致地报名了开球网上的一次比赛，比赛时间为今天晚上六点半，地点在西城区享动乒乓球俱乐部。之前就听说过开球网，但一直没有尝试去打一打比赛，加上目前我在学校里练的感觉没什么提升，因此想过去和高手们切磋一下涨涨球技。 乒乓俱乐部的地点就在动物园地铁站的出站口，因此还是很方便的，然而地方却不太好找，我一共问了两次才找到，是在动物园旁边的一栋楼房的地下一层。俱乐部还是很大的，里里外外估计一共得有几十张球桌。我进去的时候大约就在六点半，里面已经有很多人了，然而作为第一次去打的新人，我不知道如何参加比赛，起初我以为是会有一个类似比赛开始的仪式的，转了几圈也没找到乒乓馆的工作人员，我问了里面的一个人，结果他说他也是外地的，后来我又问了一个看起来着装很专业的人，问他这个开球网比赛怎么打，他才教我在小程序上的赛程里可以查看自己是哪个组的，每个组十个人左右，三个球台。 由于我第一次打，没有积分，因此被排到了最后一组，也就是水平实力相对最弱的一组，问了一圈大家都是一千三一千四左右的分数。网上经常看到有人说一千五水平很菜，然而我和他们一打才发现，一千四水平的选手就可以碾压我了，可见网上很多都是站着...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/07/07/phd-11/" title="Scheme项目专题记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-07</div><div class="info-item-2">Scheme项目专题记录</div></div><div class="info-2"><div class="info-item-1"> 这几天一直在写cs61a课程的Scheme项目，主要内容是用python语言实现一个Scheme解释器。这个项目的难点在于需要理解Scheme语言的语法和语义，并用python的数据结构来模拟Scheme的环境和求值过程。课程网站上拆分成了16个问题以及两个选做的EC问题。Frame和Procedure是两个重要的类，分别用于表示Scheme的环境和过程。每个问题都需要实现特定的功能，比如变量绑定、过程调用、条件判断等。具体而言，环境维护了一个变量-值的字典，在后续需要引用变量的时候查找该变量的值。此外，为了解决嵌套的问题，环境还可以继续创建子环境，比如有些变量在外部环境有定义，而在子环境亦有重新定义，此时对于嵌套的操作来说，不同括号层级下就应该用相应的值，这时创建子环境就能够解决嵌套的问题。而Procedure则是对于Scheme中执行操作的一种抽象化，从最简单的加法减法乘除法，到一些判断语句，再到lambda，quote等过程，都算在Procedure类里，每一个类都有相应的环境，每一次“运算”都是在相应的环境下进行的。 对于表达式的计算求值，核心思想也就是Scheme的核...</div></div></div></a><a class="pagination-related" href="/2026/03/14/life-270/" title="泸溪河桃酥"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-14</div><div class="info-item-2">泸溪河桃酥</div></div><div class="info-2"><div class="info-item-1">今天上午在宿舍里调试深度强化学习课的第一次作业。昨天下午在图书馆里通过古法编程写好了总体的代码，但还没有调试，与AI交互的过程也只是问一些关于numpy库的搜索性的知识，因为如果把作业文件扔给AI的话，几秒钟就能写好，但是这样我就得不到锻炼了。这个课程的第一次作业不是很困难，作业的风格其实也和美国四大的作业类似，基本上是代码填空的形式，完成核心部分的代码即可，因此我对这种形式的作业也比较熟悉和习惯了。完成的内容其实也是根据课程所教的公式，将伪代码转化为真正能运行的代码即可。 不过今天配环境跑了一下还是发现了一些问题，我对于价值函数的计算和正确答案不同导致本地测试一直通不过，于是我把我的答案和标准答案作差，把结果打印了出来看一下具体差多少，然后我发现某一两个例子里差距非常大，其他的答案都是正确的。这表明我的代码应该是有一个小地方有问题，正确的测试样例没用探测到我的小bug，而正好就是那么一两个测试样例覆盖到了。令我比较不解的是，与正确答案不同的几个测试样例差距非常大，每个状态的价值函数都差了几十。我尝试将代码丢给AI帮忙看看哪里出了问题，然而AI却让我修改一些阈值，是一些无关紧要的...</div></div></div></a><a class="pagination-related" href="/2025/06/27/phd-9/" title="Ants项目专题记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-27</div><div class="info-item-2">Ants项目专题记录</div></div><div class="info-2"><div class="info-item-1"> 这篇文章主要记录完成cs61A几个项目过程中所遇到的值得关注的事情。目前我在写Ants项目，在这之前，我已经完成了Hog和Cats两个项目，这两个项目所需要的python相关知识不深，只需要理解了含义便能完成，因此这里便不详细阐述了。 Ants06-27更新：这个项目的目标是完成一个Ants vs Bees的游戏，在我看来很像是Plants vs Zombies的简化版，主要需要用类的知识来面向对象编程。代码中需要频繁使用类和子类，子类如何继承父类是最常用的方法。最开始我以为所有子类都比西定义了一个__init__方法，但实际上并不是这样，子类可以不定义__init__方法，这样就会继承父类的__init__方法。而什么时候需要这样定义呢？主要是当子类的属性和父类不一致的时候，例如在这个项目里，不同种类的昆虫的health是不一样的，子类需要定义自己的__init__方法来初始化自己的属性。而如果某些子类和父类的属性完全相同时，可以不定义__init__。对于函数也是同理，如果子类的某些函数与父类中的完全一致，在子类中就不需要重复定义了，即使什么都不写也能自动继承父类中的所有函...</div></div></div></a><a class="pagination-related" href="/2025/09/14/life-254/" title="叉院开学典礼"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">叉院开学典礼</div></div><div class="info-2"><div class="info-item-1"> 今天上午，学院在主楼后厅举办了2025年新生开学典礼。今年全体新生大约有150位，姚先生等多位老师也悉数到场，老师同学们的发言都讲的很好，Yao Award颁奖也算是让我们这些新生看一看姚班里最强本科生的精神风貌。可以说，今天这次开学典礼，让我产生了不少感触，更让我对未来充满了憧憬。 姚先生80岁高龄脱稿演讲很是令我敬佩，主要讲了三点：一是要做最好的自己。尽自己所能，达到力所能及的新高度，是个人层面的自律和要求；二是要做大事，这是清华人的立志。姚先生也说，在座的以后温饱这些普通人所追求的都不会有问题，但是当自己各方面都取得一定的成绩之后，是否应该想一想自己的担当，还能给社会、国家做什么事；三是推荐我们平时可以多读读名人、成功人士的传记。成功虽然不可复制，但都是有规律可循的。一个人能成功，一定是有某方面的特质或者原因的。因此，当我们多读读名人的传记，提取他们人生的经验，这所能够收获的比多做几道题要多得多。就好像是机器学习中，给定了标记好的有价值的数据，那训练出来的模型自然就会更好。 Yao Award颁奖的时候，看着台上的姚班大三本科生们，有几位我明显能从他们身上看到一种自信。这...</div></div></div></a><a class="pagination-related" href="/2025/09/12/life-253/" title="午餐会"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-12</div><div class="info-item-2">午餐会</div></div><div class="info-2"><div class="info-item-1"> 今天中午D老师请我们几个班委在清芬园的三楼教工食堂吃饭，顺便聊一聊接下来的学生工作等。第一次来教工食堂，清芬三楼的环境还是很不错的，11点左右没什么人，很像一层高级餐厅。由于教工食堂不对学生开放，因此也算是很难得的机会了。菜品和学生食堂相差的不算多，但有部分菜品更精致，还有一些高级菜品，比如我中午拿了一小碗佛跳墙（低配版）。价格估计也是要贵一些的，结账的时候我瞄了一眼，一荤一素一份低配版佛跳墙和一小碗饭，一共31元，感觉算是我来学校以来吃过最贵的一顿了。 吃饭的时候，老师主要是想了解一下我们的诉求以及我们平时生活中所感兴趣的东西。我们几个同学都反映，博一刚进来，认识的人不多，而且由于工位比较拥挤，会议室又比较少，导致同学们就算是想要互相讨论，也不太有这个机会。另外就是希望能和不同组的老师、学长们有更多的交流机会。其实学院之前也举办过类似的活动，往往如果活动有茶歇、或者连带着有午饭，同学们的参与度都会显著提升，就像本科时候学院举办的午餐会，这种形式就挺好的，在哪里都会很受同学们的欢迎。 其实我个人觉得，同学们之间的互相交流是很重要的，尤其是不同方向之间的同学们，很多时候，在某一个...</div></div></div></a><a class="pagination-related" href="/2025/06/19/phd-8/" title="cs61A：自引用函数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-19</div><div class="info-item-2">cs61A：自引用函数</div></div><div class="info-2"><div class="info-item-1"> 今天在学到递归调用的时候，最后一个作业是如何不声明函数的名称实现递归：1234567891011121314from operator import sub, muldef make_anonymous_factorial():    &quot;&quot;&quot;Return the value of an expression that computes factorial.    &gt;&gt;&gt; make_anonymous_factorial()(5)    120    &gt;&gt;&gt; from construct_check import check    &gt;&gt;&gt; # ban any assignments or recursion    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;make_anonymous_factorial&#x27;,    ...     [&#x27;Assign&#x27;, &#x27;AnnAssign&#x27;, &#x27;AugAssign&...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/tailong.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">NJU-Kevin</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">341</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my personal blog, where I will share my thoughts and experience along the way.</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/24/life-275/" title="DRL作业debug">DRL作业debug</a><time datetime="2026-04-24T13:52:30.000Z" title="Created 2026-04-24 21:52:30">2026-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/22/life-274/" title="开球网初体验">开球网初体验</a><time datetime="2026-04-22T13:52:29.000Z" title="Created 2026-04-22 21:52:29">2026-04-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/19/life-273/" title="22岁生日">22岁生日</a><time datetime="2026-04-19T06:23:45.000Z" title="Created 2026-04-19 14:23:45">2026-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/31/life-272/" title="神采千秋">神采千秋</a><time datetime="2026-03-31T14:31:28.000Z" title="Created 2026-03-31 22:31:28">2026-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/16/life-271/" title="自强乒乓球">自强乒乓球</a><time datetime="2026-03-16T14:05:38.000Z" title="Created 2026-03-16 22:05:38">2026-03-16</time></div></div></div></div><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fa fa-globe-asia" aria-hidden="true"></i><span>Visitor Map</span></div><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=y_p6ejVzyFPn-Q5I64jPKuYVO3MpqNEj7eqry7s_h7A"></script></div></div></div></div></main><footer id="footer" style="background-image: url(/images/sky.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By NJU-Kevin</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://unpkg.com/mathjax@4.1.0/tex-mml-chtml.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://unpkg.com/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Search for Posts" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
